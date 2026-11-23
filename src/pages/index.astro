@@ -1,76 +1,33 @@
 ---
-const destinations = [
-  { name: 'Beijing', local: '北京' },
-  { name: 'Shanghai', local: '上海' },
-  { name: 'Chongqing', local: '重庆' },
-  { name: 'Zhangjiajie', local: '张家界' },
-  { name: 'Guilin', local: '桂林' },
-  { name: 'Yangshuo', local: '阳朔' },
-];
+// The main address ("/") sends each visitor to their language:
+// 1) the language they picked before, 2) Hebrew if their browser is in Hebrew, 3) otherwise English.
 ---
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Discover China — Smart China Travel Guide</title>
-    <meta name="description" content="Free China travel guides, interactive maps, itineraries and live travel updates." />
-    <style>
-      :root {
-        --cream: #F7F5EF; --ink: #343A36; --forest: #34483E;
-        --sage: #879B82; --terracotta: #C77B61; --card: #FFFFFF;
-      }
-      * { box-sizing: border-box; }
-      body {
-        margin: 0; background: var(--cream); color: var(--ink);
-        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height: 1.6;
-      }
-      header { padding: 20px 24px; display: flex; align-items: center; gap: 10px; }
-      .logo { font-weight: 700; font-size: 1.25rem; color: var(--forest); }
-      .logo span { color: var(--terracotta); }
-      main { max-width: 960px; margin: 0 auto; padding: 24px; }
-      .hero {
-        background: var(--forest); color: #fff; border-radius: 22px;
-        padding: 56px 32px; text-align: center; box-shadow: 0 8px 30px rgba(52,72,62,.18);
-      }
-      .hero h1 { margin: 0 0 12px; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; }
-      .hero p { margin: 0 auto; max-width: 560px; opacity: .9; }
-      .badge {
-        display: inline-block; margin-top: 20px; padding: 6px 14px; border-radius: 999px;
-        background: rgba(255,255,255,.15); font-size: .9rem;
-      }
-      h2 { margin: 40px 0 16px; color: var(--forest); }
-      .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
-      .card {
-        background: var(--card); border-radius: 18px; padding: 18px;
-        box-shadow: 0 4px 16px rgba(0,0,0,.05);
-      }
-      .card strong { display: block; font-size: 1.05rem; }
-      .card small { color: var(--sage); font-size: 1rem; }
-      footer { text-align: center; padding: 40px 24px; color: var(--sage); font-size: .9rem; }
-    </style>
+    <title>Discover China</title>
+    <script is:inline>
+      (function () {
+        var supported = ['en', 'he'];
+        var lang = null;
+        try { lang = localStorage.getItem('dc-lang'); } catch (e) {}
+        if (supported.indexOf(lang) === -1) {
+          var prefs = navigator.languages || [navigator.language || 'en'];
+          lang = 'en';
+          for (var i = 0; i < prefs.length; i++) {
+            var code = String(prefs[i]).toLowerCase().slice(0, 2);
+            if (code === 'he' || code === 'iw') { lang = 'he'; break; }
+            if (code === 'en') { break; }
+          }
+        }
+        location.replace('/' + lang + '/');
+      })();
+    </script>
+    <noscript><meta http-equiv="refresh" content="0; url=/en/" /></noscript>
   </head>
-  <body>
-    <header>
-      <div class="logo">Discover <span>China</span></div>
-    </header>
-    <main>
-      <section class="hero">
-        <h1>Discover China</h1>
-        <p>Destination guides, interactive maps, itineraries and live travel updates — all in one place.</p>
-        <div class="badge">🚧 Coming soon</div>
-      </section>
-
-      <h2>Starting destinations</h2>
-      <div class="grid">
-        {destinations.map((d) => (
-          <div class="card">
-            <strong>{d.name}</strong>
-            <small lang="zh">{d.local}</small>
-          </div>
-        ))}
-      </div>
-    </main>
-    <footer>© {new Date().getFullYear()} Discover China</footer>
+  <body style="font-family: system-ui, sans-serif; text-align: center; padding: 40px;">
+    <p><a href="/en/">English</a> · <a href="/he/" lang="he">עברית</a></p>
   </body>
 </html>

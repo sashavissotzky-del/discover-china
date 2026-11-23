@@ -1,0 +1,53 @@
+---
+// Home page — built once per language (/en/ and /he/).
+import Base from '../../layouts/Base.astro';
+import { languages, t, type Lang } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+
+// City names stay in English + Chinese in every language.
+const destinations = [
+  { name: 'Beijing', local: '北京' },
+  { name: 'Shanghai', local: '上海' },
+  { name: 'Chongqing', local: '重庆' },
+  { name: 'Zhangjiajie', local: '张家界' },
+  { name: 'Guilin', local: '桂林' },
+  { name: 'Yangshuo', local: '阳朔' },
+];
+---
+<Base lang={lang}>
+  <section class="hero">
+    <h1>Discover China</h1>
+    <p>{t(lang, 'hero.subtitle')}</p>
+    <div class="badge">🚧 {t(lang, 'hero.badge')}</div>
+  </section>
+
+  <h2>{t(lang, 'home.destinations')}</h2>
+  <div class="grid">
+    {destinations.map((d) => (
+      <div class="card">
+        <strong><bdi lang="en">{d.name}</bdi></strong>
+        <small lang="zh" class="zh">{d.local}</small>
+      </div>
+    ))}
+  </div>
+</Base>
+
+<style>
+  .hero {
+    background: var(--forest); color: #fff; border-radius: 22px;
+    padding: 56px 32px; text-align: center; box-shadow: 0 8px 30px rgba(52,72,62,.18);
+  }
+  .hero h1 { margin: 0 0 12px; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; }
+  .hero p { margin: 0 auto; max-width: 560px; opacity: .9; }
+  .badge { display: inline-block; margin-top: 20px; padding: 6px 14px; border-radius: 999px; background: rgba(255,255,255,.15); font-size: .9rem; }
+  h2 { margin: 40px 0 16px; color: var(--forest); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+  .card { background: var(--card); border-radius: 18px; padding: 18px; box-shadow: 0 4px 16px rgba(0,0,0,.05); }
+  .card strong { display: block; font-size: 1.05rem; }
+  .card small { display: block; color: var(--sage-text); font-size: 1rem; }
+</style>
