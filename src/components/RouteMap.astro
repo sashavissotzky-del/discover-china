@@ -19,7 +19,9 @@ const box = (pts: { x: number; y: number }[], pad: number, min: number) => {
   const xs = pts.map((p) => p.x), ys = pts.map((p) => p.y);
   const size = Math.max(min, Math.max(...xs) - Math.min(...xs) + pad * 2, Math.max(...ys) - Math.min(...ys) + pad * 2);
   const cx = (Math.min(...xs) + Math.max(...xs)) / 2, cy = (Math.min(...ys) + Math.max(...ys)) / 2;
-  return [cx - size / 2, cy - size / 2, size, size].map(Math.round).join(' ');
+  // keep the view inside the map, so there is never an empty strip at the edge
+  const s = Math.min(size, 760), clamp = (v: number) => Math.max(0, Math.min(760 - s, v));
+  return [clamp(cx - s / 2), clamp(cy - s / 2), s, s].map(Math.round).join(' ');
 };
 
 const lines = legs
@@ -62,7 +64,8 @@ const uid = `rm${id}`;
 
   <div class="rmap" role="img" aria-label={label}>
     <svg viewBox={all} preserveAspectRatio="xMidYMid meet">
-      <image href="/map/china.svg" x="0" y="0" width="760" height="760" />
+      <image class="base lt" href="/map/china.svg" x="0" y="0" width="760" height="760" />
+      <image class="base dk" href="/map/china-dark.svg" x="0" y="0" width="760" height="760" />
       <defs>
         {lines.map((l) => (
           <mask id={`${uid}m${l.i}`} maskUnits="userSpaceOnUse" x="0" y="0" width="760" height="760">
@@ -179,5 +182,11 @@ const uid = `rm${id}`;
   .leg.dim { opacity: .35; }
   .n { fill: #fff; font: 700 13px var(--f-head); }
   .lbl { fill: #343A36; font: 700 16px var(--f-body); paint-order: stroke; stroke: #F3F0E8; stroke-width: 4px; }
+  .base.dk { display: none; }
+  @media (prefers-color-scheme: dark) {
+    .rmap { background: #2B322D; }
+    .base.lt { display: none; } .base.dk { display: inline; }
+    .lbl { fill: #E7EAE6; stroke: #1F2521; }
+  }
   @media (max-width: 599px) { .gbar { flex-direction: column; align-items: stretch; } .gbtns { justify-content: center; } }
 </style>

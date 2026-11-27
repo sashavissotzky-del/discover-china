@@ -7,13 +7,13 @@ import { languages, t, type Lang, type UIKey } from '../../../i18n/ui';
 import routes from '../../../data/routes.json';
 import transport from '../../../data/transport.json';
 import cities from '../../../data/cities.json';
-import type { Text } from '../../../lib/content';
+import { img, type Text } from '../../../lib/content';
 
 export function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({ params: { lang } }));
 }
 const lang = Astro.params.lang as Lang;
-const C = cities as Record<string, { name: string; zh: string; color: string }>;
+const C = cities as Record<string, { name: string; zh: string; color: string; images: string[] }>;
 type Mode = { m: string; n?: Text; t?: Text; st?: string; rec?: number; flag?: Text; steps?: Text[] };
 const L = transport.legs as Record<string, { from: string; to: string; intl?: number; modes: Mode[] }>;
 type R = { id: string; name: Text; tag: Text; col: string; ideal: number; why: Text; s12: [string, number][]; s14: [string, number][];
@@ -54,11 +54,14 @@ const modeLabel = (m: string) => t(lang, `mode.${m}` as UIKey);
 
   {R.map((r, i) => {
     const { dom, rec, flights } = info(r);
+    const n12 = Object.fromEntries(r.s12), n14 = Object.fromEntries(r.s14);
+    const tot = (st: [string, number][]) => st.reduce((a, [, n]) => a + n, 0);
+    const order = r.s14.map(([c]) => c);
     return (
       <section class="rpanel" data-r={r.id} hidden={i !== 0} aria-label={`${t(lang, 'routes.route')} ${r.id}`}>
         <div class="rgrid">
           <div class="mapcol">
-            <RouteMap id={r.id} stops={r.s14.map(([c]) => c)} legs={r.legs} lang={lang} label={`${t(lang, 'routes.map')} ${r.id}`} />
+            <RouteMap id={r.id} stops={order} legs={r.legs} lang={lang} label={`${t(lang, 'routes.map')} ${r.id}`} />
             <ul class="legend small muted">
               <li><i class="lg tr"></i>{modeLabel('train')}</li><li><i class="lg fl"></i>{modeLabel('flight')}</li><li><i class="lg bo"></i>{modeLabel('boat')} / {modeLabel('car')}</li>
             </ul>
@@ -66,62 +69,64 @@ const modeLabel = (m: string) => t(lang, `mode.${m}` as UIKey);
 
           <div class="infocol">
             <h2><span class="rl big" style={`--rc:${r.col}`}>{r.id}</span> {typeof r.name === 'string' ? <bdi lang="en">{r.name}</bdi> : <T v={r.name} lang={lang} />}</h2>
-            <p class="facts small muted">
-              {r.s14.length} {t(lang, 'routes.cities')} · {dom.length} {t(lang, 'routes.transfers')} · {flights} {t(lang, 'routes.flights')}
-            </p>
+            <T v={r.tag} lang={lang} as="p" class="rtag2" />
 
-            {(['12', '14'] as const).map((len) => {
-              const st = len === '12' ? r.s12 : r.s14;
-              return (
-                <ol class="cityrow bylen" data-len={len} hidden={len !== '14'}>
-                  {st.map(([c, n], k) => (
-                    <li>
-                      <a href={`/${lang}/destinations/${c}/`} style={`--cc:${C[c].color}`}>
-                        <span class="cn">{k + 1}</span>
-                        <span><bdi lang="en">{C[c].name}</bdi> <span class="zh" lang="zh">{C[c].zh}</span></span>
-                        <span class="nn">{n} {nightsWord(n)}</span>
-                      </a>
-                      {k < st.length - 1 && <span class="arr" aria-hidden="true">{t(lang, 'arrow.fwd')}</span>}
+            <div class="tiles">
+              <div class="tile"><b><span class="bylen" data-len="12" hidden>{tot(r.s12)}</span><span class="bylen" data-len="14">{tot(r.s14)}</span></b><span>{t(lang, 'routes.nights')}</span></div>
+              <div class="tile"><b>{order.length}</b><span>{t(lang, 'routes.cities')}</span></div>
+              <div class="tile"><b>{dom.length}</b><span>{t(lang, 'routes.transfers')}</span></div>
+              <div class="tile"><b>{flights}</b><span>{t(lang, 'routes.flights')}</span></div>
+            </div>
+            <p class="small muted why"><b>{t(lang, 'routes.why')}:</b> <T v={r.why} lang={lang} /></p>
+
+            <ol class="tl">
+              <li class="ends">{t(lang, 'routes.arrive')}<bdi lang="en">{C[order[0]].name}</bdi></li>
+              {order.map((c, k) => {
+                const leg = dom[k];
+                const m = leg && rec(leg);
+                const alts = leg ? leg.modes.filter((x) => x !== m) : [];
+                return (
+                  <>
+                    <li class="tcity card">
+                      <img src={img(C[c].images[0], true)} alt="" loading="lazy" width="320" height="213" />
+                      <div class="tcb">
+                        <h3><span class="cn" style={`--cc:${C[c].color}`}>{k + 1}</span> <bdi lang="en">{C[c].name}</bdi> <span class="zh" lang="zh">{C[c].zh}</span></h3>
+                        <p class="small muted">
+                          <span class="bylen" data-len="12" hidden>{n12[c]} {nightsWord(n12[c])}</span>
+                          <span class="bylen" data-len="14">{n14[c]} {nightsWord(n14[c])}</span>
+                        </p>
+                        <a class="tgo small" href={`/${lang}/destinations/${c}/`}>{t(lang, 'routes.open')}<bdi lang="en">{C[c].name}</bdi> {t(lang, 'arrow.fwd')}</a>
+                      </div>
                     </li>
-                  ))}
-                </ol>
-              );
-            })}
-            <p class="small muted ends">{t(lang, 'routes.arrive')}<bdi lang="en">{C[r.s14[0][0]].name}</bdi> · {t(lang, 'routes.depart')}<bdi lang="en">{C[r.s14[r.s14.length - 1][0]].name}</bdi></p>
+                    {leg && m && (
+                      <li class="tleg">
+                        <details>
+                          <summary>
+                            <span class={`mode ${m.m}`}>{modeLabel(m.m)}</span>
+                            <T v={m.t} lang={lang} class="ltime small" />
+                            {m.flag && <T v={m.flag} lang={lang} class="flag" />}
+                            <span class="more small muted">{t(lang, 'routes.details')}</span><i class="chev" aria-hidden="true"></i>
+                          </summary>
+                          <div class="lb">
+                            {m.st && <p class="st small" dir="ltr">{m.st}</p>}
+                            {m.steps && <ol class="steps">{m.steps.map((x) => <T v={x} lang={lang} as="li" />)}</ol>}
+                            {alts.map((a) => <p class="small"><b>{t(lang, 'routes.alt')}:</b> {modeLabel(a.m)} · <T v={a.t} lang={lang} /></p>)}
+                          </div>
+                        </details>
+                      </li>
+                    )}
+                  </>
+                );
+              })}
+              <li class="ends">{t(lang, 'routes.depart')}<bdi lang="en">{C[order[order.length - 1]].name}</bdi></li>
+            </ol>
 
             <div class="pc">
               <div><h3>{t(lang, 'routes.pros')}</h3><ul>{r.pros.map((x) => <T v={x} lang={lang} as="li" />)}</ul></div>
               <div><h3>{t(lang, 'routes.cons')}</h3><ul>{r.cons.map((x) => <T v={x} lang={lang} as="li" />)}</ul></div>
             </div>
             <p class="best"><b>{t(lang, 'routes.best')}:</b> <T v={r.best} lang={lang} /></p>
-            <p class="small muted"><b>{t(lang, 'routes.why')}:</b> <T v={r.why} lang={lang} /></p>
           </div>
-        </div>
-
-        <h3 class="lt">{t(lang, 'routes.legs')}</h3>
-        <div class="legs">
-          {dom.map((l) => {
-            const m = rec(l);
-            const alts = l.modes.filter((x) => x !== m);
-            return (
-              <details class="leg card">
-                <summary>
-                  <span class={`mode ${m.m}`}>{modeLabel(m.m)}</span>
-                  <span class="lfrom"><bdi lang="en">{C[l.from].name}</bdi> {t(lang, 'arrow.fwd')} <bdi lang="en">{C[l.to].name}</bdi></span>
-                  <T v={m.t} lang={lang} class="ltime small muted" />
-                  {m.flag && <T v={m.flag} lang={lang} class="flag" />}
-                  <i class="chev" aria-hidden="true"></i>
-                </summary>
-                <div class="lb">
-                  {m.st && <p class="st small" dir="ltr">{m.st}</p>}
-                  {m.steps && <ol class="steps">{m.steps.map((s) => <T v={s} lang={lang} as="li" />)}</ol>}
-                  {alts.map((a) => (
-                    <p class="small"><b>{t(lang, 'routes.alt')}:</b> {modeLabel(a.m)} · <T v={a.t} lang={lang} /></p>
-                  ))}
-                </div>
-              </details>
-            );
-          })}
         </div>
       </section>
     );
@@ -190,41 +195,51 @@ const modeLabel = (m: string) => t(lang, `mode.${m}` as UIKey);
 
   .rpanel { margin-top: 8px; }
   .rgrid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 24px; align-items: start; }
+  .mapcol { position: sticky; top: 16px; }
   .legend { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-wrap: wrap; gap: 14px; }
   .legend li { display: flex; align-items: center; gap: 6px; }
   .lg { width: 26px; height: 0; border-top: 4px solid; display: inline-block; }
   .lg.tr { border-color: #34483E; } .lg.fl { border-color: #9E5238; border-top-style: dotted; } .lg.bo { border-color: #467495; border-top-style: dashed; }
   .infocol h2 { font-size: 24px; display: flex; align-items: center; gap: 10px; }
-  .facts { margin: 6px 0 12px; }
-  .cityrow { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-  .cityrow li { display: flex; align-items: center; gap: 6px; }
-  .cityrow a { display: flex; align-items: center; gap: 8px; padding: 6px 12px 6px 8px; border-radius: 999px; background: var(--card); box-shadow: var(--shadow); text-decoration: none; font-weight: 700; font-size: 14px; }
-  .cityrow .zh { color: var(--muted); font-weight: 500; }
-  .cn { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: var(--cc); color: #fff; font-size: 12px; }
-  .nn { color: var(--muted); font-weight: 600; font-size: 12px; }
-  .arr { color: var(--muted); }
-  .ends { margin: 10px 0 0; }
-  .pc { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
-  .pc h3 { font-size: 16px; color: var(--forest); }
-  .pc ul { margin: 6px 0 0; padding-inline-start: 18px; font-size: 14px; display: grid; gap: 4px; }
-  .best { margin: 14px 0 6px; }
-  .best b, .infocol .small b { color: var(--forest); }
+  .rtag2 { margin: 4px 0 0; font-size: 14px; font-weight: 700; color: var(--terra-ink); }
+  .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 14px 0 8px; }
+  .tile { background: var(--card); box-shadow: var(--shadow); border-radius: 14px; padding: 10px; text-align: center; display: grid; gap: 2px; }
+  .tile b { font: 700 24px var(--f-head); color: var(--forest); }
+  .tile > span { font-size: 12px; color: var(--muted); }
+  .why { margin: 6px 0 16px; }
+  .why b, .best b { color: var(--forest); }
 
-  .lt { margin: 28px 0 10px; font-size: 20px; }
-  .legs { display: grid; gap: 8px; }
-  .leg summary { list-style: none; cursor: pointer; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px 14px; min-height: 52px; }
-  .leg summary::-webkit-details-marker { display: none; }
+  .tl { list-style: none; margin: 0; padding: 0; display: grid; }
+  .ends { font-size: 14px; color: var(--muted); padding: 4px 4px 10px; }
+  .ends:last-child { padding: 10px 4px 0; }
+  .tcity { display: flex; gap: 12px; overflow: hidden; align-items: stretch; }
+  .tcity img { width: 112px; height: auto; min-height: 96px; object-fit: cover; flex: none; background: var(--sage-l); }
+  .tcb { padding: 10px 12px 10px 0; display: grid; gap: 2px; align-content: center; }
+  :global([dir='rtl']) .tcb { padding: 10px 0 10px 12px; }
+  .tcb h3 { font-size: 18px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .tcb h3 .zh { color: var(--muted); font-size: 15px; }
+  .tcb p { margin: 0; }
+  .cn { width: 24px; height: 24px; border-radius: 50%; display: inline-grid; place-items: center; background: var(--cc); color: #fff; font: 700 12px var(--f-head); }
+  .tgo { color: var(--forest); font-weight: 700; text-decoration: none; }
+  .tleg { position: relative; padding: 6px 0 6px; margin-inline-start: 26px; border-inline-start: 3px dashed var(--sage); }
+  .tleg details { margin-inline-start: 14px; }
+  .tleg summary { list-style: none; cursor: pointer; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; min-height: 44px; }
+  .tleg summary::-webkit-details-marker { display: none; }
   .mode { font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; color: #fff; }
   .mode.train { background: #34483E; } .mode.flight { background: #9E5238; } .mode.boat, .mode.car { background: #467495; }
-  .lfrom { font-weight: 700; }
-  .ltime { flex: 1; }
+  .ltime { font-weight: 700; }
+  .more { margin-inline-start: auto; }
   .flag { font-size: 12px; font-weight: 700; color: var(--terra-ink); background: var(--terra-l); padding: 2px 8px; border-radius: 999px; }
   .chev { width: 8px; height: 8px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); margin: 0 4px 4px; }
-  .leg[open] .chev { transform: rotate(-135deg); margin-bottom: -2px; }
-  .lb { padding: 0 16px 14px; }
+  details[open] .chev { transform: rotate(-135deg); margin-bottom: -2px; }
+  .lb { padding: 4px 0 8px; }
   .st { margin: 0 0 8px; color: var(--muted); text-align: start; }
   :global([dir='rtl']) .st { text-align: right; }
   .steps { margin: 0; padding-inline-start: 20px; display: grid; gap: 4px; font-size: 14px; }
+  .pc { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+  .pc h3 { font-size: 16px; color: var(--forest); }
+  .pc ul { margin: 6px 0 0; padding-inline-start: 18px; font-size: 14px; display: grid; gap: 4px; }
+  .best { margin: 14px 0 6px; }
 
   .cmpt { margin: 36px 0 12px; font-size: 24px; }
   .cmpwrap { overflow-x: auto; }
@@ -237,5 +252,6 @@ const modeLabel = (m: string) => t(lang, `mode.${m}` as UIKey);
     .rtabs { grid-template-columns: repeat(5, 150px); }
     .rgrid { grid-template-columns: 1fr; }
     .pc { grid-template-columns: 1fr; }
+    .mapcol { position: static; }
   }
 </style>

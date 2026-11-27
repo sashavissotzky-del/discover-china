@@ -60,4 +60,7 @@ svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 760">'
        f'<path d="{P}" fill="none" stroke="#D3CCBD" stroke-width=".8" opacity=".7"/></svg>\n')
 os.makedirs(os.path.join(ROOT, 'public/map'), exist_ok=True)
 open(os.path.join(ROOT, 'public/map/china.svg'), 'w').write(svg)
+# Dark-mode version
+dark = svg.replace('fill="#EDE8DC" stroke="#D3CCBD"', 'fill="#2B322D" stroke="#3E4640"').replace('stroke="#D3CCBD" stroke-width=".8"', 'stroke="#46504A" stroke-width=".8"')
+open(os.path.join(ROOT, 'public/map/china-dark.svg'), 'w').write(dark)
 print('land', len(land), '->', len(L), '| prov', len(prov), '->', len(P), '| file', len(svg))
