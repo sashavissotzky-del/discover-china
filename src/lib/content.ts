@@ -2,6 +2,8 @@
 import images from '../data/images.json';
 import extraCredits from '../data/images-extra-credits.json';
 import type { Lang } from '../i18n/ui';
+import { existsSync } from 'node:fs';
+import sizeOf from './imgsize';
 
 /** A content text: plain (names in English/Chinese) or translatable {he, en}. */
 export type Text = string | { he: string; en: string | null } | null | undefined;
@@ -30,6 +32,22 @@ export function img(id: string, thumb = false): string {
   if (!e) return '';
   const f = '/' + e.file;
   return thumb ? f.replace(/\.webp$/, '_t.webp') : f;
+}
+
+/**
+ * All sizes of a photo for `srcset` (small 320px, medium 800px, full), so phones with sharp
+ * screens get a sharp picture and small cards don't download the big file.
+ */
+export function imgSet(id: string): string {
+  const full = img(id);
+  if (!full) return '';
+  const parts: string[] = [];
+  for (const [suffix] of [['_t'], ['_m'], ['']]) {
+    const f = full.replace(/\.webp$/, `${suffix}.webp`);
+    const w = sizeOf('public' + f);
+    if (existsSync('public' + f) && w) parts.push(`${f} ${w}w`);
+  }
+  return parts.join(', ');
 }
 
 /** Photo credit: author + licence, with a link to the original on Wikimedia Commons when there is one. */

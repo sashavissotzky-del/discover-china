@@ -2,7 +2,7 @@
 // Home — explains and leads to the three steps (same idea as "מתחילים כאן" in the dashboard).
 import Base from '../../layouts/Base.astro';
 import { languages, t, type Lang } from '../../i18n/ui';
-import { img, credit } from '../../lib/content';
+import { img, imgSet, credit } from '../../lib/content';
 
 export function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({ params: { lang } }));
@@ -20,7 +20,7 @@ const steps = [
     <h1>{t(lang, 'home.title')}</h1>
     <p class="sub muted">{t(lang, 'home.subtitle')}</p>
     <figure class="pic">
-      <img src={img('hero_ct')} alt={t(lang, 'home.photo')} width="1600" height="900" fetchpriority="high" />
+      <img src={img('hero_ct')} srcset={imgSet('hero_ct')} sizes="(max-width: 899px) 100vw, 1020px" alt={t(lang, 'home.photo')} width="1600" height="900" fetchpriority="high" />
       <figcaption>
         <span>{t(lang, 'home.photo')}</span>
         {hero && <a href={hero.href} target="_blank" rel="noopener">{t(lang, 'common.photo')}: <bdi>{hero.text}</bdi></a>}
@@ -33,7 +33,7 @@ const steps = [
     <div class="sx-grid">
       {steps.map((s) => (
         <a class="sx card" href={`/${lang}/${s.href}`}>
-          <div class="sx-img"><img src={img(s.pic, true)} alt="" loading="lazy" width="320" height="180" /><span class="sx-n">{s.n}</span></div>
+          <div class="sx-img"><img src={img(s.pic)} srcset={imgSet(s.pic)} sizes="(max-width: 899px) 100vw, 340px" alt="" loading="lazy" width="800" height="533" /><span class="sx-n">{s.n}</span></div>
           <div class="sx-b">
             <h3>{s.title}</h3>
             <p class="muted">{s.desc}</p>
