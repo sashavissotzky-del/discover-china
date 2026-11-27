@@ -42,26 +42,6 @@ const all = box(stops.map((s) => C[s].map), 90, 260);
 const uid = `rm${id}`;
 ---
 <div class="rmapw" data-rmap data-all={all} data-boxes={JSON.stringify(lines.map((l) => l.box))}>
-  <div class="gbar">
-    <div class="gcap" aria-live="polite">
-      <p class="cap on" data-step="-1"><b>{t(lang, 'routes.whole')}</b> <span class="tm">· {lines.length} {t(lang, 'routes.transfers')}</span></p>
-      {lines.map((l) => (
-        <p class="cap" data-step={l.i}>
-          <span class="sn">{l.i + 1}/{lines.length}</span>
-          <span class={`mode ${l.m}`}>{l.mode}</span>
-          <b><bdi lang="en">{l.from}</bdi> {t(lang, 'arrow.fwd')} <bdi lang="en">{l.to}</bdi></b>
-          {l.time && <span class="tm">{l.time}</span>}
-          {l.flag && <span class="flag">{l.flag}</span>}
-        </p>
-      ))}
-    </div>
-    <div class="gbtns">
-      <button type="button" class="gb prev" aria-label={t(lang, 'routes.prev')}>{t(lang, 'arrow.back')}</button>
-      <button type="button" class="gb play" data-play={t(lang, 'routes.play')} data-pause={t(lang, 'routes.pause')}>{t(lang, 'routes.play')}</button>
-      <button type="button" class="gb next" aria-label={t(lang, 'routes.next')}>{t(lang, 'arrow.fwd')}</button>
-    </div>
-  </div>
-
   <div class="rmap" role="img" aria-label={label}>
     <svg viewBox={all} preserveAspectRatio="xMidYMid meet">
       <image class="base lt" href="/map/china.svg" x="0" y="0" width="760" height="760" />
@@ -89,6 +69,25 @@ const uid = `rm${id}`;
         );
       })}
     </svg>
+  </div>
+  <div class="gbar">
+    <div class="gcap" aria-live="polite">
+      <p class="cap on" data-step="-1"><b>{t(lang, 'routes.whole')}</b> <span class="tm">· {lines.length} {t(lang, 'routes.transfers')}</span></p>
+      {lines.map((l) => (
+        <p class="cap" data-step={l.i}>
+          <span class="sn">{l.i + 1}/{lines.length}</span>
+          <span class={`mode ${l.m}`}>{l.mode}</span>
+          <b><bdi lang="en">{l.from}</bdi> {t(lang, 'arrow.fwd')} <bdi lang="en">{l.to}</bdi></b>
+          {l.time && <span class="tm">{l.time}</span>}
+          {l.flag && <span class="flag">{l.flag}</span>}
+        </p>
+      ))}
+    </div>
+    <div class="gbtns">
+      <button type="button" class="gb prev" aria-label={t(lang, 'routes.prev')}>{t(lang, 'arrow.back')}</button>
+      <button type="button" class="gb play" data-play={t(lang, 'routes.play')} data-pause={t(lang, 'routes.pause')}>{t(lang, 'routes.play')}</button>
+      <button type="button" class="gb next" aria-label={t(lang, 'routes.next')}>{t(lang, 'arrow.fwd')}</button>
+    </div>
   </div>
 </div>
 
