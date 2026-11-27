@@ -1,0 +1,15 @@
+---
+// Temporary page body for sections that are built in the next steps.
+import { t, type Lang } from '../i18n/ui';
+interface Props { lang: Lang; title: string }
+const { lang, title } = Astro.props;
+---
+<section class="soon card">
+  <h1>{title}</h1>
+  <p class="muted">🚧 {t(lang, 'common.soon')}</p>
+</section>
+<style>
+  .soon { padding: 40px 24px; text-align: center; }
+  .soon h1 { color: var(--forest); font-size: 28px; }
+  .soon p { margin: 8px 0 0; }
+</style>

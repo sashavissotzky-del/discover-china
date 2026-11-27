@@ -1,53 +1,67 @@
 ---
-// Home page — built once per language (/en/ and /he/).
+// Home — explains and leads to the three steps (same idea as "מתחילים כאן" in the dashboard).
 import Base from '../../layouts/Base.astro';
 import { languages, t, type Lang } from '../../i18n/ui';
+import { img, credit } from '../../lib/content';
 
 export function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({ params: { lang } }));
 }
-
 const lang = Astro.params.lang as Lang;
-
-// City names stay in English + Chinese in every language.
-const destinations = [
-  { name: 'Beijing', local: '北京' },
-  { name: 'Shanghai', local: '上海' },
-  { name: 'Chongqing', local: '重庆' },
-  { name: 'Zhangjiajie', local: '张家界' },
-  { name: 'Guilin', local: '桂林' },
-  { name: 'Yangshuo', local: '阳朔' },
+const hero = credit('hero_ct');
+const steps = [
+  { n: 1, href: 'destinations/', pic: 'sh1', title: t(lang, 'home.s1.title'), desc: t(lang, 'home.s1.desc') },
+  { n: 2, href: 'routes/', pic: 'gl1', title: t(lang, 'home.s2.title'), desc: t(lang, 'home.s2.desc') },
+  { n: 3, href: 'prep/', pic: 'zjj1', title: t(lang, 'home.s3.title'), desc: t(lang, 'home.s3.desc') },
 ];
 ---
-<Base lang={lang}>
-  <section class="hero">
-    <h1>Discover China</h1>
-    <p>{t(lang, 'hero.subtitle')}</p>
-    <div class="badge">🚧 {t(lang, 'hero.badge')}</div>
+<Base lang={lang} section="home">
+  <section class="hx">
+    <h1>{t(lang, 'home.title')}</h1>
+    <p class="sub muted">{t(lang, 'home.subtitle')}</p>
+    <figure class="pic">
+      <img src={img('hero_ct')} alt={t(lang, 'home.photo')} width="1600" height="900" fetchpriority="high" />
+      <figcaption>
+        <span>{t(lang, 'home.photo')}</span>
+        {hero && <a href={hero.href} target="_blank" rel="noopener">{t(lang, 'common.photo')}: <bdi>{hero.text}</bdi></a>}
+      </figcaption>
+    </figure>
   </section>
 
-  <h2>{t(lang, 'home.destinations')}</h2>
-  <div class="grid">
-    {destinations.map((d) => (
-      <div class="card">
-        <strong><bdi lang="en">{d.name}</bdi></strong>
-        <small lang="zh" class="zh">{d.local}</small>
-      </div>
-    ))}
-  </div>
+  <section class="sx-wrap">
+    <h2>{t(lang, 'home.start')}</h2>
+    <div class="sx-grid">
+      {steps.map((s) => (
+        <a class="sx card" href={`/${lang}/${s.href}`}>
+          <div class="sx-img"><img src={img(s.pic, true)} alt="" loading="lazy" width="320" height="180" /><span class="sx-n">{s.n}</span></div>
+          <div class="sx-b">
+            <h3>{s.title}</h3>
+            <p class="muted">{s.desc}</p>
+            <span class="sx-cta">{t(lang, 'arrow.fwd')}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
 </Base>
 
 <style>
-  .hero {
-    background: var(--forest); color: #fff; border-radius: 22px;
-    padding: 56px 32px; text-align: center; box-shadow: 0 8px 30px rgba(52,72,62,.18);
-  }
-  .hero h1 { margin: 0 0 12px; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; }
-  .hero p { margin: 0 auto; max-width: 560px; opacity: .9; }
-  .badge { display: inline-block; margin-top: 20px; padding: 6px 14px; border-radius: 999px; background: rgba(255,255,255,.15); font-size: .9rem; }
-  h2 { margin: 40px 0 16px; color: var(--forest); }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
-  .card { background: var(--card); border-radius: 18px; padding: 18px; box-shadow: 0 4px 16px rgba(0,0,0,.05); }
-  .card strong { display: block; font-size: 1.05rem; }
-  .card small { display: block; color: var(--sage-text); font-size: 1rem; }
+  .hx h1 { color: var(--forest); }
+  .sub { margin: 8px 0 24px; font-size: 20px; max-width: 640px; }
+  .pic { position: relative; margin: 0; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); background: var(--sage); }
+  .pic img { width: 100%; height: clamp(220px, 38vw, 340px); object-fit: cover; object-position: center 30%; }
+  .pic figcaption { position: absolute; inset-inline: 12px; top: 12px; display: flex; flex-wrap: wrap; gap: 8px; font-size: 12px; }
+  .pic figcaption > * { background: rgba(20, 20, 20, .5); color: #fff; padding: 4px 10px; border-radius: 999px; text-decoration: none; backdrop-filter: blur(4px); }
+  .sx-wrap { margin-top: 40px; }
+  .sx-wrap h2 { margin-bottom: 16px; }
+  .sx-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .sx { display: flex; flex-direction: column; overflow: hidden; text-decoration: none; transition: transform .15s; }
+  .sx:hover { transform: translateY(-2px); }
+  .sx-img { position: relative; height: 120px; background: var(--sage); }
+  .sx-img img { width: 100%; height: 100%; object-fit: cover; }
+  .sx-n { position: absolute; bottom: 10px; inset-inline-start: 12px; width: 32px; height: 32px; border-radius: 50%;
+    display: grid; place-items: center; background: var(--forest); color: var(--on-forest); font: 700 16px var(--f-head); }
+  .sx-b { padding: 16px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+  .sx-b p { margin: 0; font-size: 14px; }
+  .sx-cta { margin-top: auto; padding-top: 8px; font-size: 20px; color: var(--forest); font-weight: 700; }
 </style>

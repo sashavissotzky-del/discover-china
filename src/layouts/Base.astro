@@ -1,18 +1,28 @@
 ---
-// The frame shared by every page: language, text direction, header and footer.
+// The frame shared by every page: language, direction, menu (side rail on desktop, bottom bar on mobile).
+import '../styles/global.css';
+import Icon from '../components/Icon.astro';
 import { languages, t, type Lang } from '../i18n/ui';
 
 interface Props {
   lang: Lang;
   title?: string;
-  /** Path after the language prefix, e.g. "" for home or "destinations/beijing" */
+  /** Path after the language prefix, e.g. "" for home or "destinations/" */
   path?: string;
+  /** Which menu item is active */
+  section?: 'home' | 'destinations' | 'routes' | 'prep';
 }
 
-const { lang, title, path = '' } = Astro.props;
+const { lang, title, path = '', section } = Astro.props;
 const dir = languages[lang].dir;
 const pageTitle = title ? `${title} · Discover China` : t(lang, 'site.title');
 const base = Astro.url.origin;
+const nav = [
+  { id: 'home', href: '', icon: 'home', label: t(lang, 'nav.home') },
+  { id: 'destinations', href: 'destinations/', icon: 'pin', label: t(lang, 'nav.destinations') },
+  { id: 'routes', href: 'routes/', icon: 'route', label: t(lang, 'nav.routes') },
+  { id: 'prep', href: 'prep/', icon: 'check', label: t(lang, 'nav.prep') },
+] as const;
 ---
 <!doctype html>
 <html lang={lang} dir={dir}>
@@ -21,65 +31,82 @@ const base = Astro.url.origin;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
     <meta name="description" content={t(lang, 'site.description')} />
-    {Object.keys(languages).map((l) => (
-      <link rel="alternate" hreflang={l} href={`${base}/${l}/${path}`} />
-    ))}
+    <meta name="theme-color" content="#F7F5EF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1B201D" media="(prefers-color-scheme: dark)" />
+    <link rel="preload" href={lang === 'he' ? '/fonts/assistant-hebrew-400-normal.woff2' : '/fonts/assistant-latin-400-normal.woff2'} as="font" type="font/woff2" crossorigin />
+    {Object.keys(languages).map((l) => <link rel="alternate" hreflang={l} href={`${base}/${l}/${path}`} />)}
     <link rel="alternate" hreflang="x-default" href={`${base}/`} />
-    <style is:global>
-      :root {
-        --cream: #F7F5EF; --ink: #343A36; --forest: #34483E;
-        --sage: #879B82; --sage-text: #5F7359; --terracotta: #C77B61; --card: #FFFFFF;
-      }
-      * { box-sizing: border-box; }
-      body {
-        margin: 0; background: var(--cream); color: var(--ink); line-height: 1.6;
-        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      }
-      a { color: inherit; }
-      .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
-      .zh { font-family: "Noto Serif SC", "Songti SC", serif; }
-    </style>
   </head>
   <body>
-    <header class="wrap site-header">
-      <a class="logo" href={`/${lang}/`}>Discover <span>China</span></a>
-      <nav class="lang-switch" aria-label={t(lang, 'lang.switch')}>
-        {Object.entries(languages).map(([code, info]) => (
-          <a
-            href={`/${code}/${path}`}
-            hreflang={code}
-            lang={code}
-            class={code === lang ? 'active' : ''}
-            aria-current={code === lang ? 'true' : undefined}
-            data-lang={code}
-          >{info.short}</a>
+    <nav class="rail" aria-label={t(lang, 'nav.main')}>
+      <a class="logo" dir="ltr" href={`/${lang}/`}>Discover <span>China</span></a>
+      <ul>
+        {nav.map((n) => (
+          <li>
+            <a href={`/${lang}/${n.href}`} aria-current={section === n.id ? 'page' : undefined}>
+              <Icon name={n.icon} /><span>{n.label}</span>
+            </a>
+          </li>
         ))}
-      </nav>
-    </header>
+      </ul>
+    </nav>
 
-    <main class="wrap">
-      <slot />
-    </main>
-
-    <footer class="wrap site-footer"><bdi dir="ltr">© {new Date().getFullYear()} Discover China</bdi></footer>
+    <div class="page">
+      <header class="topbar">
+        <a class="logo" dir="ltr" href={`/${lang}/`}>Discover <span>China</span></a>
+        <div class="lang-switch" role="group" aria-label={t(lang, 'lang.switch')}>
+          {Object.entries(languages).map(([code, info]) => (
+            <a href={`/${code}/${path}`} hreflang={code} lang={code} data-lang={code}
+              class={code === lang ? 'on' : ''} aria-current={code === lang ? 'true' : undefined}>{info.short}</a>
+          ))}
+        </div>
+      </header>
+      <main><slot /></main>
+      <footer class="foot"><bdi dir="ltr">© {new Date().getFullYear()} Discover China</bdi></footer>
+    </div>
 
     <script>
       // Remember the language the visitor picks, so the main address opens it next time.
       document.querySelectorAll<HTMLAnchorElement>('.lang-switch a').forEach((a) => {
-        a.addEventListener('click', () => {
-          try { localStorage.setItem('dc-lang', a.dataset.lang || ''); } catch {}
-        });
+        a.addEventListener('click', () => { try { localStorage.setItem('dc-lang', a.dataset.lang || ''); } catch {} });
       });
     </script>
 
     <style>
-      .site-header { display: flex; align-items: center; justify-content: space-between; padding-top: 20px; padding-bottom: 20px; }
-      .logo { font-weight: 700; font-size: 1.25rem; color: var(--forest); text-decoration: none; }
-      .logo span { color: var(--terracotta); }
-      .lang-switch { display: flex; gap: 4px; background: var(--card); padding: 4px; border-radius: 999px; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
-      .lang-switch a { padding: 6px 14px; border-radius: 999px; text-decoration: none; font-size: .9rem; font-weight: 600; color: var(--sage-text); }
-      .lang-switch a.active { background: var(--forest); color: #fff; }
-      .site-footer { text-align: center; padding-top: 40px; padding-bottom: 40px; color: var(--sage-text); font-size: .9rem; }
+      .logo { font: 700 20px var(--f-head); color: var(--forest); text-decoration: none; white-space: nowrap; }
+      .logo span { color: var(--terra); }
+
+      /* Side rail (desktop) */
+      .rail { position: fixed; inset-block: 0; inset-inline-start: 0; width: 208px; padding: 24px 16px;
+        background: var(--card); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 32px; z-index: 20; }
+      .rail ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+      .rail ul a { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px;
+        border-radius: 12px; text-decoration: none; font-weight: 600; color: var(--muted); }
+      .rail ul a:hover { background: var(--sage-l); color: var(--ink); }
+      .rail ul a[aria-current='page'] { background: var(--forest); color: var(--on-forest); }
+      .page { margin-inline-start: 208px; min-height: 100vh; display: flex; flex-direction: column; }
+      .topbar { display: flex; align-items: center; justify-content: flex-end; gap: 16px; padding: 16px 32px; }
+      .topbar .logo { display: none; margin-inline-end: auto; }
+      main { flex: 1; width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 32px 32px; }
+      .foot { text-align: center; padding: 24px; color: var(--muted); font-size: 14px; }
+
+      .lang-switch { display: flex; gap: 4px; background: var(--card); padding: 4px; border-radius: 999px; box-shadow: var(--shadow); }
+      .lang-switch a { min-width: 40px; min-height: 32px; display: grid; place-items: center; padding: 0 12px;
+        border-radius: 999px; text-decoration: none; font-size: 14px; font-weight: 700; color: var(--muted); }
+      .lang-switch a.on { background: var(--forest); color: var(--on-forest); }
+
+      /* Mobile: bottom bar */
+      @media (max-width: 899px) {
+        .rail { inset-block: auto 0; inset-inline: 0; width: auto; height: auto; padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
+          flex-direction: row; box-shadow: 0 -2px 14px rgba(0,0,0,.08); }
+        .rail > .logo { display: none; }
+        .rail ul { grid-template-columns: repeat(4, 1fr); width: 100%; gap: 2px; }
+        .rail ul a { flex-direction: column; justify-content: center; gap: 2px; min-height: 52px; padding: 4px; font-size: 12px; }
+        .page { margin-inline-start: 0; padding-bottom: 76px; }
+        .topbar { justify-content: space-between; padding: 12px 16px; }
+        .topbar .logo { display: block; }
+        main { padding: 0 16px 24px; }
+      }
     </style>
   </body>
 </html>
