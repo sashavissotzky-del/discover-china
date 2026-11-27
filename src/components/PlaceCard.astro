@@ -1,0 +1,100 @@
+---
+// One place card: photo, name, category, time, description, collapsed practical info and map buttons.
+import T from './T.astro';
+import { img, imgSet, credit, type Text } from '../lib/content';
+import { gm, am } from '../lib/maps';
+import { t, type Lang, type UIKey } from '../i18n/ui';
+import practical from '../data/practical.json';
+import lookups from '../data/hotel-lookups.json';
+
+interface Place { name: string; zh: string; cat: string; desc: Text; time: Text; tips: Text; img: string; mapQuery?: string }
+interface Props { p: Place; lang: Lang; must: boolean; cityName: string; cityZh: string }
+const { p, lang, must, cityName, cityZh } = Astro.props;
+
+type PR = { hours: Text; booking: Text; advice: Text; source: string | null; checked: string | null };
+const pr = (practical as Record<string, PR>)[p.name];
+const loc = (lookups.locationNote as Record<string, string[]>)[p.name];
+const hasTips = typeof p.tips === 'string' ? p.tips.trim() !== '' : !!p.tips;
+const parts = [
+  loc && t(lang, 'dest.location'),
+  pr?.hours && t(lang, 'dest.hours'),
+  pr?.booking && t(lang, 'dest.tickets'),
+  (hasTips || pr?.advice) && t(lang, 'dest.tips'),
+].filter(Boolean);
+const cr = credit(p.img);
+const zhParts = p.zh ? p.zh.split(/ ?· ?/) : [];
+const q = p.mapQuery || `${p.name}, ${cityName}`;
+---
+<article class="pcard card" data-cat={p.cat} data-must={must ? '1' : undefined}>
+  <div class="pimg">
+    <img src={img(p.img)} srcset={imgSet(p.img)} sizes="(max-width: 699px) 100vw, (max-width: 1199px) 50vw, 340px"
+      alt={p.name} loading="lazy" width="800" height="500" />
+    {must && <span class="mustb">{t(lang, 'dest.must')}</span>}
+  </div>
+  <div class="pb">
+    <h3><bdi lang="en">{p.name}</bdi></h3>
+    {zhParts.length > 0 && (
+      <p class="zhl">{zhParts.map((z) => (
+        <span class="zhi"><span class="zh" lang="zh">{z}</span><button type="button" class="cp" data-cp={z} title={t(lang, 'common.copy')} aria-label={t(lang, 'common.copy')}>⧉</button></span>
+      ))}</p>
+    )}
+    <p class="meta">{t(lang, `cat.${p.cat}` as UIKey)}{p.time && <> · <T v={p.time} lang={lang} /></>}</p>
+    <T v={p.desc} lang={lang} as="p" class="desc" />
+
+    {parts.length > 0 && (
+      <details class="pinfo">
+        <summary><span class="pin-t">{t(lang, 'dest.practical')}</span> <span class="pin-s">{parts.join(' · ')}</span><i class="chev" aria-hidden="true"></i></summary>
+        <div class="pin-b">
+          {loc && <div class="gnote">{t(lang, 'dest.locNote')} {loc.map((z) => <span class="zhi"><span class="zh" lang="zh">{z}</span><button type="button" class="cp" data-cp={z} aria-label={t(lang, 'common.copy')}>⧉</button></span>)}</div>}
+          {pr?.hours && <div class="row"><b>{t(lang, 'dest.hours')}</b> <T v={pr.hours} lang={lang} /></div>}
+          {pr?.booking && <div class="row"><b>{t(lang, 'dest.tickets')}</b> <T v={pr.booking} lang={lang} /></div>}
+          {pr?.advice && <div class="row"><b>{t(lang, 'dest.tips')}</b> <T v={pr.advice} lang={lang} /></div>}
+          {hasTips && <T v={p.tips} lang={lang} as="div" class="row tips" />}
+          {pr?.source && (
+            <div class="src">{t(lang, 'dest.source')}: <a href={pr.source} target="_blank" rel="noopener">{new URL(pr.source).hostname.replace(/^www\./, '')}</a>{pr.checked && <> · {t(lang, 'dest.checked')} <bdi dir="ltr">{pr.checked}</bdi></>}</div>
+          )}
+        </div>
+      </details>
+    )}
+
+    <div class="acts">
+      {zhParts[0] && <a class="btn" href={am(zhParts[0], cityZh)} target="_blank" rel="noopener">Amap 高德</a>}
+      <a class="btn" href={gm(q)} target="_blank" rel="noopener">Google Maps</a>
+    </div>
+    {cr && <p class="credit">{t(lang, 'common.photo')}: {cr.href ? <a href={cr.href} target="_blank" rel="noopener"><bdi>{cr.text}</bdi></a> : <bdi>{cr.text}</bdi>}</p>}
+  </div>
+</article>
+
+<style>
+  .pcard { overflow: hidden; display: flex; flex-direction: column; }
+  .pimg { position: relative; aspect-ratio: 16 / 10; background: var(--sage-l); }
+  .pimg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .mustb { position: absolute; top: 10px; inset-inline-start: 10px; background: var(--terra-solid); color: #fff;
+    font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
+  .pb { padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+  .pb h3 { font-size: 20px; }
+  .zhl { margin: 0; display: flex; flex-wrap: wrap; gap: 4px 10px; color: var(--muted); }
+  .zhi { display: inline-flex; align-items: center; gap: 2px; }
+  .cp { border: 0; background: none; color: var(--muted); cursor: pointer; min-width: 28px; min-height: 28px; border-radius: 8px; font-size: 14px; }
+  .cp:hover { background: var(--sage-l); color: var(--ink); }
+  .cp.ok { color: var(--forest); }
+  .meta { margin: 0; font-size: 14px; color: var(--muted); }
+  .desc { margin: 0; }
+  .pinfo { border-top: 1px solid var(--sage-l); padding-top: 6px; }
+  .pinfo summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 6px; min-height: 36px; font-size: 14px; }
+  .pinfo summary::-webkit-details-marker { display: none; }
+  .pin-t { font-weight: 700; color: var(--forest); }
+  .pin-s { color: var(--muted); flex: 1; }
+  .chev { width: 8px; height: 8px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); margin: 0 4px 4px; }
+  .pinfo[open] .chev { transform: rotate(-135deg); margin-bottom: -2px; }
+  .pin-b { display: grid; gap: 8px; font-size: 14px; padding: 4px 0 6px; }
+  .pin-b b { color: var(--forest); margin-inline-end: 4px; }
+  .gnote { background: var(--terra-l); color: var(--ink); padding: 8px 10px; border-radius: 8px; }
+  .src { color: var(--muted); font-size: 12px; }
+  .acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 6px; }
+  .btn { min-height: 36px; display: inline-flex; align-items: center; padding: 0 14px; border-radius: 999px;
+    background: var(--sage-l); color: var(--forest); text-decoration: none; font-weight: 700; font-size: 14px; }
+  .btn:hover { background: var(--forest); color: var(--on-forest); }
+  .credit { margin: 0; font-size: 12px; color: var(--muted); }
+  .credit a { color: inherit; }
+</style>

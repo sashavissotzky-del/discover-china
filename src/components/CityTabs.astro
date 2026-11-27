@@ -1,0 +1,22 @@
+---
+// Row of all cities, always in the same order and the same look (Design System: #destTabs).
+import cities from '../data/cities.json';
+import type { Lang } from '../i18n/ui';
+interface Props { lang: Lang; active?: string }
+const { lang, active } = Astro.props;
+---
+<nav class="ctabs" aria-label="Cities">
+  {Object.entries(cities).map(([id, c]) => (
+    <a href={`/${lang}/destinations/${id}/`} aria-current={id === active ? 'page' : undefined}>
+      <bdi lang="en">{c.name}</bdi> <span class="zh" lang="zh">{c.zh}</span>
+    </a>
+  ))}
+</nav>
+<style>
+  .ctabs { display: flex; gap: 8px; overflow-x: auto; padding: 4px 2px 10px; margin-bottom: 8px; scrollbar-width: thin; }
+  .ctabs a { flex: none; min-height: 40px; display: inline-flex; align-items: center; gap: 6px; padding: 0 16px; border-radius: 999px;
+    background: var(--card); box-shadow: var(--shadow); text-decoration: none; font-weight: 700; font-size: 14px; color: var(--ink); }
+  .ctabs a .zh { color: var(--muted); font-weight: 500; }
+  .ctabs a[aria-current='page'] { background: var(--forest); color: var(--on-forest); }
+  .ctabs a[aria-current='page'] .zh { color: inherit; opacity: .8; }
+</style>

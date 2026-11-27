@@ -54,7 +54,7 @@ export function imgSet(id: string): string {
 export function credit(id: string): { text: string; href?: string } | null {
   const c = all[id]?.credit;
   if (!c) return null;
-  const [file, who] = c.split('|');
-  if (file === '@') return { text: who };
-  return { text: who, href: `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file)}` };
+  const [file, who = ''] = c.split('|');
+  if (file === '@') return who.trim() ? { text: who } : null; // source not recorded yet
+  return { text: who.trim() || 'Wikimedia Commons', href: `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file)}` };
 }
