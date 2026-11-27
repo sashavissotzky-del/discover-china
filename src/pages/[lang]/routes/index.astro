@@ -184,6 +184,33 @@ const modeLabel = (m: string) => t(lang, `mode.${m}` as UIKey);
         );
       })}
     </div>
+
+    <h3 class="cmpt">{t(lang, 'routes.compare')}</h3>
+    <div class="cmpwrap card">
+      <table class="cmp">
+        <thead><tr>
+          <th>{t(lang, 'routes.route')}</th><th>{t(lang, 'routes.cities')}</th><th>{t(lang, 'routes.nights')}</th>
+          <th>{t(lang, 'routes.transfers')}</th><th>{t(lang, 'routes.flights')}</th><th>{t(lang, 'routes.netTravel')}</th><th>{t(lang, 'routes.ideal')}</th>
+        </tr></thead>
+        <tbody>
+          {R.map((r) => {
+            const { dom, rec, flights } = info(r);
+            const tot = (st: [string, number][]) => st.reduce((a, [, n]) => a + n, 0);
+            const hours = Math.round(dom.reduce((a, l) => a + ((rec(l) as Mode & { h?: number }).h || 0), 0));
+            return (
+              <tr>
+                <th><a class="cmpbtn" href={`#${r.id}`} data-go={r.id}><span class="rl" style={`--rc:${r.col}`}>{r.id}</span> {typeof r.name === 'string' ? <bdi lang="en">{r.name}</bdi> : <T v={r.name} lang={lang} />}</a></th>
+                <td>{r.s14.length}</td>
+                <td><span class="bylen" data-len="12" hidden>{tot(r.s12)}</span><span class="bylen" data-len="14">{tot(r.s14)}</span></td>
+                <td>{dom.length}</td><td>{flights}</td>
+                <td>{t(lang, 'routes.about')}{hours} {t(lang, 'routes.hours')}</td>
+                <td>{r.ideal} {t(lang, 'routes.nights')}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   </section>
 </Base>
 
@@ -220,7 +247,7 @@ const modeLabel = (m: string) => t(lang, `mode.${m}` as UIKey);
     refreshMine();
   };
   document.querySelectorAll<HTMLElement>('.rt').forEach((b) => b.addEventListener('click', () => show(b.dataset.r!)));
-  document.querySelectorAll<HTMLElement>('.mcard').forEach((b) => b.addEventListener('click', (e) => { e.preventDefault(); show(b.dataset.go!, true); }));
+  document.querySelectorAll<HTMLElement>('.mcard, .cmpbtn').forEach((b) => b.addEventListener('click', (e) => { e.preventDefault(); show(b.dataset.go!, true); }));
   const h = location.hash.slice(1);
   if (h && document.querySelector(`.rpanel[data-r="${h}"]`)) show(h);
 
@@ -308,6 +335,13 @@ const modeLabel = (m: string) => t(lang, `mode.${m}` as UIKey);
   .pc ul { margin: 6px 0 0; padding-inline-start: 18px; font-size: 14px; display: grid; gap: 4px; }
   .best { margin: 14px 0 6px; }
 
+  .cmpt { margin: 28px 0 10px; font-size: 20px; }
+  .cmpwrap { overflow-x: auto; }
+  .cmp { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .cmp th, .cmp td { padding: 10px 12px; text-align: start; border-bottom: 1px solid var(--sage-l); white-space: nowrap; }
+  .cmp thead th { color: var(--muted); font-weight: 700; font-size: 12px; }
+  .cmp tbody tr:last-child th, .cmp tbody tr:last-child td { border-bottom: 0; }
+  .cmpbtn { font-weight: 700; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 8px; }
   .rcmp .cmpi { background: var(--sage-l); color: var(--forest); }
   .mgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 16px; }
   .mcard { min-width: 0; padding: 10px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; align-content: start; color: var(--ink); text-decoration: none; }
