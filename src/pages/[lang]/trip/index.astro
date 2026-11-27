@@ -1,0 +1,263 @@
+---
+// My trip: the chosen route, trip length, landing date and calendar (with holidays).
+// Everything personal is kept in this browser (see src/scripts/trip-store.ts); the page is drawn in the browser.
+import Base from '../../../layouts/Base.astro';
+import { languages, t, type Lang } from '../../../i18n/ui';
+import { img, tx, type Text } from '../../../lib/content';
+import routes from '../../../data/routes.json';
+import cities from '../../../data/cities.json';
+import holidays from '../../../data/holidays.json';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+type R = { id: string; name: Text; tag: Text; col: string; s12: [string, number][]; s14: [string, number][] };
+const data = {
+  lang,
+  routes: (routes as unknown as R[]).map((r) => ({ id: r.id, name: tx(r.name, lang), tag: tx(r.tag, lang), col: r.col, s12: r.s12, s14: r.s14 })),
+  cities: Object.fromEntries(Object.entries(cities).map(([id, c]) => [id, { name: c.name, zh: c.zh, color: c.color, img: img(c.images[0], true) }])),
+  holidays: Object.fromEntries(Object.entries(holidays as Record<string, { t: Text; c: string; w?: number }>).map(([d, h]) => [d, { t: tx(h.t, lang), c: h.c, w: h.w || 0 }])),
+  txt: {
+    nights: t(lang, 'routes.nights'), night: t(lang, 'routes.night'), cities: t(lang, 'routes.cities'),
+    landDay: t(lang, 'trip.landDay'), fwd: t(lang, 'arrow.fwd'), noHol: t(lang, 'trip.noHol'),
+  },
+};
+const weekdays = lang === 'he' ? ['א׳', 'ב׳', 'ג׳', 'ד׳', 'ה׳', 'ו׳', 'ש׳'] : ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+---
+<Base lang={lang} title={t(lang, 'trip.title')} path="trip/" section="trip">
+  <h1 class="pt">{t(lang, 'trip.title')}</h1>
+  <p class="muted intro">{t(lang, 'trip.intro')}</p>
+
+  <section id="empty" class="card empty" hidden>
+    <h2>{t(lang, 'trip.none')}</h2>
+    <p class="muted">{t(lang, 'trip.noneHint')}</p>
+    <a class="btnp" href={`/${lang}/routes/`}>{t(lang, 'trip.toRoutes')} {t(lang, 'arrow.fwd')}</a>
+  </section>
+
+  <section id="mine" hidden>
+    <div class="card rcard">
+      <div class="rhead">
+        <span class="rl" id="rLetter"></span>
+        <div><h2 id="rName"></h2><p class="muted small" id="rSub"></p></div>
+        <a class="other small" href={`/${lang}/routes/`}>{t(lang, 'trip.other')}</a>
+      </div>
+      <ol class="crow" id="cityRow"></ol>
+    </div>
+
+    <div class="card settings">
+      <div class="set">
+        <span class="lbl">{t(lang, 'routes.len')}</span>
+        <div class="seg" role="group" aria-label={t(lang, 'routes.len')}>
+          <button type="button" data-len="12">12 {t(lang, 'routes.nights')}</button>
+          <button type="button" data-len="14">14 {t(lang, 'routes.nights')}</button>
+        </div>
+      </div>
+      <div class="set">
+        <label class="lbl" for="startIn">{t(lang, 'trip.landing')}</label>
+        <div class="datebar">
+          <button type="button" class="wk" data-wk="-7">{t(lang, 'arrow.back')} {t(lang, 'trip.week')}</button>
+          <input type="date" id="startIn" min="2026-01-01" max="2030-12-31" />
+          <button type="button" class="wk" data-wk="7">{t(lang, 'trip.week')} {t(lang, 'arrow.fwd')}</button>
+        </div>
+      </div>
+      <p class="nodate" id="noDate" hidden><b>{t(lang, 'trip.noDate')}</b> · {t(lang, 'trip.noDateHint')}</p>
+    </div>
+
+    <ol class="tl" id="timeline"></ol>
+
+    <section class="card calcard" id="calCard" hidden>
+      <h2>{t(lang, 'trip.cal')}</h2>
+      <div class="cals" id="cals"></div>
+      <ul class="legend small" id="legend"></ul>
+      <ul class="legend small">
+        <li><i class="hm hcn"></i>{t(lang, 'trip.holCn')}</li>
+        <li><i class="hm hil"></i>{t(lang, 'trip.holIl')}</li>
+        <li><i class="hm hcn hw"></i>{t(lang, 'trip.holWork')}</li>
+      </ul>
+      <details class="hols">
+        <summary>{t(lang, 'trip.holList')} (<span id="holCount">0</span>)<i class="chev" aria-hidden="true"></i></summary>
+        <ul id="holList" class="small"></ul>
+        <p class="small muted">{t(lang, 'trip.holNote')}</p>
+      </details>
+    </section>
+
+    <p class="small muted local">{t(lang, 'trip.local')}</p>
+  </section>
+
+  <script type="application/json" id="tripData" set:html={JSON.stringify(data)} />
+  <div hidden id="wd" data-days={JSON.stringify(weekdays)}></div>
+</Base>
+
+<script>
+  import { getTrip, setTrip, getLen, setLen } from '../../../scripts/trip-store';
+  type City = { name: string; zh: string; color: string; img: string };
+  type Route = { id: string; name: string; tag: string; col: string; s12: [string, number][]; s14: [string, number][] };
+  const D = JSON.parse(document.getElementById('tripData')!.textContent!) as {
+    lang: string; routes: Route[]; cities: Record<string, City>;
+    holidays: Record<string, { t: string; c: string; w: number }>; txt: Record<string, string>;
+  };
+  const WD: string[] = JSON.parse(document.getElementById('wd')!.dataset.days!);
+  const $ = (id: string) => document.getElementById(id)!;
+  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]!));
+
+  // Dates are handled as UTC days to avoid time-zone shifts.
+  const parse = (s: string) => { const [y, m, d] = s.split('-').map(Number); return Date.UTC(y, m - 1, d); };
+  const iso = (t: number) => new Date(t).toISOString().slice(0, 10);
+  const addDays = (t: number, n: number) => t + n * 86400000;
+  const short = (t: number) => { const d = new Date(t); return `${d.getUTCDate()}.${d.getUTCMonth() + 1}`; };
+  const monthName = (y: number, m: number) => new Date(Date.UTC(y, m, 1)).toLocaleDateString(D.lang === 'he' ? 'he-IL' : 'en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+  const nightsWord = (n: number) => (n === 1 ? D.txt.night : D.txt.nights);
+
+  function render() {
+    const trip = getTrip();
+    const r = D.routes.find((x) => x.id === trip.route);
+    $('empty').hidden = !!r; $('mine').hidden = !r;
+    if (!r) return;
+    const len = getLen();
+    const stops = len === '12' ? r.s12 : r.s14;
+    const total = stops.reduce((a, [, n]) => a + n, 0);
+
+    // Route card
+    const L = $('rLetter'); L.textContent = r.id; L.style.background = r.col;
+    $('rName').textContent = r.name;
+    $('rSub').textContent = `${total} ${D.txt.nights} · ${stops.length} ${D.txt.cities}${r.tag ? ' · ' + r.tag : ''}`;
+    $('cityRow').innerHTML = stops.map(([c, n], i) =>
+      `<li><a href="/${D.lang}/destinations/${c}/"><span class="cn" style="--cc:${D.cities[c].color}">${i + 1}</span><bdi lang="en">${esc(D.cities[c].name)}</bdi><span class="nn">${n}</span></a>${i < stops.length - 1 ? `<span class="arr">${D.txt.fwd}</span>` : ''}</li>`).join('');
+
+    // Settings
+    document.querySelectorAll<HTMLButtonElement>('.settings .seg button').forEach((b) => {
+      const on = b.dataset.len === len; b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on));
+    });
+    const input = $('startIn') as HTMLInputElement;
+    input.value = trip.start || '';
+    $('noDate').hidden = !!trip.start;
+
+    // Timeline with dates
+    const start = trip.start ? parse(trip.start) : null;
+    let off = 0;
+    const spans = stops.map(([c, n]) => { const a = start != null ? addDays(start, off) : null; off += n; return { c, n, a, b: a != null ? addDays(a, n) : null }; });
+    $('timeline').innerHTML = spans.map((s, i) => `
+      <li class="card tc">
+        <img src="${s.c && D.cities[s.c].img}" alt="" loading="lazy" width="320" height="213">
+        <div>
+          <h3><span class="cn" style="--cc:${D.cities[s.c].color}">${i + 1}</span> <bdi lang="en">${esc(D.cities[s.c].name)}</bdi> <span class="zh" lang="zh">${esc(D.cities[s.c].zh)}</span></h3>
+          <p class="small muted">${s.a != null ? `<bdi dir="ltr">${short(s.a)}–${short(s.b!)}</bdi> · ` : ''}${s.n} ${nightsWord(s.n)}${i === 0 ? ` · <b class="land">${D.txt.landDay}</b>` : ''}</p>
+        </div>
+      </li>`).join('');
+
+    // Calendar
+    $('calCard').hidden = start == null;
+    if (start == null) return;
+    const end = addDays(start, total);
+    const dayCity = new Map<string, { c: string; i: number }>();
+    spans.forEach((s, i) => { for (let t = s.a!; t < s.b!; t = addDays(t, 1)) dayCity.set(iso(t), { c: s.c, i }); });
+    const months: [number, number][] = [];
+    for (let t = Date.UTC(new Date(start).getUTCFullYear(), new Date(start).getUTCMonth(), 1); t <= end; ) {
+      const d = new Date(t); months.push([d.getUTCFullYear(), d.getUTCMonth()]); t = Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 1, 1);
+    }
+    $('cals').innerHTML = months.map(([y, m]) => {
+      const first = Date.UTC(y, m, 1), days = new Date(Date.UTC(y, m + 1, 0)).getUTCDate(), lead = new Date(first).getUTCDay();
+      let cells = '';
+      for (let k = 0; k < lead; k++) cells += '<i class="e"></i>';
+      for (let d = 1; d <= days; d++) {
+        const key = iso(Date.UTC(y, m, d)), dc = dayCity.get(key), h = D.holidays[key];
+        const isEnd = key === iso(end);
+        const cls = [dc ? 'in' : '', h ? `hol h${h.c}${h.w ? ' hw' : ''}` : '', key === iso(start) ? 'land' : '', isEnd ? 'fly' : ''].join(' ');
+        const style = dc ? ` style="--cc:${D.cities[dc.c].color}"` : '';
+        const title = [dc ? D.cities[dc.c].name : '', h ? h.t : ''].filter(Boolean).join(' · ');
+        cells += `<i class="${cls}"${style}${title ? ` title="${esc(title)}"` : ''}>${d}</i>`;
+      }
+      return `<div class="cal"><h3>${monthName(y, m)}</h3><div class="wd">${WD.map((w) => `<b>${w}</b>`).join('')}</div><div class="days">${cells}</div></div>`;
+    }).join('');
+    $('legend').innerHTML = spans.map((s, i) => `<li><i class="sw" style="--cc:${D.cities[s.c].color}"></i>${i + 1} <bdi lang="en">${esc(D.cities[s.c].name)}</bdi></li>`).join('');
+    const inMonths = Object.entries(D.holidays).filter(([d]) => months.some(([y, m]) => d.startsWith(`${y}-${String(m + 1).padStart(2, '0')}`))).sort();
+    $('holCount').textContent = String(inMonths.length);
+    $('holList').innerHTML = inMonths.length
+      ? inMonths.map(([d, h]) => `<li><i class="hm h${h.c}${h.w ? ' hw' : ''}"></i><bdi dir="ltr">${short(parse(d))}</bdi> · ${esc(h.t)}</li>`).join('')
+      : `<li class="muted">${D.txt.noHol}</li>`;
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('.settings .seg button').forEach((b) =>
+    b.addEventListener('click', () => { setLen(b.dataset.len as '12' | '14'); render(); }));
+  ($('startIn') as HTMLInputElement).addEventListener('change', (e) => {
+    const v = (e.target as HTMLInputElement).value; setTrip({ start: v || null }); render();
+  });
+  document.querySelectorAll<HTMLButtonElement>('.wk').forEach((b) => b.addEventListener('click', () => {
+    const s = getTrip().start; if (!s) return;
+    setTrip({ start: iso(addDays(parse(s), Number(b.dataset.wk))) }); render();
+  }));
+  render();
+</script>
+
+<style>
+  .pt { color: var(--forest); }
+  .intro { margin: 8px 0 20px; }
+  .empty { padding: 32px 24px; text-align: center; }
+  .empty h2 { font-size: 24px; color: var(--forest); }
+  .empty p { margin: 8px 0 16px; }
+  .btnp { display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: var(--forest); color: var(--on-forest); font-weight: 700; text-decoration: none; }
+
+  .rcard { padding: 16px; }
+  .rhead { display: flex; align-items: center; gap: 12px; }
+  .rhead h2 { font-size: 22px; }
+  .rhead p { margin: 2px 0 0; }
+  .rl { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; color: #fff; font: 700 22px var(--f-head); }
+  .other { margin-inline-start: auto; color: var(--forest); font-weight: 700; text-decoration: none; white-space: nowrap; }
+  .crow { list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .crow :global(li) { display: flex; align-items: center; gap: 6px; }
+  .crow :global(a) { display: flex; align-items: center; gap: 6px; padding: 4px 10px 4px 6px; border-radius: 999px; background: var(--bg); text-decoration: none; font-weight: 700; font-size: 14px; }
+  .crow :global(.nn) { color: var(--muted); font-size: 12px; }
+  .crow :global(.arr) { color: var(--muted); }
+  :global(.cn) { width: 24px; height: 24px; border-radius: 50%; display: inline-grid; place-items: center; background: var(--cc); color: #fff; font: 700 12px var(--f-head); flex: none; }
+
+  .settings { margin-top: 12px; padding: 14px 16px; display: grid; gap: 12px; }
+  .set { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+  .lbl { font-weight: 700; min-width: 130px; }
+  .seg { display: inline-flex; background: var(--bg); border-radius: 999px; padding: 4px; }
+  .seg button { border: 0; background: none; min-height: 36px; padding: 0 14px; border-radius: 999px; font-weight: 700; font-size: 14px; color: var(--muted); cursor: pointer; }
+  .seg button.on { background: var(--forest); color: var(--on-forest); }
+  .datebar { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+  .datebar input { min-height: 40px; padding: 0 10px; border-radius: 10px; border: 1px solid var(--sage-l); background: var(--bg); color: var(--ink); font: 600 14px var(--f-body); }
+  .wk { min-height: 40px; padding: 0 12px; border: 0; border-radius: 999px; background: var(--sage-l); color: var(--forest); font: 700 13px var(--f-body); cursor: pointer; }
+  .nodate { margin: 0; font-size: 14px; color: var(--muted); }
+  .nodate b { color: var(--terra-ink); }
+
+  .tl { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 8px; }
+  .tl :global(.tc) { display: flex; gap: 12px; align-items: center; overflow: hidden; }
+  .tl :global(.tc img) { width: 88px; height: 64px; object-fit: cover; flex: none; }
+  .tl :global(.tc h3) { font-size: 17px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .tl :global(.tc h3 .zh) { color: var(--muted); font-size: 14px; }
+  .tl :global(.tc p) { margin: 2px 0 0; }
+  .tl :global(.land) { color: var(--terra-ink); }
+
+  .calcard { margin-top: 16px; padding: 16px; }
+  .calcard h2 { font-size: 20px; margin-bottom: 10px; }
+  .cals { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .cals :global(.cal h3) { font-size: 15px; margin-bottom: 6px; }
+  .cals :global(.wd), .cals :global(.days) { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+  .cals :global(.wd b) { font-size: 12px; color: var(--muted); text-align: center; font-weight: 600; }
+  .cals :global(.days i) { font-style: normal; aspect-ratio: 1; display: grid; place-items: center; border-radius: 8px; font-size: 13px; color: var(--muted); }
+  .cals :global(.days i.in) { background: color-mix(in srgb, var(--cc) 22%, transparent); color: var(--ink); font-weight: 700; }
+  .cals :global(.days i.land) { background: var(--cc); color: #fff; }
+  .cals :global(.days i.fly) { outline: 2px dashed var(--muted); outline-offset: -2px; }
+  :global(.hol.hcn) { box-shadow: inset 0 0 0 2px #C0392B; }
+  :global(.hol.hil) { box-shadow: inset 0 0 0 2px #2F6FB0; }
+  :global(.hol.hcn.hw) { box-shadow: none; outline: 2px dashed #C0392B; outline-offset: -2px; }
+  .legend { list-style: none; padding: 0; margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 6px 14px; color: var(--muted); }
+  .legend :global(li) { display: flex; align-items: center; gap: 6px; }
+  .legend :global(.sw) { width: 14px; height: 14px; border-radius: 4px; background: var(--cc); }
+  :global(.hm) { width: 14px; height: 14px; border-radius: 4px; display: inline-block; flex: none; }
+  :global(.hm.hcn) { box-shadow: inset 0 0 0 2px #C0392B; }
+  :global(.hm.hil) { box-shadow: inset 0 0 0 2px #2F6FB0; }
+  :global(.hm.hcn.hw) { box-shadow: none; outline: 2px dashed #C0392B; outline-offset: -2px; }
+  .hols { margin-top: 12px; }
+  .hols summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 6px; min-height: 36px; font-size: 14px; color: var(--muted); }
+  .hols summary::-webkit-details-marker { display: none; }
+  .hols ul { list-style: none; padding: 0; margin: 4px 0; display: grid; gap: 4px; }
+  .hols :global(li) { display: flex; align-items: center; gap: 8px; }
+  .chev { width: 8px; height: 8px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); margin: 0 4px 4px; }
+  .hols[open] .chev { transform: rotate(-135deg); margin-bottom: -2px; }
+  .local { margin-top: 16px; }
+  @media (prefers-color-scheme: dark) { :global(.hol.hcn), :global(.hm.hcn) { box-shadow: inset 0 0 0 2px #E8806F; } :global(.hol.hil), :global(.hm.hil) { box-shadow: inset 0 0 0 2px #7FB2E5; } }
+</style>

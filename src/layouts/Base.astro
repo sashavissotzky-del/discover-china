@@ -10,7 +10,7 @@ interface Props {
   /** Path after the language prefix, e.g. "" for home or "destinations/" */
   path?: string;
   /** Which menu item is active */
-  section?: 'home' | 'destinations' | 'routes' | 'prep';
+  section?: 'home' | 'destinations' | 'routes' | 'trip' | 'prep';
 }
 
 const { lang, title, path = '', section } = Astro.props;
@@ -21,6 +21,7 @@ const nav = [
   { id: 'home', href: '', icon: 'home', label: t(lang, 'nav.home') },
   { id: 'destinations', href: 'destinations/', icon: 'pin', label: t(lang, 'nav.destinations') },
   { id: 'routes', href: 'routes/', icon: 'route', label: t(lang, 'nav.routes') },
+  { id: 'trip', href: 'trip/', icon: 'suitcase', label: t(lang, 'nav.trip') },
   { id: 'prep', href: 'prep/', icon: 'check', label: t(lang, 'nav.prep') },
 ] as const;
 ---
@@ -100,7 +101,7 @@ const nav = [
         .rail { inset-block: auto 0; inset-inline: 0; width: auto; height: auto; padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
           flex-direction: row; box-shadow: 0 -2px 14px rgba(0,0,0,.08); }
         .rail > .logo { display: none; }
-        .rail ul { grid-template-columns: repeat(4, 1fr); width: 100%; gap: 2px; }
+        .rail ul { grid-template-columns: repeat(5, 1fr); width: 100%; gap: 2px; }
         .rail ul a { flex-direction: column; justify-content: center; gap: 2px; min-height: 52px; padding: 4px; font-size: 12px; }
         .page { margin-inline-start: 0; padding-bottom: 76px; }
         .topbar { justify-content: space-between; padding: 12px 16px; }

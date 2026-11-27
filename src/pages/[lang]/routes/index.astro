@@ -46,6 +46,7 @@ const modeLabel = (m: string) => t(lang, `mode.${m}` as UIKey);
     {R.map((r, i) => (
       <button type="button" role="tab" class="rt card" data-r={r.id} aria-selected={i === 0 ? 'true' : 'false'} style={`--rc:${r.col}`}>
         <span class="rl">{r.id}</span>
+        <span class="minebadge" hidden>{t(lang, 'mine.badge')}</span>
         <span class="rn">{typeof r.name === 'string' ? <bdi lang="en">{r.name}</bdi> : <T v={r.name} lang={lang} />}</span>
         <T v={r.tag} lang={lang} class="rtag" />
         <span class="small muted">{t(lang, 'routes.ideal')}{r.ideal} {t(lang, 'routes.nights')}</span>
@@ -56,6 +57,17 @@ const modeLabel = (m: string) => t(lang, `mode.${m}` as UIKey);
       <span class="rn">{t(lang, 'routes.compareTab')}</span>
       <span class="small muted">{t(lang, 'routes.allRoutes')}</span>
     </button>
+  </div>
+
+  <div class="chooser card" data-choose={t(lang, 'mine.choose')}>
+    <label for="mineSel">{t(lang, 'mine.label')}</label>
+    <select id="mineSel">
+      <option value="">{t(lang, 'mine.none')}</option>
+      {R.map((r) => <option value={r.id}>{r.id} · {typeof r.name === 'string' ? r.name : r.name.he}</option>)}
+    </select>
+    <button type="button" class="pick" hidden></button>
+    <span class="isme" hidden>{t(lang, 'mine.is')}</span>
+    <a class="openmine" href={`/${lang}/trip/`} hidden>{t(lang, 'mine.open')} {t(lang, 'arrow.fwd')}</a>
   </div>
 
   {R.map((r, i) => {
@@ -176,7 +188,28 @@ const modeLabel = (m: string) => t(lang, `mode.${m}` as UIKey);
 </Base>
 
 <script>
+  import { getTrip, setTrip, getLen, setLen as storeLen } from '../../../scripts/trip-store';
+  let shown = 'A';
+  const chooser = document.querySelector<HTMLElement>('.chooser')!;
+  const sel = chooser.querySelector<HTMLSelectElement>('select')!;
+  const pick = chooser.querySelector<HTMLButtonElement>('.pick')!;
+  const refreshMine = () => {
+    const mine = getTrip().route;
+    sel.value = mine || '';
+    document.querySelectorAll<HTMLElement>('.rt').forEach((b) => {
+      const badge = b.querySelector<HTMLElement>('.minebadge'); if (badge) badge.hidden = b.dataset.r !== mine;
+    });
+    const viewingRoute = shown !== 'cmp';
+    pick.hidden = !viewingRoute || shown === mine;
+    pick.textContent = chooser.dataset.choose!.replace('{x}', shown);
+    chooser.querySelector<HTMLElement>('.isme')!.hidden = !viewingRoute || shown !== mine;
+    chooser.querySelector<HTMLElement>('.openmine')!.hidden = !mine;
+  };
+  sel.addEventListener('change', () => { setTrip({ route: sel.value || null }); refreshMine(); });
+  pick.addEventListener('click', () => { setTrip({ route: shown }); refreshMine(); });
+
   const show = (id: string, scroll = false) => {
+    shown = id;
     document.querySelectorAll<HTMLElement>('.rpanel').forEach((p) => {
       if (!p.hidden && p.dataset.r !== id) p.querySelector('[data-rmap]')?.dispatchEvent(new Event('rmap:reset'));
       p.hidden = p.dataset.r !== id;
@@ -184,6 +217,7 @@ const modeLabel = (m: string) => t(lang, `mode.${m}` as UIKey);
     document.querySelectorAll<HTMLElement>('.rt').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.r === id)));
     history.replaceState(null, '', '#' + id);
     if (scroll) document.querySelector('.rtabs')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    refreshMine();
   };
   document.querySelectorAll<HTMLElement>('.rt').forEach((b) => b.addEventListener('click', () => show(b.dataset.r!)));
   document.querySelectorAll<HTMLElement>('.mcard').forEach((b) => b.addEventListener('click', (e) => { e.preventDefault(); show(b.dataset.go!, true); }));
@@ -195,10 +229,12 @@ const modeLabel = (m: string) => t(lang, `mode.${m}` as UIKey);
     document.querySelectorAll<HTMLButtonElement>('.seg button').forEach((b) => {
       const on = b.dataset.len === len; b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on));
     });
-    try { localStorage.setItem('dc-len', len); } catch {}
+    storeLen(len as '12' | '14');
   };
   document.querySelectorAll<HTMLButtonElement>('.seg button').forEach((b) => b.addEventListener('click', () => setLen(b.dataset.len!)));
-  try { const s = localStorage.getItem('dc-len'); if (s === '12' || s === '14') setLen(s); } catch {}
+  setLen(getLen());
+  if (!h) { const m = getTrip().route; if (m) show(m); }
+  refreshMine();
 </script>
 
 <style>
@@ -217,6 +253,13 @@ const modeLabel = (m: string) => t(lang, `mode.${m}` as UIKey);
   .rn { font: 600 16px var(--f-head); }
   .rtag { font-size: 12px; font-weight: 700; color: var(--terra-ink); }
 
+  .chooser { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; padding: 12px 14px; margin-bottom: 12px; }
+  .chooser label { font-weight: 700; }
+  .chooser select { min-height: 40px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--sage-l); background: var(--bg); color: var(--ink); font: 600 14px var(--f-body); }
+  .pick { min-height: 40px; padding: 0 16px; border: 0; border-radius: 999px; background: var(--forest); color: var(--on-forest); font: 700 14px var(--f-body); cursor: pointer; }
+  .isme { color: var(--forest); font-weight: 700; font-size: 14px; }
+  .openmine { margin-inline-start: auto; color: var(--forest); font-weight: 700; font-size: 14px; text-decoration: none; }
+  .minebadge { font-size: 11px; font-weight: 700; color: var(--on-forest); background: var(--forest); padding: 1px 8px; border-radius: 999px; align-self: flex-start; }
   .rpanel { margin-top: 8px; }
   .rgrid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 24px; align-items: start; }
   .mapcol { position: sticky; top: 16px; }
