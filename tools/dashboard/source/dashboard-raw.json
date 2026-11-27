@@ -2982,14 +2982,26 @@
  "DAYS": {
   "bj": [
    [
+    "יום הנחיתה",
+    "Landing → hotel in Wangfujing {王府井} → check in and rest → easy evening on Wangfujing Street (optional: sunset at Jingshan Park {景山公园}) → back to hotel",
+    [
+     "HOTEL",
+     "Wangfujing Street, Beijing",
+     "HOTEL"
+    ],
+    "walking",
+    {
+     "L": 1
+    }
+   ],
+   [
     "יום 1",
-    "Tiananmen Square {天安门广场} → Forbidden City {故宫} → Jingshan Park {景山公园} → evening on Wangfujing {王府井} → back to hotel",
+    "Tiananmen Square {天安门广场} → Forbidden City {故宫} → Jingshan Park {景山公园} → back to hotel",
     [
      "HOTEL",
      "Tiananmen Square, Beijing",
      "The Palace Museum, Beijing",
      "Jingshan Park, Beijing",
-     "Wangfujing Street, Beijing",
      "HOTEL"
     ],
     "walking",
@@ -3098,8 +3110,8 @@
   ],
   "ckg": [
    [
-    "יום 1",
-    "Jiefangbei {解放碑} → Shibati {十八梯} → Hongyadong {洪崖洞} lit up at night → back to hotel",
+    "יום ההגעה",
+    "Arrive → check in and rest → Jiefangbei {解放碑} → Shibati {十八梯} (if energy) → Hongyadong {洪崖洞} lit up at night → back to hotel",
     [
      "HOTEL",
      "Jiefangbei, Chongqing",
@@ -3108,7 +3120,9 @@
      "HOTEL"
     ],
     "walking",
-    {}
+    {
+     "A": 1
+    }
    ],
    [
     "יום 2",
@@ -3213,17 +3227,19 @@
   ],
   "gl": [
    [
-    "יום 1",
-    "Elephant Trunk Hill {象鼻山} → Dongxi Xiang {东西巷} → Zhengyang Street {正阳步行街} → night cruise on the Two Rivers & Four Lakes {两江四湖} → back to hotel",
+    "יום ההגעה",
+    "Arrive → check in → Zhengyang Street {正阳步行街} → Dongxi Xiang {东西巷} → Elephant Trunk Hill {象鼻山} at sunset → night cruise on the Two Rivers & Four Lakes {两江四湖} at ~20:30 → back to hotel",
     [
      "HOTEL",
-     "Elephant Trunk Hill, Guilin",
      "东西巷 桂林",
+     "Elephant Trunk Hill, Guilin",
      "Riyue Shuangta Guilin",
      "HOTEL"
     ],
     "walking",
-    {}
+    {
+     "A": 1
+    }
    ],
    [
     "יום טיול",
@@ -4707,14 +4723,26 @@
  "DAYX": {
   "bj": [
    [
+    "יום הנחיתה",
+    "Landing → hotel in Wangfujing {王府井} → check in and rest → easy evening on Wangfujing Street (optional: sunset at Jingshan Park {景山公园}) → back to hotel",
+    [
+     "HOTEL",
+     "Wangfujing Street, Beijing",
+     "HOTEL"
+    ],
+    "walking",
+    {
+     "L": 1
+    }
+   ],
+   [
     "יום 1",
-    "Tiananmen Square {天安门广场} → Forbidden City {故宫} → Jingshan Park {景山公园} → evening on Wangfujing {王府井} → back to hotel",
+    "Tiananmen Square {天安门广场} → Forbidden City {故宫} → Jingshan Park {景山公园} → back to hotel",
     [
      "HOTEL",
      "Tiananmen Square, Beijing",
      "The Palace Museum, Beijing",
      "Jingshan Park, Beijing",
-     "Wangfujing Street, Beijing",
      "HOTEL"
     ],
     "walking",
@@ -4795,17 +4823,19 @@
   ],
   "gl": [
    [
-    "יום 1",
-    "Elephant Trunk Hill {象鼻山} → Dongxi Xiang {东西巷} → Zhengyang Street {正阳步行街} → night cruise on the Two Rivers & Four Lakes {两江四湖} → back to hotel",
+    "יום ההגעה",
+    "Arrive → check in → Zhengyang Street {正阳步行街} → Dongxi Xiang {东西巷} → Elephant Trunk Hill {象鼻山} at sunset → night cruise on the Two Rivers & Four Lakes {两江四湖} at ~20:30 → back to hotel",
     [
      "HOTEL",
-     "Elephant Trunk Hill, Guilin",
      "东西巷 桂林",
+     "Elephant Trunk Hill, Guilin",
      "Riyue Shuangta Guilin",
      "HOTEL"
     ],
     "walking",
-    {}
+    {
+     "A": 1
+    }
    ],
    [
     "יום טיול",
@@ -4899,8 +4929,8 @@
   ],
   "ckg": [
    [
-    "יום 1",
-    "Jiefangbei {解放碑} → Shibati {十八梯} → Hongyadong {洪崖洞} lit up at night → back to hotel",
+    "יום ההגעה",
+    "Arrive → check in and rest → Jiefangbei {解放碑} → Shibati {十八梯} (if energy) → Hongyadong {洪崖洞} lit up at night → back to hotel",
     [
      "HOTEL",
      "Jiefangbei, Chongqing",
@@ -4909,7 +4939,9 @@
      "HOTEL"
     ],
     "walking",
-    {}
+    {
+     "A": 1
+    }
    ],
    [
     "יום 2",

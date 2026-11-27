@@ -2,16 +2,31 @@
  "bj": [
   {
    "label": {
+    "he": "יום הנחיתה",
+    "en": null
+   },
+   "summary": "Landing → hotel in Wangfujing {王府井} → check in and rest → easy evening on Wangfujing Street (optional: sunset at Jingshan Park {景山公园}) → back to hotel",
+   "stops": [
+    "HOTEL",
+    "Wangfujing Street, Beijing",
+    "HOTEL"
+   ],
+   "mode": "walking",
+   "extra": {
+    "L": 1
+   }
+  },
+  {
+   "label": {
     "he": "יום 1",
     "en": null
    },
-   "summary": "Tiananmen Square {天安门广场} → Forbidden City {故宫} → Jingshan Park {景山公园} → evening on Wangfujing {王府井} → back to hotel",
+   "summary": "Tiananmen Square {天安门广场} → Forbidden City {故宫} → Jingshan Park {景山公园} → back to hotel",
    "stops": [
     "HOTEL",
     "Tiananmen Square, Beijing",
     "The Palace Museum, Beijing",
     "Jingshan Park, Beijing",
-    "Wangfujing Street, Beijing",
     "HOTEL"
    ],
    "mode": "walking",
@@ -111,19 +126,21 @@
  "gl": [
   {
    "label": {
-    "he": "יום 1",
+    "he": "יום ההגעה",
     "en": null
    },
-   "summary": "Elephant Trunk Hill {象鼻山} → Dongxi Xiang {东西巷} → Zhengyang Street {正阳步行街} → night cruise on the Two Rivers & Four Lakes {两江四湖} → back to hotel",
+   "summary": "Arrive → check in → Zhengyang Street {正阳步行街} → Dongxi Xiang {东西巷} → Elephant Trunk Hill {象鼻山} at sunset → night cruise on the Two Rivers & Four Lakes {两江四湖} at ~20:30 → back to hotel",
    "stops": [
     "HOTEL",
-    "Elephant Trunk Hill, Guilin",
     "东西巷 桂林",
+    "Elephant Trunk Hill, Guilin",
     "Riyue Shuangta Guilin",
     "HOTEL"
    ],
    "mode": "walking",
-   "extra": {}
+   "extra": {
+    "A": 1
+   }
   },
   {
    "label": {
@@ -257,10 +274,10 @@
  "ckg": [
   {
    "label": {
-    "he": "יום 1",
+    "he": "יום ההגעה",
     "en": null
    },
-   "summary": "Jiefangbei {解放碑} → Shibati {十八梯} → Hongyadong {洪崖洞} lit up at night → back to hotel",
+   "summary": "Arrive → check in and rest → Jiefangbei {解放碑} → Shibati {十八梯} (if energy) → Hongyadong {洪崖洞} lit up at night → back to hotel",
    "stops": [
     "HOTEL",
     "Jiefangbei, Chongqing",
@@ -269,7 +286,9 @@
     "HOTEL"
    ],
    "mode": "walking",
-   "extra": {}
+   "extra": {
+    "A": 1
+   }
   },
   {
    "label": {
