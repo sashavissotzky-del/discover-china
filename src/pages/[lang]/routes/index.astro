@@ -1,14 +1,242 @@
 ---
+// Routes: look at each of the five routes on the map and compare them (viewing only — choosing comes with "My trip").
 import Base from '../../../layouts/Base.astro';
-import Soon from '../../../components/Soon.astro';
-import { languages, t, type Lang } from '../../../i18n/ui';
+import RouteMap from '../../../components/RouteMap.astro';
+import T from '../../../components/T.astro';
+import { languages, t, type Lang, type UIKey } from '../../../i18n/ui';
+import routes from '../../../data/routes.json';
+import transport from '../../../data/transport.json';
+import cities from '../../../data/cities.json';
+import type { Text } from '../../../lib/content';
 
 export function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({ params: { lang } }));
 }
 const lang = Astro.params.lang as Lang;
-const title = t(lang, 'nav.routes');
+const C = cities as Record<string, { name: string; zh: string; color: string }>;
+type Mode = { m: string; n?: Text; t?: Text; st?: string; rec?: number; flag?: Text; steps?: Text[] };
+const L = transport.legs as Record<string, { from: string; to: string; intl?: number; modes: Mode[] }>;
+type R = { id: string; name: Text; tag: Text; col: string; ideal: number; why: Text; s12: [string, number][]; s14: [string, number][];
+  legs: string[]; pros: Text[]; cons: Text[]; best: Text };
+const R = routes as unknown as R[];
+
+const info = (r: R) => {
+  const dom = r.legs.map((id) => L[id]).filter((l) => l && !l.intl);
+  const rec = (l: { modes: Mode[] }) => l.modes.find((m) => m.rec) || l.modes[0];
+  return { dom, rec, flights: dom.filter((l) => rec(l).m === 'flight').length };
+};
+const nightsWord = (n: number) => (n === 1 ? t(lang, 'routes.night') : t(lang, 'routes.nights'));
+const modeLabel = (m: string) => t(lang, `mode.${m}` as UIKey);
 ---
-<Base lang={lang} title={title} path="routes/" section="routes">
-  <Soon lang={lang} title={title} />
+<Base lang={lang} title={t(lang, 'routes.title')} path="routes/" section="routes">
+  <h1 class="pt">{t(lang, 'routes.title')}</h1>
+  <p class="muted intro">{t(lang, 'routes.intro')}</p>
+  {lang === 'en' && <p class="muted small">{t(lang, 'common.translating')}</p>}
+
+  <div class="lenbar">
+    <span class="small muted">{t(lang, 'routes.len')}</span>
+    <div class="seg" role="group" aria-label={t(lang, 'routes.len')}>
+      <button type="button" data-len="12" aria-pressed="false">12 {t(lang, 'routes.nights')}</button>
+      <button type="button" data-len="14" aria-pressed="true" class="on">14 {t(lang, 'routes.nights')}</button>
+    </div>
+  </div>
+
+  <div class="rtabs" role="tablist">
+    {R.map((r, i) => (
+      <button type="button" role="tab" class="rt card" data-r={r.id} aria-selected={i === 0 ? 'true' : 'false'} style={`--rc:${r.col}`}>
+        <span class="rl">{r.id}</span>
+        <span class="rn">{typeof r.name === 'string' ? <bdi lang="en">{r.name}</bdi> : <T v={r.name} lang={lang} />}</span>
+        <T v={r.tag} lang={lang} class="rtag" />
+        <span class="small muted">{t(lang, 'routes.ideal')}{r.ideal} {t(lang, 'routes.nights')}</span>
+      </button>
+    ))}
+  </div>
+
+  {R.map((r, i) => {
+    const { dom, rec, flights } = info(r);
+    return (
+      <section class="rpanel" data-r={r.id} hidden={i !== 0} aria-label={`${t(lang, 'routes.route')} ${r.id}`}>
+        <div class="rgrid">
+          <div class="mapcol">
+            {(['12', '14'] as const).map((len) => (
+              <div class="bylen" data-len={len} hidden={len !== '14'}>
+                <RouteMap stops={(len === '12' ? r.s12 : r.s14).map(([c]) => c)} legs={r.legs} lang={lang} label={`${t(lang, 'routes.map')} ${r.id}`} />
+              </div>
+            ))}
+            <ul class="legend small muted">
+              <li><i class="lg tr"></i>{modeLabel('train')}</li><li><i class="lg fl"></i>{modeLabel('flight')}</li><li><i class="lg bo"></i>{modeLabel('boat')} / {modeLabel('car')}</li>
+            </ul>
+          </div>
+
+          <div class="infocol">
+            <h2><span class="rl big" style={`--rc:${r.col}`}>{r.id}</span> {typeof r.name === 'string' ? <bdi lang="en">{r.name}</bdi> : <T v={r.name} lang={lang} />}</h2>
+            <p class="facts small muted">
+              {r.s14.length} {t(lang, 'routes.cities')} · {dom.length} {t(lang, 'routes.transfers')} · {flights} {t(lang, 'routes.flights')}
+            </p>
+
+            {(['12', '14'] as const).map((len) => {
+              const st = len === '12' ? r.s12 : r.s14;
+              return (
+                <ol class="cityrow bylen" data-len={len} hidden={len !== '14'}>
+                  {st.map(([c, n], k) => (
+                    <li>
+                      <a href={`/${lang}/destinations/${c}/`} style={`--cc:${C[c].color}`}>
+                        <span class="cn">{k + 1}</span>
+                        <span><bdi lang="en">{C[c].name}</bdi> <span class="zh" lang="zh">{C[c].zh}</span></span>
+                        <span class="nn">{n} {nightsWord(n)}</span>
+                      </a>
+                      {k < st.length - 1 && <span class="arr" aria-hidden="true">{t(lang, 'arrow.fwd')}</span>}
+                    </li>
+                  ))}
+                </ol>
+              );
+            })}
+            <p class="small muted ends">{t(lang, 'routes.arrive')}<bdi lang="en">{C[r.s14[0][0]].name}</bdi> · {t(lang, 'routes.depart')}<bdi lang="en">{C[r.s14[r.s14.length - 1][0]].name}</bdi></p>
+
+            <div class="pc">
+              <div><h3>{t(lang, 'routes.pros')}</h3><ul>{r.pros.map((x) => <T v={x} lang={lang} as="li" />)}</ul></div>
+              <div><h3>{t(lang, 'routes.cons')}</h3><ul>{r.cons.map((x) => <T v={x} lang={lang} as="li" />)}</ul></div>
+            </div>
+            <p class="best"><b>{t(lang, 'routes.best')}:</b> <T v={r.best} lang={lang} /></p>
+            <p class="small muted"><b>{t(lang, 'routes.why')}:</b> <T v={r.why} lang={lang} /></p>
+          </div>
+        </div>
+
+        <h3 class="lt">{t(lang, 'routes.legs')}</h3>
+        <div class="legs">
+          {dom.map((l) => {
+            const m = rec(l);
+            const alts = l.modes.filter((x) => x !== m);
+            return (
+              <details class="leg card">
+                <summary>
+                  <span class={`mode ${m.m}`}>{modeLabel(m.m)}</span>
+                  <span class="lfrom"><bdi lang="en">{C[l.from].name}</bdi> {t(lang, 'arrow.fwd')} <bdi lang="en">{C[l.to].name}</bdi></span>
+                  <T v={m.t} lang={lang} class="ltime small muted" />
+                  {m.flag && <T v={m.flag} lang={lang} class="flag" />}
+                  <i class="chev" aria-hidden="true"></i>
+                </summary>
+                <div class="lb">
+                  {m.st && <p class="st small" dir="ltr">{m.st}</p>}
+                  {m.steps && <ol class="steps">{m.steps.map((s) => <T v={s} lang={lang} as="li" />)}</ol>}
+                  {alts.map((a) => (
+                    <p class="small"><b>{t(lang, 'routes.alt')}:</b> {modeLabel(a.m)} · <T v={a.t} lang={lang} /></p>
+                  ))}
+                </div>
+              </details>
+            );
+          })}
+        </div>
+      </section>
+    );
+  })}
+
+  <h2 class="cmpt">{t(lang, 'routes.compare')}</h2>
+  <div class="cmpwrap card">
+    <table class="cmp">
+      <thead><tr><th>{t(lang, 'routes.route')}</th><th>{t(lang, 'routes.cities')}</th><th>{t(lang, 'routes.transfers')}</th><th>{t(lang, 'routes.flights')}</th><th>{t(lang, 'routes.ideal')}</th></tr></thead>
+      <tbody>
+        {R.map((r) => {
+          const { dom, flights } = info(r);
+          return (
+            <tr>
+              <th><button type="button" class="cmpbtn" data-r={r.id}><span class="rl" style={`--rc:${r.col}`}>{r.id}</span> {typeof r.name === 'string' ? <bdi lang="en">{r.name}</bdi> : <T v={r.name} lang={lang} />}</button></th>
+              <td>{r.s14.length}</td><td>{dom.length}</td><td>{flights}</td><td>{r.ideal} {t(lang, 'routes.nights')}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  </div>
 </Base>
+
+<script>
+  const show = (id: string, scroll = false) => {
+    document.querySelectorAll<HTMLElement>('.rpanel').forEach((p) => (p.hidden = p.dataset.r !== id));
+    document.querySelectorAll<HTMLElement>('.rt').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.r === id)));
+    history.replaceState(null, '', '#' + id);
+    if (scroll) document.querySelector('.rtabs')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  document.querySelectorAll<HTMLElement>('.rt').forEach((b) => b.addEventListener('click', () => show(b.dataset.r!)));
+  document.querySelectorAll<HTMLElement>('.cmpbtn').forEach((b) => b.addEventListener('click', () => show(b.dataset.r!, true)));
+  const h = location.hash.slice(1);
+  if (h && document.querySelector(`.rpanel[data-r="${h}"]`)) show(h);
+
+  const setLen = (len: string) => {
+    document.querySelectorAll<HTMLElement>('.bylen').forEach((e) => (e.hidden = e.dataset.len !== len));
+    document.querySelectorAll<HTMLButtonElement>('.seg button').forEach((b) => {
+      const on = b.dataset.len === len; b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on));
+    });
+    try { localStorage.setItem('dc-len', len); } catch {}
+  };
+  document.querySelectorAll<HTMLButtonElement>('.seg button').forEach((b) => b.addEventListener('click', () => setLen(b.dataset.len!)));
+  try { const s = localStorage.getItem('dc-len'); if (s === '12' || s === '14') setLen(s); } catch {}
+</script>
+
+<style>
+  .pt { color: var(--forest); }
+  .intro { margin: 8px 0 8px; max-width: 680px; }
+  .lenbar { display: flex; align-items: center; gap: 12px; margin: 16px 0; }
+  .seg { display: inline-flex; background: var(--card); box-shadow: var(--shadow); border-radius: 999px; padding: 4px; }
+  .seg button { border: 0; background: none; min-height: 36px; padding: 0 16px; border-radius: 999px; font-weight: 700; font-size: 14px; color: var(--muted); cursor: pointer; }
+  .seg button.on { background: var(--forest); color: var(--on-forest); }
+
+  .rtabs { display: grid; grid-template-columns: repeat(5, minmax(150px, 1fr)); gap: 10px; overflow-x: auto; padding: 4px 2px 12px; scroll-margin-top: 12px; }
+  .rt { border: 2px solid transparent; text-align: start; padding: 12px; display: flex; flex-direction: column; gap: 4px; cursor: pointer; color: var(--ink); }
+  .rt[aria-selected='true'] { border-color: var(--forest); }
+  .rl { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; background: var(--rc); color: #fff; font: 700 16px var(--f-head); }
+  .rl.big { width: 36px; height: 36px; font-size: 20px; vertical-align: middle; }
+  .rn { font: 600 16px var(--f-head); }
+  .rtag { font-size: 12px; font-weight: 700; color: var(--terra-ink); }
+
+  .rpanel { margin-top: 8px; }
+  .rgrid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 24px; align-items: start; }
+  .legend { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-wrap: wrap; gap: 14px; }
+  .legend li { display: flex; align-items: center; gap: 6px; }
+  .lg { width: 26px; height: 0; border-top: 4px solid; display: inline-block; }
+  .lg.tr { border-color: #34483E; } .lg.fl { border-color: #9E5238; border-top-style: dotted; } .lg.bo { border-color: #467495; border-top-style: dashed; }
+  .infocol h2 { font-size: 24px; display: flex; align-items: center; gap: 10px; }
+  .facts { margin: 6px 0 12px; }
+  .cityrow { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .cityrow li { display: flex; align-items: center; gap: 6px; }
+  .cityrow a { display: flex; align-items: center; gap: 8px; padding: 6px 12px 6px 8px; border-radius: 999px; background: var(--card); box-shadow: var(--shadow); text-decoration: none; font-weight: 700; font-size: 14px; }
+  .cityrow .zh { color: var(--muted); font-weight: 500; }
+  .cn { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: var(--cc); color: #fff; font-size: 12px; }
+  .nn { color: var(--muted); font-weight: 600; font-size: 12px; }
+  .arr { color: var(--muted); }
+  .ends { margin: 10px 0 0; }
+  .pc { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+  .pc h3 { font-size: 16px; color: var(--forest); }
+  .pc ul { margin: 6px 0 0; padding-inline-start: 18px; font-size: 14px; display: grid; gap: 4px; }
+  .best { margin: 14px 0 6px; }
+  .best b, .infocol .small b { color: var(--forest); }
+
+  .lt { margin: 28px 0 10px; font-size: 20px; }
+  .legs { display: grid; gap: 8px; }
+  .leg summary { list-style: none; cursor: pointer; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px 14px; min-height: 52px; }
+  .leg summary::-webkit-details-marker { display: none; }
+  .mode { font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; color: #fff; }
+  .mode.train { background: #34483E; } .mode.flight { background: #9E5238; } .mode.boat, .mode.car { background: #467495; }
+  .lfrom { font-weight: 700; }
+  .ltime { flex: 1; }
+  .flag { font-size: 12px; font-weight: 700; color: var(--terra-ink); background: var(--terra-l); padding: 2px 8px; border-radius: 999px; }
+  .chev { width: 8px; height: 8px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); margin: 0 4px 4px; }
+  .leg[open] .chev { transform: rotate(-135deg); margin-bottom: -2px; }
+  .lb { padding: 0 16px 14px; }
+  .st { margin: 0 0 8px; color: var(--muted); text-align: start; }
+  :global([dir='rtl']) .st { text-align: right; }
+  .steps { margin: 0; padding-inline-start: 20px; display: grid; gap: 4px; font-size: 14px; }
+
+  .cmpt { margin: 36px 0 12px; font-size: 24px; }
+  .cmpwrap { overflow-x: auto; }
+  .cmp { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .cmp th, .cmp td { padding: 10px 12px; text-align: start; border-bottom: 1px solid var(--sage-l); white-space: nowrap; }
+  .cmp thead th { color: var(--muted); font-weight: 700; font-size: 12px; }
+  .cmpbtn { border: 0; background: none; font: 700 14px var(--f-body); color: var(--ink); cursor: pointer; display: flex; align-items: center; gap: 8px; padding: 0; }
+
+  @media (max-width: 899px) {
+    .rtabs { grid-template-columns: repeat(5, 150px); }
+    .rgrid { grid-template-columns: 1fr; }
+    .pc { grid-template-columns: 1fr; }
+  }
+</style>
