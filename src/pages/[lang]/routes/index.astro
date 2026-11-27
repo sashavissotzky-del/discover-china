@@ -2,6 +2,7 @@
 // Routes: look at each of the five routes on the map and compare them (viewing only — choosing comes with "My trip").
 import Base from '../../../layouts/Base.astro';
 import RouteMap from '../../../components/RouteMap.astro';
+import MiniMap from '../../../components/MiniMap.astro';
 import T from '../../../components/T.astro';
 import { languages, t, type Lang, type UIKey } from '../../../i18n/ui';
 import routes from '../../../data/routes.json';
@@ -50,6 +51,11 @@ const modeLabel = (m: string) => t(lang, `mode.${m}` as UIKey);
         <span class="small muted">{t(lang, 'routes.ideal')}{r.ideal} {t(lang, 'routes.nights')}</span>
       </button>
     ))}
+    <button type="button" role="tab" class="rt card rcmp" data-r="cmp" aria-selected="false">
+      <span class="rl cmpi" aria-hidden="true">◎</span>
+      <span class="rn">{t(lang, 'routes.compareTab')}</span>
+      <span class="small muted">{t(lang, 'routes.allRoutes')}</span>
+    </button>
   </div>
 
   {R.map((r, i) => {
@@ -132,23 +138,41 @@ const modeLabel = (m: string) => t(lang, `mode.${m}` as UIKey);
     );
   })}
 
-  <h2 class="cmpt">{t(lang, 'routes.compare')}</h2>
-  <div class="cmpwrap card">
-    <table class="cmp">
-      <thead><tr><th>{t(lang, 'routes.route')}</th><th>{t(lang, 'routes.cities')}</th><th>{t(lang, 'routes.transfers')}</th><th>{t(lang, 'routes.flights')}</th><th>{t(lang, 'routes.ideal')}</th></tr></thead>
-      <tbody>
-        {R.map((r) => {
-          const { dom, flights } = info(r);
-          return (
-            <tr>
-              <th><button type="button" class="cmpbtn" data-r={r.id}><span class="rl" style={`--rc:${r.col}`}>{r.id}</span> {typeof r.name === 'string' ? <bdi lang="en">{r.name}</bdi> : <T v={r.name} lang={lang} />}</button></th>
-              <td>{r.s14.length}</td><td>{dom.length}</td><td>{flights}</td><td>{r.ideal} {t(lang, 'routes.nights')}</td>
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
-  </div>
+  <section class="rpanel" data-r="cmp" hidden aria-label={t(lang, 'routes.compareTab')}>
+    <div class="mgrid">
+      {R.map((r) => {
+        const { dom, rec, flights } = info(r);
+        const order = r.s14.map(([c]) => c);
+        const n12 = Object.fromEntries(r.s12), n14 = Object.fromEntries(r.s14);
+        const tot = (st: [string, number][]) => st.reduce((a, [, n]) => a + n, 0);
+        const count = (m: string) => dom.filter((l) => rec(l).m === m).length;
+        const hours = Math.round(dom.reduce((a, l) => a + ((rec(l) as Mode & { h?: number }).h || 0), 0));
+        return (
+          <a class="mcard card" href={`#${r.id}`} data-go={r.id}>
+            <MiniMap stops={order} legs={r.legs} />
+            <h3><span class="rl" style={`--rc:${r.col}`}>{r.id}</span> {typeof r.name === 'string' ? <bdi lang="en">{r.name}</bdi> : <T v={r.name} lang={lang} />} <T v={r.tag} lang={lang} class="mtag" /></h3>
+            <ul class="mrows">
+              {order.map((c, k) => {
+                const leg = dom[k]; const m = leg && rec(leg);
+                return (
+                  <li>
+                    <span class="mc"><bdi lang="en"><b>{C[c].name}</b></bdi> <span class="zh" lang="zh">{C[c].zh}</span>
+                      <span class="muted small"> · <span class="bylen" data-len="12" hidden>{n12[c]}</span><span class="bylen" data-len="14">{n14[c]}</span> {t(lang, 'routes.nights')}</span></span>
+                    {m ? <span class={`mode ${m.m}`}><T v={m.t} lang={lang} /></span> : <span class="mode home">{t(lang, 'routes.home')}</span>}
+                  </li>
+                );
+              })}
+            </ul>
+            <p class="msum small"><b>{order.length} {t(lang, 'routes.cities')} · <span class="bylen" data-len="12" hidden>{tot(r.s12)}</span><span class="bylen" data-len="14">{tot(r.s14)}</span> {t(lang, 'routes.nights')}</b></p>
+            <div class="mtiles">
+              <div><b>{flights > 0 && <>{flights} {t(lang, 'mode.flight')}</>}{flights > 0 && (count('train') || count('boat') || count('car')) ? ' · ' : ''}{count('train') > 0 && <>{count('train')} {t(lang, 'mode.train')}</>}{(count('boat') + count('car')) > 0 && <> · {count('boat') + count('car')} {t(lang, 'mode.boat')}</>}</b><span>{t(lang, 'routes.transfers')}</span></div>
+              <div><b>{t(lang, 'routes.about')}{hours} {t(lang, 'routes.hours')}</b><span>{t(lang, 'routes.netTravel')}</span></div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </section>
 </Base>
 
 <script>
@@ -162,7 +186,7 @@ const modeLabel = (m: string) => t(lang, `mode.${m}` as UIKey);
     if (scroll) document.querySelector('.rtabs')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
   document.querySelectorAll<HTMLElement>('.rt').forEach((b) => b.addEventListener('click', () => show(b.dataset.r!)));
-  document.querySelectorAll<HTMLElement>('.cmpbtn').forEach((b) => b.addEventListener('click', () => show(b.dataset.r!, true)));
+  document.querySelectorAll<HTMLElement>('.mcard').forEach((b) => b.addEventListener('click', (e) => { e.preventDefault(); show(b.dataset.go!, true); }));
   const h = location.hash.slice(1);
   if (h && document.querySelector(`.rpanel[data-r="${h}"]`)) show(h);
 
@@ -185,7 +209,7 @@ const modeLabel = (m: string) => t(lang, `mode.${m}` as UIKey);
   .seg button { border: 0; background: none; min-height: 36px; padding: 0 16px; border-radius: 999px; font-weight: 700; font-size: 14px; color: var(--muted); cursor: pointer; }
   .seg button.on { background: var(--forest); color: var(--on-forest); }
 
-  .rtabs { display: grid; grid-template-columns: repeat(5, minmax(150px, 1fr)); gap: 10px; overflow-x: auto; padding: 4px 2px 12px; scroll-margin-top: 12px; }
+  .rtabs { display: grid; grid-template-columns: repeat(6, minmax(140px, 1fr)); gap: 10px; overflow-x: auto; padding: 4px 2px 12px; scroll-margin-top: 12px; }
   .rt { border: 2px solid transparent; text-align: start; padding: 12px; display: flex; flex-direction: column; gap: 4px; cursor: pointer; color: var(--ink); }
   .rt[aria-selected='true'] { border-color: var(--forest); }
   .rl { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; background: var(--rc); color: #fff; font: 700 16px var(--f-head); }
@@ -241,15 +265,26 @@ const modeLabel = (m: string) => t(lang, `mode.${m}` as UIKey);
   .pc ul { margin: 6px 0 0; padding-inline-start: 18px; font-size: 14px; display: grid; gap: 4px; }
   .best { margin: 14px 0 6px; }
 
-  .cmpt { margin: 36px 0 12px; font-size: 24px; }
-  .cmpwrap { overflow-x: auto; }
-  .cmp { width: 100%; border-collapse: collapse; font-size: 14px; }
-  .cmp th, .cmp td { padding: 10px 12px; text-align: start; border-bottom: 1px solid var(--sage-l); white-space: nowrap; }
-  .cmp thead th { color: var(--muted); font-weight: 700; font-size: 12px; }
-  .cmpbtn { border: 0; background: none; font: 700 14px var(--f-body); color: var(--ink); cursor: pointer; display: flex; align-items: center; gap: 8px; padding: 0; }
+  .rcmp .cmpi { background: var(--sage-l); color: var(--forest); }
+  .mgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 16px; }
+  .mcard { min-width: 0; padding: 10px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; align-content: start; color: var(--ink); text-decoration: none; }
+  .mcard:hover { outline: 2px solid var(--forest); }
+  .mcard h3 { font-size: 18px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+  .mtag { font-size: 12px; font-weight: 700; color: var(--terra-ink); background: var(--terra-l); padding: 2px 8px; border-radius: 999px; }
+  .mrows { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; font-size: 14px; }
+  .mrows li { min-width: 0; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .mc { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .mc .zh { color: var(--muted); }
+  .mrows .mode { flex: none; max-width: 55%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .mode.home { background: var(--sage-l); color: var(--muted); }
+  .msum { margin: 2px 0 0; }
+  .mtiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .mtiles div { background: var(--bg); border-radius: 12px; padding: 8px 10px; display: grid; gap: 2px; }
+  .mtiles b { font: 700 15px var(--f-head); color: var(--forest); }
+  .mtiles span { font-size: 12px; color: var(--muted); }
 
   @media (max-width: 899px) {
-    .rtabs { grid-template-columns: repeat(5, 150px); }
+    .rtabs { grid-template-columns: repeat(6, 140px); }
     .rgrid { grid-template-columns: 1fr; }
     .pc { grid-template-columns: 1fr; }
     .mapcol { position: static; }
