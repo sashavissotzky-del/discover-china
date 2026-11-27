@@ -1,52 +1,183 @@
 ---
-// Map of one route: light China map + lines between cities (style by transport) + numbered city dots.
+// Map of one route, with a guided "play" mode like the dashboard: the map zooms to each transfer,
+// draws its line and shows where you go, by what and for how long. Back / Play / Next buttons.
 import cities from '../data/cities.json';
 import transport from '../data/transport.json';
-import type { Lang } from '../i18n/ui';
+import { t, type Lang, type UIKey } from '../i18n/ui';
+import { tx, type Text } from '../lib/content';
 
-interface Props { stops: string[]; legs: string[]; label: string; lang: Lang }
-const { stops, legs, label } = Astro.props;
-const C = cities as Record<string, { name: string; map: { x: number; y: number; dx: number; dy: number; anchor: string }; color: string }>;
-const L = transport.legs as Record<string, { from: string; to: string; intl?: number; modes: { m: string; rec?: number }[] }>;
+interface Props { id: string; stops: string[]; legs: string[]; label: string; lang: Lang }
+const { id, stops, legs, label, lang } = Astro.props;
+type City = { name: string; zh: string; map: { x: number; y: number; dx: number; dy: number; anchor: string }; color: string };
+const C = cities as Record<string, City>;
+type Mode = { m: string; t?: Text; rec?: number; flag?: Text };
+const L = transport.legs as Record<string, { from: string; to: string; intl?: number; modes: Mode[] }>;
 const color: Record<string, string> = { flight: '#9E5238', train: '#34483E', boat: '#467495', car: '#467495' };
+const dash: Record<string, string | undefined> = { flight: '2 9', train: undefined, boat: '10 6', car: '10 6' };
+
+const box = (pts: { x: number; y: number }[], pad: number, min: number) => {
+  const xs = pts.map((p) => p.x), ys = pts.map((p) => p.y);
+  const size = Math.max(min, Math.max(...xs) - Math.min(...xs) + pad * 2, Math.max(...ys) - Math.min(...ys) + pad * 2);
+  const cx = (Math.min(...xs) + Math.max(...xs)) / 2, cy = (Math.min(...ys) + Math.max(...ys)) / 2;
+  return [cx - size / 2, cy - size / 2, size, size].map(Math.round).join(' ');
+};
 
 const lines = legs
-  .map((id) => L[id])
+  .map((k) => L[k])
   .filter((l) => l && !l.intl && C[l.from] && C[l.to])
-  .map((l) => {
-    const m = (l.modes.find((x) => x.rec) || l.modes[0]).m;
+  .map((l, i) => {
+    const m = l.modes.find((x) => x.rec) || l.modes[0];
     const a = C[l.from].map, b = C[l.to].map;
-    // a gentle curve, so flights and train lines don't overlap with straight edges
+    // a gentle curve, so lines don't overlap with straight edges
     const mx = (a.x + b.x) / 2 - (b.y - a.y) * 0.12, my = (a.y + b.y) / 2 + (b.x - a.x) * 0.12;
-    return { d: `M${a.x},${a.y} Q${mx},${my} ${b.x},${b.y}`, m };
+    return {
+      i, m: m.m, d: `M${a.x},${a.y} Q${mx},${my} ${b.x},${b.y}`, box: box([a, b], 70, 170),
+      from: C[l.from].name, to: C[l.to].name, time: tx(m.t, lang), flag: tx(m.flag, lang),
+      mode: t(lang, `mode.${m.m}` as UIKey),
+    };
   });
+const all = box(stops.map((s) => C[s].map), 90, 260);
+const uid = `rm${id}`;
 ---
-<div class="rmap" role="img" aria-label={label}>
-  <img src="/map/china.svg" alt="" width="760" height="760" loading="lazy" />
-  <svg viewBox="0 0 760 760" aria-hidden="true">
-    {lines.map((l) => (
-      <path d={l.d} fill="none" stroke={color[l.m]} stroke-width="4" stroke-linecap="round"
-        stroke-dasharray={l.m === 'flight' ? '2 9' : l.m === 'train' ? undefined : '10 6'} />
-    ))}
-    {Object.entries(C).filter(([id]) => !stops.includes(id)).map(([, c]) => (
-      <circle cx={c.map.x} cy={c.map.y} r="5" fill="#B9B3A4" />
-    ))}
-    {stops.map((id, i) => {
-      const c = C[id];
-      return (
-        <g>
-          <circle cx={c.map.x} cy={c.map.y} r="12" fill={c.color} stroke="#fff" stroke-width="3" />
-          <text x={c.map.x} y={c.map.y + 4.5} text-anchor="middle" class="n">{i + 1}</text>
-          <text x={c.map.x + c.map.dx * 1.6} y={c.map.y + c.map.dy * 1.6 + 4} text-anchor={c.map.anchor} class="lbl">{c.name}</text>
-        </g>
-      );
-    })}
-  </svg>
+<div class="rmapw" data-rmap data-all={all} data-boxes={JSON.stringify(lines.map((l) => l.box))}>
+  <div class="gbar">
+    <div class="gcap" aria-live="polite">
+      <p class="cap on" data-step="-1"><b>{t(lang, 'routes.whole')}</b> <span class="tm">· {lines.length} {t(lang, 'routes.transfers')}</span></p>
+      {lines.map((l) => (
+        <p class="cap" data-step={l.i}>
+          <span class="sn">{l.i + 1}/{lines.length}</span>
+          <span class={`mode ${l.m}`}>{l.mode}</span>
+          <b><bdi lang="en">{l.from}</bdi> {t(lang, 'arrow.fwd')} <bdi lang="en">{l.to}</bdi></b>
+          {l.time && <span class="tm">{l.time}</span>}
+          {l.flag && <span class="flag">{l.flag}</span>}
+        </p>
+      ))}
+    </div>
+    <div class="gbtns">
+      <button type="button" class="gb prev" aria-label={t(lang, 'routes.prev')}>{t(lang, 'arrow.back')}</button>
+      <button type="button" class="gb play" data-play={t(lang, 'routes.play')} data-pause={t(lang, 'routes.pause')}>{t(lang, 'routes.play')}</button>
+      <button type="button" class="gb next" aria-label={t(lang, 'routes.next')}>{t(lang, 'arrow.fwd')}</button>
+    </div>
+  </div>
+
+  <div class="rmap" role="img" aria-label={label}>
+    <svg viewBox={all} preserveAspectRatio="xMidYMid meet">
+      <image href="/map/china.svg" x="0" y="0" width="760" height="760" />
+      <defs>
+        {lines.map((l) => (
+          <mask id={`${uid}m${l.i}`} maskUnits="userSpaceOnUse" x="0" y="0" width="760" height="760">
+            <path class="mk" d={l.d} pathLength="1" fill="none" stroke="#fff" stroke-width="14" stroke-dasharray="1 1" stroke-dashoffset="0" />
+          </mask>
+        ))}
+      </defs>
+      {lines.map((l) => (
+        <path class="leg" d={l.d} fill="none" stroke={color[l.m]} stroke-width="4" stroke-linecap="round" vector-effect="non-scaling-stroke"
+          stroke-dasharray={dash[l.m]} mask={`url(#${uid}m${l.i})`} />
+      ))}
+      {Object.entries(C).filter(([cid]) => !stops.includes(cid)).map(([, c]) => <g class="mk-g" data-x={c.map.x} data-y={c.map.y} transform={`translate(${c.map.x} ${c.map.y})`}><circle r="4" fill="#B9B3A4" /></g>)}
+      {stops.map((cid, i) => {
+        const c = C[cid];
+        return (
+          <g class="mk-g" data-x={c.map.x} data-y={c.map.y} transform={`translate(${c.map.x} ${c.map.y})`}>
+            <circle r="12" fill={c.color} stroke="#fff" stroke-width="3" />
+            <text y="4.5" text-anchor="middle" class="n">{i + 1}</text>
+            <text x={c.map.dx * 1.4} y={c.map.dy * 1.4 + 4} text-anchor={c.map.anchor} class="lbl">{c.name}</text>
+          </g>
+        );
+      })}
+    </svg>
+  </div>
 </div>
+
+<script>
+  const ease = (p: number) => (p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2);
+
+  function setup(root: HTMLElement) {
+    const svg = root.querySelector('svg')!;
+    const legs = [...root.querySelectorAll<SVGPathElement>('path.leg')];
+    const masks = [...root.querySelectorAll<SVGPathElement>('path.mk')];
+    const caps = [...root.querySelectorAll<HTMLElement>('.cap')];
+    const playBtn = root.querySelector<HTMLButtonElement>('.play')!;
+    const boxes: string[] = JSON.parse(root.dataset.boxes || '[]');
+    let step = -1, playing = false, timer = 0, vbAnim = 0, drawAnim = 0;
+
+    // Keep dots, numbers and names the same size on screen when the map zooms in.
+    const marks = [...root.querySelectorAll<SVGGElement>('.mk-g')];
+    const baseW = Number(root.dataset.all!.split(' ')[2]);
+    const setVB = (vb: number[]) => {
+      svg.setAttribute('viewBox', vb.map((v) => v.toFixed(1)).join(' '));
+      const k = vb[2] / baseW;
+      marks.forEach((g) => g.setAttribute('transform', `translate(${g.dataset.x} ${g.dataset.y}) scale(${k.toFixed(3)})`));
+    };
+    const flyTo = (target: string, ms = 800) => {
+      cancelAnimationFrame(vbAnim);
+      const from = svg.getAttribute('viewBox')!.split(' ').map(Number), to = target.split(' ').map(Number), t0 = performance.now();
+      const run = (now: number) => {
+        const p = Math.min(1, (now - t0) / ms), e = ease(p);
+        setVB(from.map((v, k) => v + (to[k] - v) * e));
+        if (p < 1) vbAnim = requestAnimationFrame(run);
+      };
+      vbAnim = requestAnimationFrame(run);
+    };
+    const show = (i: number) => {
+      step = i;
+      caps.forEach((c) => c.classList.toggle('on', Number(c.dataset.step) === i));
+      cancelAnimationFrame(drawAnim);
+      // whole route: all lines; a step: earlier lines faded, current line drawn, later lines hidden
+      masks.forEach((m, k) => m.setAttribute('stroke-dashoffset', i < 0 || k < i ? '0' : '1'));
+      legs.forEach((l, k) => l.classList.toggle('dim', i >= 0 && k < i));
+      if (i < 0) { flyTo(root.dataset.all!); return; }
+      flyTo(boxes[i]);
+      const t0 = performance.now() + 450;
+      const run = (now: number) => {
+        const p = Math.max(0, Math.min(1, (now - t0) / 1600));
+        masks[i].setAttribute('stroke-dashoffset', String(1 - ease(p)));
+        if (p < 1) drawAnim = requestAnimationFrame(run);
+      };
+      drawAnim = requestAnimationFrame(run);
+    };
+    const stop = () => {
+      playing = false; clearTimeout(timer);
+      playBtn.textContent = playBtn.dataset.play!; playBtn.classList.remove('on');
+    };
+    const play = () => {
+      playing = true; playBtn.textContent = playBtn.dataset.pause!; playBtn.classList.add('on');
+      let i = step < 0 || step >= legs.length - 1 ? 0 : step + 1;
+      const tick = () => {
+        if (!playing) return;
+        show(i); i++;
+        if (i < legs.length) timer = window.setTimeout(tick, 3400);
+        else timer = window.setTimeout(() => { stop(); show(-1); }, 3200);
+      };
+      tick();
+    };
+    playBtn.addEventListener('click', () => (playing ? stop() : play()));
+    root.querySelector('.next')!.addEventListener('click', () => { stop(); show(Math.min(legs.length - 1, step + 1)); });
+    root.querySelector('.prev')!.addEventListener('click', () => { stop(); show(Math.max(-1, step - 1)); });
+    root.addEventListener('rmap:reset', () => { stop(); show(-1); });
+  }
+  document.querySelectorAll<HTMLElement>('[data-rmap]').forEach(setup);
+</script>
+
 <style>
+  .rmapw { display: grid; gap: 8px; }
+  .gbar { display: flex; align-items: center; gap: 10px; background: var(--card); box-shadow: var(--shadow); border-radius: 14px; padding: 8px 10px; }
+  .gcap { flex: 1; min-width: 0; }
+  .cap { display: none; margin: 0; font-size: 14px; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+  .cap.on { display: flex; }
+  .sn { color: var(--muted); font-size: 12px; font-weight: 700; }
+  .tm { color: var(--muted); }
+  .mode { font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 999px; color: #fff; }
+  .mode.train { background: #34483E; } .mode.flight { background: #9E5238; } .mode.boat, .mode.car { background: #467495; }
+  .flag { font-size: 12px; font-weight: 700; color: var(--terra-ink); background: var(--terra-l); padding: 1px 8px; border-radius: 999px; }
+  .gbtns { display: flex; gap: 6px; flex: none; }
+  .gb { min-width: 40px; min-height: 40px; border: 0; border-radius: 999px; background: var(--sage-l); color: var(--forest); font: 700 16px var(--f-body); cursor: pointer; }
+  .gb.play { padding: 0 16px; background: var(--forest); color: var(--on-forest); font-size: 14px; }
   .rmap { position: relative; aspect-ratio: 1; background: #F3F0E8; border-radius: var(--radius); overflow: hidden; }
-  .rmap img, .rmap svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .rmap svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .leg { transition: opacity .3s; }
+  .leg.dim { opacity: .35; }
   .n { fill: #fff; font: 700 13px var(--f-head); }
-  .lbl { fill: #343A36; font: 700 17px var(--f-body); paint-order: stroke; stroke: #F3F0E8; stroke-width: 4px; }
-  @media (prefers-color-scheme: dark) { .rmap img { filter: brightness(.9); } }
+  .lbl { fill: #343A36; font: 700 16px var(--f-body); paint-order: stroke; stroke: #F3F0E8; stroke-width: 4px; }
+  @media (max-width: 599px) { .gbar { flex-direction: column; align-items: stretch; } .gbtns { justify-content: center; } }
 </style>

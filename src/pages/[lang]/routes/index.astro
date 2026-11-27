@@ -58,11 +58,7 @@ const modeLabel = (m: string) => t(lang, `mode.${m}` as UIKey);
       <section class="rpanel" data-r={r.id} hidden={i !== 0} aria-label={`${t(lang, 'routes.route')} ${r.id}`}>
         <div class="rgrid">
           <div class="mapcol">
-            {(['12', '14'] as const).map((len) => (
-              <div class="bylen" data-len={len} hidden={len !== '14'}>
-                <RouteMap stops={(len === '12' ? r.s12 : r.s14).map(([c]) => c)} legs={r.legs} lang={lang} label={`${t(lang, 'routes.map')} ${r.id}`} />
-              </div>
-            ))}
+            <RouteMap id={r.id} stops={r.s14.map(([c]) => c)} legs={r.legs} lang={lang} label={`${t(lang, 'routes.map')} ${r.id}`} />
             <ul class="legend small muted">
               <li><i class="lg tr"></i>{modeLabel('train')}</li><li><i class="lg fl"></i>{modeLabel('flight')}</li><li><i class="lg bo"></i>{modeLabel('boat')} / {modeLabel('car')}</li>
             </ul>
@@ -152,7 +148,10 @@ const modeLabel = (m: string) => t(lang, `mode.${m}` as UIKey);
 
 <script>
   const show = (id: string, scroll = false) => {
-    document.querySelectorAll<HTMLElement>('.rpanel').forEach((p) => (p.hidden = p.dataset.r !== id));
+    document.querySelectorAll<HTMLElement>('.rpanel').forEach((p) => {
+      if (!p.hidden && p.dataset.r !== id) p.querySelector('[data-rmap]')?.dispatchEvent(new Event('rmap:reset'));
+      p.hidden = p.dataset.r !== id;
+    });
     document.querySelectorAll<HTMLElement>('.rt').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.r === id)));
     history.replaceState(null, '', '#' + id);
     if (scroll) document.querySelector('.rtabs')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
