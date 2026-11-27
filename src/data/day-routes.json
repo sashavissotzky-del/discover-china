@@ -1,0 +1,482 @@
+{
+ "bj": [
+  {
+   "label": {
+    "he": "יום 1",
+    "en": null
+   },
+   "summary": "Tiananmen Square {天安门广场} → Forbidden City {故宫} → Jingshan Park {景山公园} → evening on Wangfujing {王府井} → back to hotel",
+   "stops": [
+    "HOTEL",
+    "Tiananmen Square, Beijing",
+    "The Palace Museum, Beijing",
+    "Jingshan Park, Beijing",
+    "Wangfujing Street, Beijing",
+    "HOTEL"
+   ],
+   "mode": "walking",
+   "extra": {}
+  },
+  {
+   "label": {
+    "he": "יום 2",
+    "en": null
+   },
+   "summary": "Great Wall at Mutianyu {慕田峪长城}: chairlift up, walk the wall, toboggan down → back to hotel",
+   "stops": [
+    "HOTEL",
+    "Mutianyu Great Wall",
+    "HOTEL"
+   ],
+   "mode": "driving",
+   "extra": {
+    "T": 1,
+    "note": {
+     "he": "יום מחוץ לעיר · כשעה וחצי לכל כיוון ברכב",
+     "en": null
+    }
+   }
+  },
+  {
+   "label": {
+    "he": "יום 3",
+    "en": null
+   },
+   "summary": "Summer Palace {颐和园} in the morning, from the North Palace Gate → rickshaw through the hutongs: Shichahai {什刹海} & Nanluoguxiang {南锣鼓巷} → evening at Qianmen {前门} → back to hotel",
+   "stops": [
+    "HOTEL",
+    "Summer Palace, Beijing",
+    "Shichahai Houhai Beijing",
+    "Nanluoguxiang, Beijing",
+    "Qianmen Street, Beijing",
+    "HOTEL"
+   ],
+   "mode": "driving",
+   "extra": {}
+  },
+  {
+   "label": {
+    "he": "יום 4",
+    "en": null
+   },
+   "summary": "Temple of Heaven {天坛} in the morning → Olympic Park {奥林匹克公园} → Sanlitun {三里屯} → back to hotel",
+   "stops": [
+    "HOTEL",
+    "Temple of Heaven, Beijing",
+    "Bird's Nest National Stadium Beijing",
+    "Sanlitun, Beijing",
+    "HOTEL"
+   ],
+   "mode": "driving",
+   "extra": {}
+  }
+ ],
+ "gz": [
+  {
+   "label": {
+    "he": "ערב הנחיתה",
+    "en": null
+   },
+   "summary": "Rest at the hotel → Beijing Road {北京路} → Pearl River night cruise from Tianzi Wharf {天字码头} → back to hotel",
+   "stops": [
+    "HOTEL",
+    "北京路步行街 广州",
+    "Tianzi Wharf, Guangzhou",
+    "HOTEL"
+   ],
+   "mode": "walking",
+   "extra": {
+    "L": 1
+   }
+  },
+  {
+   "label": {
+    "he": "יום 2",
+    "en": null
+   },
+   "summary": "Dim sum breakfast → Chen Clan Ancestral Hall {陈家祠} → Yongqingfang {永庆坊} → Shamian Island {沙面} → rest at the hotel → Canton Tower {广州塔} at sunset → Haixin Bridge {海心桥} → back to hotel",
+   "stops": [
+    "HOTEL",
+    "Chen Clan Ancestral Hall, Guangzhou",
+    "Yongqingfang, Guangzhou",
+    "Shamian Island, Guangzhou",
+    "HOTEL",
+    "Canton Tower",
+    "HOTEL"
+   ],
+   "mode": "driving",
+   "extra": {}
+  }
+ ],
+ "gl": [
+  {
+   "label": {
+    "he": "יום 1",
+    "en": null
+   },
+   "summary": "Elephant Trunk Hill {象鼻山} → Dongxi Xiang {东西巷} → Zhengyang Street {正阳步行街} → night cruise on the Two Rivers & Four Lakes {两江四湖} → back to hotel",
+   "stops": [
+    "HOTEL",
+    "Elephant Trunk Hill, Guilin",
+    "东西巷 桂林",
+    "Riyue Shuangta Guilin",
+    "HOTEL"
+   ],
+   "mode": "walking",
+   "extra": {}
+  },
+  {
+   "label": {
+    "he": "יום טיול",
+    "en": null
+   },
+   "summary": "Day trip: Longji Rice Terraces {龙脊梯田} — Ping'an village {平安寨} viewpoints → back to Guilin",
+   "stops": [
+    "HOTEL",
+    "Longji Rice Terraces",
+    "HOTEL"
+   ],
+   "mode": "driving",
+   "extra": {
+    "T": 1,
+    "X": 1,
+    "note": {
+     "he": "יום טיול מחוץ לעיר · כשעתיים לכל כיוון ברכב (אומדן)",
+     "en": null
+    }
+   }
+  }
+ ],
+ "ys": [
+  {
+   "label": {
+    "he": "יום 1",
+    "en": null
+   },
+   "summary": "Li River cruise {漓江} from Mopanshan Pier {磨盘山码头} → check in → evening on West Street {西街}",
+   "stops": [
+    "Mopanshan Pier Li River Cruise",
+    "HOTEL"
+   ],
+   "mode": "driving",
+   "extra": {}
+  },
+  {
+   "label": {
+    "he": "יום 2",
+    "en": null
+   },
+   "summary": "Bamboo raft on the Yulong River {遇龙河}, the quiet stretch Xiatang Pier {夏棠码头} → Jima Pier {骥马码头} → e-bike or cycling through the villages {十里画廊} → evening: Golden Dragon Parade {金龙巡游} at Yulong Bridge {遇龙桥} → back to hotel",
+   "stops": [
+    "HOTEL",
+    "Yulonghe Xiatang Wharf",
+    "HOTEL"
+   ],
+   "mode": "driving",
+   "extra": {
+    "dow": [
+     5,
+     6
+    ],
+    "dowLbl": {
+     "he": "🐉 שישי או שבת: עם המופע",
+     "en": null
+    },
+    "rn": {
+     "he": "מבוסס על המלצות מטיילים ב־RedNote: הקטע השקט של הרפסודה, ובערב 金龙巡游 (בדרך כלל רק בשישי ובשבת). המופע ב־遇龙桥, כחצי שעה מ־West Street. ב־Google המיקום של הגשר לא מדויק, לנווט ב־Amap.",
+     "en": null
+    },
+    "alt": [
+     {
+      "he": "יום 2",
+      "en": null
+     },
+     "Bamboo raft on the Yulong River {遇龙河}, the quiet stretch Xiatang Pier {夏棠码头} → Jima Pier {骥马码头} → e-bike or cycling through the villages {十里画廊} → sunset at the Qianli Jiangshan viewpoint {千里江山图} (free) → dinner at Wangjianglou {望江楼餐吧} by West Street → back to hotel",
+     [
+      "HOTEL",
+      "Yulonghe Xiatang Wharf",
+      "望江楼餐吧 阳朔",
+      "HOTEL"
+     ],
+     "driving",
+     {
+      "dowLbl": {
+       "he": "🌅 בשאר הימים: בלי המופע",
+       "en": null
+      },
+      "rn": {
+       "he": "מבוסס על המלצות מטיילים ב־RedNote: שקיעה בתצפית 千里江山图 (בחינם), וארוחה בלי דגים ב־望江楼餐吧. ב־Amap לחפש 千里江山图大型水墨画打卡地.",
+       "en": null
+      }
+     }
+    ]
+   }
+  },
+  {
+   "label": {
+    "he": "יום 3",
+    "en": null
+   },
+   "summary": "Xingping {兴坪} → the 20-yuan note viewpoint {二十元人民币背景} → bamboo raft on the most scenic stretch of the Li River → back to hotel",
+   "stops": [
+    "HOTEL",
+    "Xingping, Yangshuo",
+    "HOTEL"
+   ],
+   "mode": "driving",
+   "extra": {
+    "T": 1,
+    "note": {
+     "he": "כשעה לכל כיוון ברכב (אומדן)",
+     "en": null
+    }
+   }
+  },
+  {
+   "label": {
+    "he": "יום טיול",
+    "en": null
+   },
+   "summary": "Day trip: Longji Rice Terraces {龙脊梯田} — Ping'an village {平安寨} viewpoints → back to Yangshuo",
+   "stops": [
+    "HOTEL",
+    "Longji Rice Terraces",
+    "HOTEL"
+   ],
+   "mode": "driving",
+   "extra": {
+    "T": 1,
+    "X": 1,
+    "note": {
+     "he": "יום טיול ארוך · כ־3 שעות לכל כיוון ברכב (אומדן). קל יותר מ־Guilin",
+     "en": null
+    }
+   }
+  }
+ ],
+ "ckg": [
+  {
+   "label": {
+    "he": "יום 1",
+    "en": null
+   },
+   "summary": "Jiefangbei {解放碑} → Shibati {十八梯} → Hongyadong {洪崖洞} lit up at night → back to hotel",
+   "stops": [
+    "HOTEL",
+    "Jiefangbei, Chongqing",
+    "Shibati, Chongqing",
+    "Hongyadong, Chongqing",
+    "HOTEL"
+   ],
+   "mode": "walking",
+   "extra": {}
+  },
+  {
+   "label": {
+    "he": "יום 2",
+    "en": null
+   },
+   "summary": "Liziba {李子坝} (train through the building) → Eling Park {鹅岭公园} & Eling Second Factory {鹅岭二厂} → Ciqikou {磁器口} → evening: Yangtze River Cableway {长江索道} and night cruise from Chaotianmen {朝天门} → back to hotel",
+   "stops": [
+    "HOTEL",
+    "Liziba Station, Chongqing",
+    "Eling Park, Chongqing",
+    "Ciqikou Ancient Town, Chongqing",
+    "Yangtze River Cableway, Chongqing",
+    "Chaotianmen, Chongqing",
+    "HOTEL"
+   ],
+   "mode": "driving",
+   "extra": {}
+  },
+  {
+   "label": {
+    "he": "יום טיול",
+    "en": null
+   },
+   "summary": "Day trip: Wulong Karst {武隆} — Three Natural Bridges {天生三桥} → back to Chongqing",
+   "stops": [
+    "HOTEL",
+    "Three Natural Bridges, Wulong",
+    "HOTEL"
+   ],
+   "mode": "driving",
+   "extra": {
+    "T": 1,
+    "X": 1,
+    "note": {
+     "he": "יום טיול מחוץ לעיר · כ־3 שעות לכל כיוון (אומדן)",
+     "en": null
+    }
+   }
+  }
+ ],
+ "zjj": [
+  {
+   "label": {
+    "he": "יום הגעה",
+    "en": null
+   },
+   "summary": "Arrive → transfer to Wulingyuan {武陵源} → check in and rest → evening on Xibu Street {溪布街} → back to hotel",
+   "stops": [
+    "HOTEL",
+    "Xibu Street, Zhangjiajie",
+    "HOTEL"
+   ],
+   "mode": "walking",
+   "extra": {
+    "A": 1
+   }
+  },
+  {
+   "label": {
+    "he": "יום 1",
+    "en": null
+   },
+   "summary": "Forest Park at opening → Bailong Elevator {百龙天梯} up → Yuanjiajie {袁家界} (the “Avatar” peaks: Mihuntai {迷魂台}, Hallelujah Mountain {乾坤柱}, First Bridge Under Heaven {天下第一桥}) → park shuttle bus to Tianzi Mountain {天子山} → Tianzi cable car down → back to hotel",
+   "stops": [
+    "HOTEL",
+    "Bailong Elevator, Zhangjiajie",
+    "天子山 张家界",
+    "HOTEL"
+   ],
+   "mode": "driving",
+   "extra": {}
+  },
+  {
+   "label": {
+    "he": "יום 2",
+    "en": null
+   },
+   "summary": "Check out → taxi to Zhangjiajie city {张家界市区} → Tianmen Mountain {天门山}: cable car, Tianmen Cave, cliff walkways → night in the city near Zhangjiajie West station {张家界西}",
+   "stops": [
+    "HOTEL",
+    "Tianmen Mountain Cableway, Zhangjiajie"
+   ],
+   "mode": "driving",
+   "extra": {
+    "T": 1,
+    "note": {
+     "he": "היום עוברים לישון בעיר Zhangjiajie, כ־40 דק׳ מ־Wulingyuan, ליד תחנת Zhangjiajie West (למשל JI Hotel Tianmen). כרגע פועל רק מסלול C (נכון ל־3.11.2026)",
+     "en": null
+    }
+   }
+  },
+  {
+   "label": {
+    "he": "יום טיול",
+    "en": null
+   },
+   "summary": "Golden Whip Stream {金鞭溪} → easy valley walk from the Forest Park gate → back to hotel",
+   "stops": [
+    "HOTEL",
+    "金鞭溪 张家界",
+    "HOTEL"
+   ],
+   "mode": "walking",
+   "extra": {
+    "X": 1,
+    "pre": 1,
+    "note": {
+     "he": "בתוך הפארק, אותו כרטיס · כחצי יום",
+     "en": null
+    }
+   }
+  },
+  {
+   "label": {
+    "he": "יום טיול",
+    "en": null
+   },
+   "summary": "Day trip: Grand Canyon & Glass Bridge {张家界大峡谷玻璃桥} → back to hotel",
+   "stops": [
+    "HOTEL",
+    "Zhangjiajie Glass Bridge",
+    "HOTEL"
+   ],
+   "mode": "driving",
+   "extra": {
+    "T": 1,
+    "X": 1,
+    "note": {
+     "he": "יום טיול מחוץ לאזור · כשעה לכל כיוון מ־Wulingyuan (אומדן)",
+     "en": null
+    }
+   }
+  }
+ ],
+ "sh": [
+  {
+   "label": {
+    "he": "יום 1",
+    "en": null
+   },
+   "summary": "Nanjing Road {南京路} → The Bund {外滩} → North Bund {北外滩} at sunset → back to hotel",
+   "stops": [
+    "HOTEL",
+    "Nanjing Road Pedestrian Street, Shanghai",
+    "The Bund, Shanghai",
+    "North Bund, Shanghai",
+    "HOTEL"
+   ],
+   "mode": "walking",
+   "extra": {}
+  },
+  {
+   "label": {
+    "he": "יום 2",
+    "en": null
+   },
+   "summary": "Yu Garden {豫园} → Lujiazui {陆家嘴}: Oriental Pearl Tower {东方明珠} & Shanghai Tower {上海中心} → evening in Xintiandi {新天地} & Tianzifang {田子坊} → back to hotel",
+   "stops": [
+    "HOTEL",
+    "Yu Garden, Shanghai",
+    "Oriental Pearl Tower",
+    "Shanghai Tower",
+    "Xintiandi, Shanghai",
+    "Tianzifang, Shanghai",
+    "HOTEL"
+   ],
+   "mode": "driving",
+   "extra": {}
+  },
+  {
+   "label": {
+    "he": "יום 3",
+    "en": null
+   },
+   "summary": "West Nanjing Road {南京西路} → Jing'an Temple {静安寺} → Huaihai Road {淮海路} → Wukang Road {武康路} → back to hotel",
+   "stops": [
+    "HOTEL",
+    "West Nanjing Road, Shanghai",
+    "Jing'an Temple, Shanghai",
+    "淮海中路 陕西南路 上海",
+    "Wukang Mansion, Shanghai",
+    "HOTEL"
+   ],
+   "mode": "driving",
+   "extra": {}
+  },
+  {
+   "label": {
+    "he": "יום טיול",
+    "en": null
+   },
+   "summary": "Day trip: Zhujiajiao water town {朱家角} — canals, stone bridges, boat ride → back to Shanghai",
+   "stops": [
+    "HOTEL",
+    "Zhujiajiao, Shanghai",
+    "HOTEL"
+   ],
+   "mode": "transit",
+   "extra": {
+    "T": 1,
+    "X": 1,
+    "note": {
+     "he": "יום טיול מחוץ לעיר · כשעתיים במטרו (קו 17) ואוטובוס, או כ־70 דק׳ במונית",
+     "en": null
+    }
+   }
+  }
+ ]
+}

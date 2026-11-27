@@ -1,0 +1,230 @@
+{
+ "cityOrder": [
+  "bj",
+  "gz",
+  "gl",
+  "ys",
+  "ckg",
+  "zjj",
+  "sh"
+ ],
+ "fx": {
+  "usd": 3.2167,
+  "cny": 0.4977,
+  "cnyD": "20.11.2026",
+  "cnySrc": "Wise, שער אמצע"
+ },
+ "categories": {
+  "sight": {
+   "he": "🏛 אתרים",
+   "en": null
+  },
+  "nature": {
+   "he": "⛰ טבע",
+   "en": null
+  },
+  "fun": {
+   "he": "🎢 חוויות",
+   "en": null
+  },
+  "food": {
+   "he": "🛍 רחובות מומלצים",
+   "en": null
+  },
+  "taste": {
+   "he": "🥢 חובה לטעום",
+   "en": null
+  }
+ },
+ "stopImages": {
+  "Longji Rice Terraces": "gl_longji",
+  "Dongxi Xiang": "gl_alley",
+  "Xibu Street": "zjj_xibu",
+  "20-yuan note view": "ys_xingping",
+  "Ten-Mile Gallery": "ys_moon",
+  "Mopanshan Pier": "ys2",
+  "Jiefangbei": "ckg_jfb",
+  "Eling Park": "ckg_eling",
+  "Nanluoguxiang": "bj_nlgx",
+  "Olympic Park": "bj_oly",
+  "Zhujiajiao": "sh_zjj"
+ },
+ "stopIconColors": {
+  "⛴": "#467495",
+  "🛶": "#467495",
+  "⛰": "#52795A",
+  "🏞": "#52795A",
+  "🌳": "#52795A",
+  "🌾": "#52795A",
+  "🏔": "#52795A",
+  "🕳": "#52795A",
+  "🐘": "#52795A",
+  "🥾": "#52795A",
+  "🪜": "#52795A",
+  "🏨": "#34483E",
+  "🚕": "#34483E",
+  "🚗": "#34483E",
+  "🛵": "#34483E",
+  "🚲": "#34483E",
+  "🚡": "#34483E",
+  "🚝": "#34483E",
+  "🛗": "#34483E",
+  "🛺": "#34483E",
+  "🚪": "#34483E",
+  "🍜": "#94703A",
+  "🛍": "#94703A",
+  "🛒": "#94703A",
+  "💴": "#94703A",
+  "🏯": "#8A6A9E",
+  "🏮": "#8A6A9E",
+  "🏘": "#8A6A9E",
+  "🐉": "#8A6A9E",
+  "🎭": "#8A6A9E",
+  "🏛": "#8A6A9E",
+  "🧱": "#8A6A9E",
+  "⛩": "#8A6A9E",
+  "🛕": "#8A6A9E",
+  "🏰": "#8A6A9E",
+  "🗼": "#8A6A9E",
+  "🌉": "#8A6A9E",
+  "🏙": "#8A6A9E",
+  "🏟": "#8A6A9E",
+  "🌃": "#9E5238",
+  "🌙": "#9E5238",
+  "🌅": "#9E5238",
+  "🌇": "#9E5238",
+  "✨": "#9E5238",
+  "🎢": "#9E5238",
+  "🎟": "#9E5238"
+ },
+ "mapInsets": {
+  "Zhangjiajie Forest Park": [
+   "zjj_bailong",
+   {
+    "he": "מעלית Bailong",
+    "en": null
+   }
+  ],
+  "Li River Cruise": [
+   "ys_xingping",
+   {
+    "he": "שטר 20 היואן",
+    "en": null
+   }
+  ]
+ },
+ "allPlacesQuery": {
+  "sh": [
+   "HOTEL",
+   "Nanjing Road Pedestrian Street, Shanghai",
+   "The Bund, Shanghai",
+   "North Bund, Shanghai",
+   "Yu Garden, Shanghai",
+   "Oriental Pearl Tower",
+   "Shanghai Tower",
+   "Xintiandi, Shanghai",
+   "Tianzifang, Shanghai",
+   "West Nanjing Road, Shanghai",
+   "HOTEL"
+  ],
+  "ckg": [
+   "HOTEL",
+   "Jiefangbei, Chongqing",
+   "Hongyadong, Chongqing",
+   "Liziba Station, Chongqing",
+   "Eling Park, Chongqing",
+   "Ciqikou Ancient Town, Chongqing",
+   "Yangtze River Cableway, Chongqing",
+   "Chaotianmen, Chongqing",
+   "Three Natural Bridges, Wulong",
+   "HOTEL"
+  ],
+  "zjj": [
+   "HOTEL",
+   "金鞭溪 张家界",
+   "Bailong Elevator, Zhangjiajie",
+   "天子山 张家界",
+   "Xibu Street, Zhangjiajie",
+   "Tianmen Mountain Cableway, Zhangjiajie",
+   "HOTEL"
+  ],
+  "gl": [
+   "HOTEL",
+   "Elephant Trunk Hill, Guilin",
+   "东西巷 桂林",
+   "Riyue Shuangta Guilin",
+   "Longji Rice Terraces",
+   "Mopanshan Pier Li River Cruise",
+   "West Street, Yangshuo",
+   "HOTEL"
+  ],
+  "ys": [
+   "HOTEL",
+   "Mopanshan Pier Li River Cruise",
+   "Yulong River, Yangshuo",
+   "Moon Hill, Yangshuo",
+   "印象刘三姐剧场",
+   "Xingping, Yangshuo",
+   "HOTEL"
+  ],
+  "gz": [
+   "HOTEL",
+   "北京路步行街 广州",
+   "Tianzi Wharf, Guangzhou",
+   "Shamian Island, Guangzhou",
+   "Guangzhou South Railway Station",
+   "HOTEL"
+  ]
+ },
+ "bookingLabels": {
+  "fl": {
+   "he": "✈ טיסות",
+   "en": null
+  },
+  "ht": {
+   "he": "🛏 מלונות",
+   "en": null
+  },
+  "tr": {
+   "he": "🚄 רכבות",
+   "en": null
+  },
+  "mv": {
+   "he": "⛴ שיט והסעות",
+   "en": null
+  },
+  "tk": {
+   "he": "🎟 כרטיסים",
+   "en": null
+  },
+  "pr": {
+   "he": "📋 הכנות",
+   "en": null
+  }
+ },
+ "bookingColors": {
+  "fl": "#9E5238",
+  "ht": "#3F6E8C",
+  "tr": "#7A5BA6",
+  "mv": "#2F8F8A",
+  "tk": "#B0874A",
+  "pr": "#8C8C8C"
+ },
+ "bookingFilters": {
+  "fl": 1,
+  "ht": 1,
+  "tr": 1,
+  "mv": 1,
+  "tk": 1,
+  "dl": 1
+ },
+ "hebrewWeekdays": [
+  "א׳",
+  "ב׳",
+  "ג׳",
+  "ד׳",
+  "ה׳",
+  "ו׳",
+  "ש׳"
+ ]
+}

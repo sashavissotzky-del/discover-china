@@ -1,0 +1,723 @@
+{
+ "legs": {
+  "tlv_gz": {
+   "from": "TLV",
+   "to": "gz",
+   "intl": 1,
+   "modes": [
+    {
+     "m": "flight",
+     "n": {
+      "he": "Tel Aviv → Guangzhou 广州 (CAN), עצירה אחת",
+      "en": null
+     },
+     "t": {
+      "he": "14–17 שעות, כולל עצירה",
+      "en": null
+     },
+     "st": "TLV → Dubai / Abu Dhabi → Guangzhou (CAN)",
+     "rec": 1,
+     "steps": [
+      {
+       "he": "Emirates דרך Dubai, Ethiopian דרך Addis Ababa, או Etihad דרך Abu Dhabi (קו יומי מ־4.3.2027).",
+       "en": null
+      },
+      {
+       "he": "נוחתים וישנים לילה ב־Guangzhou כדי לנוח מהטיסה הארוכה. ממשיכים רק למחרת בבוקר.",
+       "en": null
+      },
+      {
+       "he": "מהשדה למלון באזור Beijing Road 北京路: מונית או DiDi, כ־45–60 דק׳.",
+       "en": null
+      }
+     ]
+    }
+   ]
+  },
+  "gz_gl": {
+   "from": "gz",
+   "to": "gl",
+   "modes": [
+    {
+     "m": "train",
+     "n": {
+      "he": "רכבת מהירה (G/D)",
+      "en": null
+     },
+     "t": {
+      "he": "בין שעתיים ל־3 שעות",
+      "en": null
+     },
+     "h": 2.4,
+     "st": "Guangzhou South 广州南 → Guilin North 桂林北",
+     "rec": 1,
+     "pp": 186,
+     "steps": [
+      {
+       "he": "יוצאים בבוקר, אחרי לילה של מנוחה. כ־60 זוגות רכבות ביום, ומחלקה שנייה עולה כ־¥186 (נבדק).",
+       "en": null
+      },
+      {
+       "he": "מ־Beijing Road לתחנת Guangzhou South: מטרו או מונית, כ־40 דק׳ (אומדן).",
+       "en": null
+      },
+      {
+       "he": "מהתחנה ל־Zhengyang St 正阳步行街: מונית כ־25 דק׳.",
+       "en": null
+      }
+     ]
+    }
+   ]
+  },
+  "gl_ys": {
+   "from": "gl",
+   "to": "ys",
+   "modes": [
+    {
+     "m": "boat",
+     "n": {
+      "he": "שיט בנהר Li River 漓江",
+      "en": null
+     },
+     "t": {
+      "he": "4 עד 4 וחצי שעות",
+      "en": null
+     },
+     "h": 1.1,
+     "st": "Mopanshan Pier 磨盘山码头 → Yangshuo 阳朔",
+     "rec": 1,
+     "car": 400,
+     "steps": [
+      {
+       "he": "השיט עצמו הוא החוויה, ובסופו מגיעים ליאנגשואו. זה הנוף שמופיע על שטר 20 היואן.",
+       "en": null
+      },
+      {
+       "he": "המזוודות נשלחות ברכב נפרד (כ־¥400, כלול בחישוב).",
+       "en": null
+      },
+      {
+       "he": "מחיר השיט לא נבדק ולא כלול. חלופה מהירה: רכב של כשעה, או רכבת של 25 דק׳ ועוד כשעה מונית.",
+       "en": null
+      }
+     ]
+    }
+   ]
+  },
+  "ys_ckg": {
+   "from": "ys",
+   "to": "ckg",
+   "modes": [
+    {
+     "m": "train",
+     "n": {
+      "he": "רכב לתחנה + רכבת מהירה",
+      "en": null
+     },
+     "t": {
+      "he": "שעה ורבע ברכב + כ־4 שעות ברכבת",
+      "en": null
+     },
+     "h": 4.1,
+     "st": "Yangshuo 阳朔 → 🚐 → Guilin West 桂林西 → 🚄 → Chongqing West 重庆西",
+     "rec": 1,
+     "pp": 315,
+     "car": 350,
+     "flag": {
+      "he": "גבולי",
+      "en": null
+     },
+     "steps": [
+      {
+       "he": "רכב מ־West Street לתחנת Guilin West 桂林西, כשעה ורבע.",
+       "en": null
+      },
+      {
+       "he": "רכבת מומלצת: G3722, 09:42→13:44. יורדים ב־Chongqing West 重庆西.",
+       "en": null
+      },
+      {
+       "he": "מחלקה שנייה כ־¥315 לאדם (נבדק 17.11.26).",
+       "en": null
+      },
+      {
+       "he": "מהתחנה ל־Jiefangbei 解放碑: מונית, כ־30–40 דק׳.",
+       "en": null
+      },
+      {
+       "he": "חלופה: טיסה KWL→CKG, כשעה וחצי.",
+       "en": null
+      }
+     ]
+    }
+   ]
+  },
+  "ckg_zjj": {
+   "from": "ckg",
+   "to": "zjj",
+   "modes": [
+    {
+     "m": "train",
+     "n": {
+      "he": "רכבת מהירה",
+      "en": null
+     },
+     "t": {
+      "he": "כשעתיים וחצי",
+      "en": null
+     },
+     "h": 2.5,
+     "st": "Chongqing East 重庆东 → Zhangjiajie West 张家界西",
+     "rec": 1,
+     "pp": 215,
+     "steps": [
+      {
+       "he": "מ־Jiefangbei 解放碑 לתחנת Chongqing East 重庆东: מונית, כ־30–40 דק׳. לא Chongqing West או North.",
+       "en": null
+      },
+      {
+       "he": "רכבת מומלצת: G2445, 09:52→11:58. יורדים ב־Zhangjiajie West 张家界西.",
+       "en": null
+      },
+      {
+       "he": "מחלקה שנייה ¥190–235 לאדם (נבדק 17.11.26).",
+       "en": null
+      },
+      {
+       "he": "מהתחנה ל־Wulingyuan 武陵源: רכב, 40–50 דק׳.",
+       "en": null
+      }
+     ]
+    }
+   ]
+  },
+  "zjj_ckg": {
+   "from": "zjj",
+   "to": "ckg",
+   "modes": [
+    {
+     "m": "train",
+     "n": {
+      "he": "רכבת מהירה",
+      "en": null
+     },
+     "t": {
+      "he": "כשעתיים וחצי",
+      "en": null
+     },
+     "h": 2.5,
+     "st": "Zhangjiajie West 张家界西 → Chongqing East 重庆东",
+     "rec": 1,
+     "pp": 215,
+     "steps": [
+      {
+       "he": "מהמלון בעיר Zhangjiajie לתחנת Zhangjiajie West 张家界西: מונית, כ־10–15 דק׳ (אומדן). אם לנים ב־Wulingyuan: רכב, 40–50 דק׳.",
+       "en": null
+      },
+      {
+       "he": "רכבת מומלצת: G2450, 09:55→12:07. יורדים ב־Chongqing East 重庆东 (לא West או North, שם הנסיעה ארוכה בשעה).",
+       "en": null
+      },
+      {
+       "he": "מחלקה שנייה ¥197–235 לאדם (נבדק 17.11.26).",
+       "en": null
+      },
+      {
+       "he": "מהתחנה ל־Jiefangbei 解放碑: מונית, כ־30–40 דק׳.",
+       "en": null
+      }
+     ]
+    }
+   ]
+  },
+  "zjj_sh": {
+   "from": "zjj",
+   "to": "sh",
+   "modes": [
+    {
+     "m": "flight",
+     "n": {
+      "he": "טיסת פנים",
+      "en": null
+     },
+     "t": {
+      "he": "כשעתיים וחצי",
+      "en": null
+     },
+     "h": 2.5,
+     "st": "Zhangjiajie (DYG) → Shanghai (PVG / SHA)",
+     "rec": 1,
+     "pp": 1185,
+     "steps": [
+      {
+       "he": "1–2 טיסות ביום. בחיפוש הקודם נמצא מחיר של כ־$177 לאדם.",
+       "en": null
+      },
+      {
+       "he": "לישון את הלילה האחרון בעיר Zhangjiajie. משם 15 דק׳ לשדה.",
+       "en": null
+      }
+     ]
+    }
+   ]
+  },
+  "tlv_bj": {
+   "from": "TLV",
+   "to": "bj",
+   "intl": 1,
+   "modes": [
+    {
+     "m": "flight",
+     "n": "Tel Aviv → Beijing 北京",
+     "t": {
+      "he": "10–11 שעות בטיסה ישירה · 14–17 שעות עם עצירה",
+      "en": null
+     },
+     "st": "TLV → Beijing (PEK / PKX)",
+     "rec": 1,
+     "steps": [
+      {
+       "he": "Hainan ישירה כשהקו פועל. אחרת Etihad דרך Abu Dhabi (יומית) או Lufthansa דרך Frankfurt.",
+       "en": null
+      },
+      {
+       "he": "מהשדה ל־Wangfujing 王府井: 40–60 דק׳.",
+       "en": null
+      }
+     ]
+    }
+   ]
+  },
+  "bj_ckg": {
+   "from": "bj",
+   "to": "ckg",
+   "modes": [
+    {
+     "m": "flight",
+     "n": {
+      "he": "טיסת פנים",
+      "en": null
+     },
+     "t": {
+      "he": "כ־3 שעות",
+      "en": null
+     },
+     "h": 3,
+     "st": "Beijing (PEK) → Chongqing Jiangbei (CKG)",
+     "rec": 1,
+     "pp": 2090,
+     "steps": [
+      {
+       "he": "הרבה טיסות ביום. בחיפוש הקודם נמצא מחיר של כ־$312 לאדם.",
+       "en": null
+      },
+      {
+       "he": "מ־CKG ל־Jiefangbei 解放碑: כ־40 דק׳.",
+       "en": null
+      }
+     ]
+    }
+   ]
+  },
+  "bj_zjj": {
+   "from": "bj",
+   "to": "zjj",
+   "modes": [
+    {
+     "m": "flight",
+     "n": {
+      "he": "טיסת פנים · Air China",
+      "en": null
+     },
+     "t": {
+      "he": "כשעתיים ו־40 דקות",
+      "en": null
+     },
+     "h": 2.7,
+     "st": "Beijing Capital (PEK) → Zhangjiajie (DYG)",
+     "rec": 1,
+     "pp": 1400,
+     "steps": [
+      {
+       "he": "Air China, כ־7 טיסות בשבוע (נבדק).",
+       "en": null
+      },
+      {
+       "he": "מ־DYG ל־Wulingyuan: כ־50 דק׳.",
+       "en": null
+      }
+     ]
+    }
+   ]
+  },
+  "zjj_gl": {
+   "from": "zjj",
+   "to": "gl",
+   "modes": [
+    {
+     "m": "train",
+     "n": {
+      "he": "רכבת ישירה D3967 · אחת ביום",
+      "en": null
+     },
+     "t": {
+      "he": "כ־7 שעות · רכבת אחת ביום, יוצאת בבוקר",
+      "en": null
+     },
+     "h": 7,
+     "st": "Zhangjiajie West 张家界西 → Guilin North 桂林北",
+     "rec": 1,
+     "pp": 342,
+     "flag": {
+      "he": "מעבר גדול",
+      "en": null
+     },
+     "steps": [
+      {
+       "he": "רכבת ישירה אחת ביום. מחלקה שנייה ¥342 (נבדק לאוקטובר 2026). לוחות הזמנים משתנים כמה פעמים בשנה.",
+       "en": null
+      },
+      {
+       "he": "יציאה מוקדמת, לכן כדאי לישון את הלילה לפני בעיר Zhangjiajie, 15 דק׳ מהתחנה.",
+       "en": null
+      },
+      {
+       "he": "אין טיסה ישירה. חלופה בטיסה דרך Changsha או Shanghai, אבל היא לא חוסכת הרבה זמן.",
+       "en": null
+      }
+     ]
+    }
+   ]
+  },
+  "ckg_gl": {
+   "from": "ckg",
+   "to": "gl",
+   "modes": [
+    {
+     "m": "train",
+     "n": {
+      "he": "רכבת מהירה",
+      "en": null
+     },
+     "t": {
+      "he": "כ־4 שעות",
+      "en": null
+     },
+     "h": 4,
+     "st": "Chongqing West 重庆西 → Guilin West 桂林西",
+     "rec": 1,
+     "pp": 315,
+     "steps": [
+      {
+       "he": "מ־Jiefangbei 解放碑 לתחנת Chongqing West 重庆西: מונית, כ־30–40 דק׳.",
+       "en": null
+      },
+      {
+       "he": "רכבת מומלצת: G3723, 10:06→13:49. יורדים ב־Guilin West 桂林西.",
+       "en": null
+      },
+      {
+       "he": "מחלקה שנייה כ־¥315 לאדם (נבדק 17.11.26).",
+       "en": null
+      },
+      {
+       "he": "מהתחנה ל־Zhengyang St 正阳步行街: מונית, כ־25–30 דק׳.",
+       "en": null
+      },
+      {
+       "he": "חלופה: טיסה CKG→KWL, כשעה וחצי.",
+       "en": null
+      }
+     ]
+    }
+   ]
+  },
+  "ys_sh": {
+   "from": "ys",
+   "to": "sh",
+   "modes": [
+    {
+     "m": "flight",
+     "n": {
+      "he": "רכב לשדה + טיסה",
+      "en": null
+     },
+     "t": {
+      "he": "שעה ורבע ברכב + שעתיים ורבע טיסה",
+      "en": null
+     },
+     "h": 2.4,
+     "st": "Yangshuo 阳朔 → 🚐 → Guilin Airport (KWL) → ✈ → Shanghai (PVG)",
+     "rec": 1,
+     "pp": 1540,
+     "car": 350,
+     "steps": [
+      {
+       "he": "79–84 ק״מ לשדה.",
+       "en": null
+      },
+      {
+       "he": "בחיפוש הקודם נמצא מחיר של כ־$230 לאדם.",
+       "en": null
+      }
+     ]
+    }
+   ]
+  },
+  "sh_tlv": {
+   "from": "sh",
+   "to": "TLV",
+   "intl": 1,
+   "modes": [
+    {
+     "m": "flight",
+     "n": {
+      "he": "Shanghai → Tel Aviv, עצירה אחת",
+      "en": null
+     },
+     "t": {
+      "he": "14–17 שעות, כולל עצירה",
+      "en": null
+     },
+     "st": "PVG → Abu Dhabi → TLV (Etihad)",
+     "rec": 1,
+     "steps": [
+      {
+       "he": "מ־The Bund ל־PVG: כשעה. להגיע 3 שעות לפני הטיסה.",
+       "en": null
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "matrix": {
+  "sh-bj": {
+   "m": "train",
+   "t": {
+    "he": "בין 4 וחצי ל־6 שעות",
+    "en": null
+   },
+   "h": 4.3,
+   "ok": "b"
+  },
+  "sh-ckg": {
+   "m": "flight",
+   "t": {
+    "he": "כ־3 שעות",
+    "en": null
+   },
+   "h": 2.9,
+   "ok": true
+  },
+  "sh-zjj": {
+   "m": "flight",
+   "t": {
+    "he": "כשעתיים וחצי",
+    "en": null
+   },
+   "h": 2.5,
+   "ok": true
+  },
+  "sh-gl": {
+   "m": "flight",
+   "t": {
+    "he": "כשעתיים וחצי",
+    "en": null
+   },
+   "h": 2.5,
+   "ok": true
+  },
+  "sh-ys": {
+   "m": "flight",
+   "t": {
+    "he": "שעתיים וחצי טיסה + שעה ורבע ברכב",
+    "en": null
+   },
+   "h": 2.5,
+   "ok": true
+  },
+  "sh-gz": {
+   "m": "flight",
+   "t": {
+    "he": "כשעתיים וחצי",
+    "en": null
+   },
+   "h": 2.5,
+   "ok": true
+  },
+  "bj-ckg": {
+   "m": "flight",
+   "t": {
+    "he": "כ־3 שעות",
+    "en": null
+   },
+   "h": 3,
+   "ok": true
+  },
+  "bj-zjj": {
+   "m": "flight",
+   "t": {
+    "he": "כשעתיים ו־40 דקות",
+    "en": null
+   },
+   "h": 2.7,
+   "ok": true
+  },
+  "bj-gl": {
+   "m": "flight",
+   "t": {
+    "he": "כ־3 שעות",
+    "en": null
+   },
+   "h": 3,
+   "ok": true
+  },
+  "bj-ys": {
+   "m": "flight",
+   "t": {
+    "he": "3 שעות טיסה + שעה ורבע ברכב",
+    "en": null
+   },
+   "h": 3,
+   "ok": true
+  },
+  "bj-gz": {
+   "m": "flight",
+   "t": {
+    "he": "כ־3 שעות",
+    "en": null
+   },
+   "h": 3,
+   "ok": true
+  },
+  "ckg-zjj": {
+   "m": "train",
+   "t": {
+    "he": "כשעתיים",
+    "en": null
+   },
+   "h": 2.2,
+   "ok": true
+  },
+  "ckg-gl": {
+   "m": "train",
+   "t": {
+    "he": "בין 4 ל־5 שעות",
+    "en": null
+   },
+   "h": 3.9,
+   "ok": true
+  },
+  "ckg-ys": {
+   "m": "train",
+   "t": {
+    "he": "שעה ברכב + כ־4 שעות ברכבת",
+    "en": null
+   },
+   "h": 3.9,
+   "ok": "b"
+  },
+  "ckg-gz": {
+   "m": "flight",
+   "t": {
+    "he": "כשעתיים",
+    "en": null
+   },
+   "h": 2,
+   "ok": true
+  },
+  "zjj-gl": {
+   "m": "train",
+   "t": {
+    "he": "כ־7 שעות · רכבת אחת ביום",
+    "en": null
+   },
+   "h": 7,
+   "ok": false
+  },
+  "zjj-ys": {
+   "m": "train",
+   "t": {
+    "he": "7 שעות ברכבת + שעה ברכב",
+    "en": null
+   },
+   "h": 8,
+   "ok": false
+  },
+  "zjj-gz": {
+   "m": "train",
+   "t": {
+    "he": "5–6 שעות",
+    "en": null
+   },
+   "h": 5.5,
+   "ok": false
+  },
+  "gl-ys": {
+   "m": "car",
+   "t": {
+    "he": "כשעה",
+    "en": null
+   },
+   "h": 1.1,
+   "ok": true
+  },
+  "gl-gz": {
+   "m": "train",
+   "t": {
+    "he": "בין שעתיים ל־3 שעות",
+    "en": null
+   },
+   "h": 2.4,
+   "ok": true
+  },
+  "ys-gz": {
+   "m": "train",
+   "t": {
+    "he": "שעתיים עד שעתיים וחצי",
+    "en": null
+   },
+   "h": 2.2,
+   "ok": true
+  }
+ },
+ "modes": {
+  "color": {
+   "flight": "#9E5238",
+   "train": "#34483E",
+   "boat": "#467495",
+   "car": "#467495"
+  },
+  "cssClass": {
+   "flight": "fl",
+   "train": "tr",
+   "boat": "bo",
+   "car": "bo"
+  },
+  "label": {
+   "flight": {
+    "he": "✈ טיסה",
+    "en": null
+   },
+   "train": {
+    "he": "🚄 רכבת",
+    "en": null
+   },
+   "boat": {
+    "he": "⛴ שיט",
+    "en": null
+   },
+   "car": {
+    "he": "🚐 רכב",
+    "en": null
+   }
+  },
+  "icon": {
+   "flight": "✈",
+   "train": "🚄",
+   "car": "🚐",
+   "boat": "⛴"
+  }
+ }
+}

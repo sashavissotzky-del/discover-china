@@ -1,0 +1,593 @@
+{
+ "verifiedLocation": {
+  "Renaissance Beijing Wangfujing Hotel": [
+   "Renaissance Beijing Wangfujing Hotel",
+   "39.921223,116.41007"
+  ],
+  "Park Plaza Beijing Wangfujing": [
+   "Park Plaza Beijing Wangfujing",
+   "39.9167113,116.4197461"
+  ],
+  "Hilton Beijing Wangfujing": [
+   "Hilton Beijing Wangfujing",
+   "39.9151125,116.4135558"
+  ],
+  "Youfang Hotel": [
+   "Youfang Hotel Beijing",
+   "39.914293,116.406503"
+  ],
+  "Happy Dragon Garden Courtyard (Lama Temple)": [
+   "Happy Dragon Garden Courtyard",
+   "39.944751,116.418217"
+  ],
+  "Sunworld Hotel Beijing": [
+   "Sunworld Hotel Beijing Wangfujing",
+   "39.9181454,116.4132595"
+  ],
+  "Grand Hyatt Beijing at Oriental Plaza": [
+   "Grand Hyatt Beijing Oriental Plaza",
+   "39.909802,116.414521"
+  ],
+  "Grand Hotel Beijing": [
+   "Grand Hotel Beijing",
+   "39.9085059,116.4076379"
+  ],
+  "Regent Beijing": [
+   "Regent Beijing",
+   "39.916229,116.418934"
+  ],
+  "Mercure Guangzhou Beijing Road Pedestrian Street": [
+   "Mercure Guangzhou Beijing Road Pedestrian Street",
+   "23.120691,113.26933"
+  ],
+  "Gionee Light Guangzhou Beijing Road": [
+   "广州市越秀区北京路182号",
+   "23.12079,113.26928"
+  ],
+  "CityNote Hotel (Beijing Road)": [
+   "CityNote Hotel Beijing Road Pedestrian Guangzhou",
+   "23.122529,113.266779"
+  ],
+  "White Swan Hotel": [
+   "White Swan Hotel Guangzhou",
+   "23.105743,113.242973"
+  ],
+  "Conrad Guangzhou": [
+   "Conrad Guangzhou",
+   "23.115843,113.3326563"
+  ],
+  "Rosewood Guangzhou": [
+   "Rosewood Guangzhou",
+   "23.1173761,113.3260492"
+  ],
+  "Atour Hotel (Two Rivers & Four Lakes)": [
+   "Guilin Central Plaza of Two Rivers and Four Lakes, Atour Hotel",
+   "25.280312,110.304184"
+  ],
+  "Holiday Inn Express Guilin City Center": [
+   "Holiday Inn Express Guilin City Center",
+   "25.275808,110.296646"
+  ],
+  "GangShe Rooftop View Hotel": [
+   "Gangshe Hotel Guilin",
+   "25.278051,110.298166"
+  ],
+  "Xiangbishan Port House": [
+   "Xiangbishan Port House Guilin",
+   "25.276772,110.29569"
+  ],
+  "The Wing Hotel": [
+   "Wing Hotel Guilin Pedestrian Street",
+   "25.275238,110.299286"
+  ],
+  "Lijiang Letu Boutique Hotel (Dongxi Xiang)": [
+   "Letu Boutique Hotel Guilin",
+   "25.277242,110.293851"
+  ],
+  "Sheraton Guilin Hotel": [
+   "Sheraton Guilin Hotel",
+   "25.27399,110.29964"
+  ],
+  "Li River CIAO Hotel (Elephant Trunk Hill)": [
+   "GUILIN CIAO HOTEL",
+   "25.265392,110.30391"
+  ],
+  "Shangri-La Guilin": [
+   "Shangri-La Guilin",
+   "25.295517,110.307672"
+  ],
+  "Yangshuo Percent Hotel": [
+   "Percent Hotel Yangshuo",
+   "24.780641,110.49837"
+  ],
+  "Lijing Resort Hotel (West Street)": [
+   "Lijing Resort Yangshuo",
+   "24.77595,110.492836"
+  ],
+  "Yangshuo Yuyuan Resort (Yulong River)": [
+   "阳朔遇源景舍",
+   "24.7351147,110.4990608"
+  ],
+  "BO Hotel Yangshuo West Street": [
+   "BO Hotel Yangshuo West Street",
+   "24.779804,110.50011"
+  ],
+  "Orange Hotel (Yangshuo West Street)": [
+   "Orange Hotel Guilin Yangshuo West Street",
+   "24.77484,110.4886"
+  ],
+  "voco Guilin Yangshuo by IHG": [
+   "voco Guilin Yangshuo",
+   "24.724858,110.495925"
+  ],
+  "Shixi Landscape Hotel": [
+   "Shixi Landscape Hotel Yangshuo",
+   "24.774141,110.50552"
+  ],
+  "ASPERA High Garden Panoramic Hotel": [
+   "ASPERA HIGH-ALTITUDE GARDEN PANORAMIC HOTEL Chongqing",
+   "29.565958,106.58699"
+  ],
+  "Mercure Chongqing Jiefangbei Hongya Cave": [
+   "Mercure ChongQing Jiefangbei",
+   "29.555773,106.577705"
+  ],
+  "Niccolo Chongqing": [
+   "Niccolo Chongqing",
+   "29.5741849,106.5724146"
+  ],
+  "Qianhe Zhixuan High-View Hotel (Jiefangbei Hongyadong)": [
+   "Qianhe Zhixuan Gaokong Hotel Chongqing",
+   "29.56594,106.58889"
+  ],
+  "Holiday Riverside View Hotel Chongqing": [
+   "CHONGQING HOLIDAY RIVERVIEW HOTEL",
+   "29.567583,106.5851"
+  ],
+  "Country Inn & Suites by Radisson (Jiefangbei)": [
+   "Country Inn & Suites by Radisson Chongqing Jiefangbei",
+   "29.555925,106.574135"
+  ],
+  "The Lixury Hotel Chongqing (Unbound Collection by Hyatt)": [
+   "The Lixury Hotel Chongqing",
+   "29.558968,106.57789"
+  ],
+  "The Westin Chongqing Liberation Square": [
+   "The Westin Chongqing Liberation Square",
+   "29.5566,106.579919"
+  ],
+  "JW Marriott Hotel Chongqing": [
+   "JW Marriott Hotel Chongqing",
+   "29.556886,106.571024"
+  ],
+  "Wulingyuan Hotel": [
+   "Wulingyuan Hotel Zhangjiajie",
+   "29.350403,110.540199"
+  ],
+  "Pullman Zhangjiajie Wulingyuan": [
+   "Pullman Zhangjiajie",
+   "29.3440252,110.5413063"
+  ],
+  "JI Hotel Tianmen Mountain Cableway": [
+   "JI Hotel - Zhangjiajie Tianmen Mountain",
+   "29.104067,110.47348"
+  ],
+  "Yishu Yihua Inn (Forest Park Landmark)": [
+   "Yishu Yihua Inn Zhangjiajie",
+   "29.349895,110.55105"
+  ],
+  "Beian Qingshe Holiday Inn (Wulingyuan)": [
+   "Beian Qingshe Holiday Inn Zhangjiajie",
+   "29.343754,110.55099"
+  ],
+  "Manyuan Resort Hotel": [
+   "Manyuan Resort Hotel Zhangjiajie",
+   "29.34798,110.54061"
+  ],
+  "Hilton Garden Inn Zhangjiajie Wulingyuan": [
+   "Hilton Garden Inn Zhangjiajie Wulingyuan",
+   "29.342128,110.557407"
+  ],
+  "Zhangjiajie Celestial Valley": [
+   "Zhangjiajie Celestial Valley hotel",
+   "29.309591,110.51728"
+  ],
+  "Shanghai Elong Hotel": [
+   "Elong Hotel Shanghai Nanjing Road",
+   "31.2345419,121.4794793"
+  ],
+  "Crowne Plaza Shanghai Nanjing Road": [
+   "Crowne Plaza Shanghai Nanjing Road",
+   "31.2346466,121.4769781"
+  ],
+  "Atour Hotel Nanjing East Road, on the Bund": [
+   "上海市黄浦区福州路105号",
+   "31.23513,121.48827"
+  ],
+  "The Yitel Premium (People's Square Nanjing Road)": [
+   "Yitel Premium Shanghai Zhejiang Middle Road",
+   "31.235718,121.478035"
+  ],
+  "Waldorf Astoria Shanghai on the Bund": [
+   "Waldorf Astoria Shanghai on the Bund",
+   "31.233438,121.489849"
+  ],
+  "Fairmont Peace Hotel": [
+   "Fairmont Peace Hotel Shanghai",
+   "31.2390388,121.4895427"
+  ],
+  "Blossom House on the Bund": [
+   "Blossom House Shanghai on the Bund",
+   "31.229814,121.491921"
+  ],
+  "Shanghai Marriott Marquis City Centre": [
+   "Shanghai Marriott Marquis City Centre",
+   "31.236536,121.473374"
+  ],
+  "Yimi Hotel (Big Buddha Temple)": [
+   "广东广州越秀区府学西街81号",
+   "23.12428,113.27019"
+  ],
+  "Orange Hotel (Beijing Road)": [
+   "广东广州越秀区起义路139号侨力大厦4楼",
+   "23.11987,113.26403"
+  ],
+  "JI Hotel (Beijing Road Dade Road)": [
+   "广东广州越秀区大德路318号5楼",
+   "23.11790,113.26171"
+  ],
+  "Xitang River View Holiday Hotel": [
+   "广西阳朔抗战路3号",
+   "24.76812,110.49507"
+  ],
+  "Four Seasons Yunqi Resort (Yulong River)": [
+   "广西阳朔遇龙河景区骥马村33号",
+   "24.76913,110.46146"
+  ],
+  "Treasure Hotel": [
+   "上海黄浦区汉口路678号",
+   "31.23375,121.47776"
+  ]
+ },
+ "tripComId": {
+  "Renaissance Beijing Wangfujing Hotel": 1171705,
+  "Park Plaza Beijing Wangfujing": 425031,
+  "Hilton Beijing Wangfujing": 347308,
+  "Youfang Hotel": 2175163,
+  "Sunworld Hotel Beijing": 443694,
+  "Grand Hyatt Beijing at Oriental Plaza": 347426,
+  "Grand Hotel Beijing": 429158,
+  "Regent Beijing": 369700,
+  "Mercure Guangzhou Beijing Road Pedestrian Street": 110021953,
+  "Gionee Light Guangzhou Beijing Road": 123086781,
+  "CityNote Hotel (Beijing Road)": 50446754,
+  "Yimi Hotel (Big Buddha Temple)": 112040611,
+  "Orange Hotel (Beijing Road)": 122218557,
+  "JI Hotel (Beijing Road Dade Road)": 110424655,
+  "White Swan Hotel": 2382175,
+  "Conrad Guangzhou": 7530310,
+  "Rosewood Guangzhou": 45572060,
+  "Atour Hotel (Two Rivers & Four Lakes)": 86225381,
+  "Holiday Inn Express Guilin City Center": 29422206,
+  "GangShe Rooftop View Hotel": 2921527,
+  "Xiangbishan Port House": 452288,
+  "The Wing Hotel": 780923,
+  "Lijiang Letu Boutique Hotel (Dongxi Xiang)": 846621,
+  "Sheraton Guilin Hotel": 404795,
+  "Li River CIAO Hotel (Elephant Trunk Hill)": 70477064,
+  "Shangri-La Guilin": 397571,
+  "Yangshuo Percent Hotel": 437412,
+  "Lijing Resort Hotel (West Street)": 114055781,
+  "Yangshuo Yuyuan Resort (Yulong River)": 5897034,
+  "BO Hotel Yangshuo West Street": 80940699,
+  "Xitang River View Holiday Hotel": 659879,
+  "Orange Hotel (Yangshuo West Street)": 117012927,
+  "voco Guilin Yangshuo by IHG": 127626304,
+  "Shixi Landscape Hotel": 82628649,
+  "Four Seasons Yunqi Resort (Yulong River)": 24036581,
+  "ASPERA High Garden Panoramic Hotel": 78470411,
+  "Mercure Chongqing Jiefangbei Hongya Cave": 101052804,
+  "Niccolo Chongqing": 11290129,
+  "Qianhe Zhixuan High-View Hotel (Jiefangbei Hongyadong)": 103758568,
+  "Holiday Riverside View Hotel Chongqing": 29783584,
+  "Country Inn & Suites by Radisson (Jiefangbei)": 116722616,
+  "The Lixury Hotel Chongqing (Unbound Collection by Hyatt)": 33344529,
+  "The Westin Chongqing Liberation Square": 853869,
+  "JW Marriott Hotel Chongqing": 1502444,
+  "Wulingyuan Hotel": 533566,
+  "Pullman Zhangjiajie Wulingyuan": 430198,
+  "JI Hotel Tianmen Mountain Cableway": 128977265,
+  "Yishu Yihua Inn (Forest Park Landmark)": 18055296,
+  "Beian Qingshe Holiday Inn (Wulingyuan)": 22942205,
+  "Manyuan Resort Hotel": 39080925,
+  "Hilton Garden Inn Zhangjiajie Wulingyuan": 127627506,
+  "Muzitang Travel Photography Resort Hotel": 7000028,
+  "Zhangjiajie Celestial Valley": 122204206,
+  "Shanghai Elong Hotel": 72966849,
+  "Crowne Plaza Shanghai Nanjing Road": 375528,
+  "Atour Hotel Nanjing East Road, on the Bund": 444194,
+  "The Yitel Premium (People's Square Nanjing Road)": 16197084,
+  "Treasure Hotel": 122358729,
+  "Waldorf Astoria Shanghai on the Bund": 346395,
+  "Fairmont Peace Hotel": 375539,
+  "Shanghai Marriott Marquis City Centre": 345827,
+  "Happy Dragon Garden Courtyard (Lama Temple)": 122742099,
+  "Blossom House on the Bund": 69314532
+ },
+ "chineseName": {
+  "Shanghai Marriott Marquis City Centre": [
+   "上海雅居乐万豪侯爵酒店",
+   "上海黄浦区西藏中路555号"
+  ],
+  "Waldorf Astoria Shanghai on the Bund": [
+   "上海外滩华尔道夫酒店",
+   "上海黄浦区中山东一路2号"
+  ],
+  "Hilton Beijing Wangfujing": [
+   "北京王府井希尔顿酒店",
+   "北京东城区王府井东街8号"
+  ],
+  "Grand Hyatt Beijing at Oriental Plaza": [
+   "北京东方君悦大酒店",
+   "北京东城区长安街1号东方广场"
+  ],
+  "Regent Beijing": [
+   "北京丽晶酒店",
+   "北京东城区金宝街99号"
+  ],
+  "Crowne Plaza Shanghai Nanjing Road": [
+   "上海南新雅皇冠假日酒店",
+   "上海黄浦区南门九江路700号, 北门南京东路719号"
+  ],
+  "Fairmont Peace Hotel": [
+   "上海和平饭店",
+   "上海黄浦区南京东路20号"
+  ],
+  "Shangri-La Guilin": [
+   "桂林香格里拉酒店",
+   "广西桂林七星区环城北二路111号"
+  ],
+  "Sheraton Guilin Hotel": [
+   "桂林喜来登饭店(象鼻山两江四湖店)",
+   "广西桂林秀峰区滨江路15号"
+  ],
+  "Park Plaza Beijing Wangfujing": [
+   "北京丽亭酒店(王府井店)",
+   "北京东城区金宝街97号"
+  ],
+  "Grand Hotel Beijing": [
+   "北京贵宾楼饭店",
+   "北京东城区东长安街35号"
+  ],
+  "Pullman Zhangjiajie Wulingyuan": [
+   "张家界京武雅高铂尔曼酒店",
+   "湖南张家界武陵源区高云路188号"
+  ],
+  "Yangshuo Percent Hotel": [
+   "漓岸璞闲PERCENT HOTEL文旅酒店(阳朔西街漓江店)",
+   "广西阳朔滨江路37号 (漓江边)"
+  ],
+  "Sunworld Hotel Beijing": [
+   "北京王府井天伦松鹤大饭店",
+   "北京东城区灯市口大街88号"
+  ],
+  "Atour Hotel Nanjing East Road, on the Bund": [
+   "上海外滩南京东路亚朵酒店",
+   "上海黄浦区福州路105-1号"
+  ],
+  "Xiangbishan Port House": [
+   "象鼻山港舍City core漫步·城市中心酒店(桂林两江四湖店)",
+   "广西桂林秀峰区中山中路28号"
+  ],
+  "Wulingyuan Hotel": [
+   "张家界武陵源宾馆",
+   "湖南张家界武陵源区武陵大道192号"
+  ],
+  "Xitang River View Holiday Hotel": [
+   "喜糖·江景度假酒店(阳朔西街漓江店)",
+   "广西阳朔抗战路3号"
+  ],
+  "The Wing Hotel": [
+   "象山璞云酒店(桂林两江四湖东西巷店)",
+   "广西桂林秀峰区依仁路6-6号"
+  ],
+  "Lijiang Letu Boutique Hotel (Dongxi Xiang)": [
+   "漓江乐途酒店(桂林两江四湖象鼻山景区店)",
+   "广西桂林秀峰区三多路10号"
+  ],
+  "The Westin Chongqing Liberation Square": [
+   "重庆解放碑威斯汀酒店",
+   "重庆渝中区新华路222号"
+  ],
+  "Renaissance Beijing Wangfujing Hotel": [
+   "北京王府井金茂万丽酒店",
+   "北京东城区王府井大街57号"
+  ],
+  "JW Marriott Hotel Chongqing": [
+   "重庆JW万豪酒店",
+   "重庆渝中区民生路235号"
+  ],
+  "Youfang Hotel": [
+   "友方宾馆(北京天安门王府井店)",
+   "北京东城区南河沿大街5号"
+  ],
+  "White Swan Hotel": [
+   "广州白天鹅宾馆",
+   "广东广州荔湾区沙面南街1号"
+  ],
+  "GangShe Rooftop View Hotel": [
+   "港舍屋顶观景酒店(桂林两江四湖象鼻山店)",
+   "广西桂林秀峰区解放东路15号"
+  ],
+  "Yangshuo Yuyuan Resort (Yulong River)": [
+   "阳朔遇源景舍观景度假酒店(十里画廊遇龙河店)",
+   "广西阳朔十里画廊中段, 蝴蝶泉东南200米"
+  ],
+  "Muzitang Travel Photography Resort Hotel": [
+   "木子堂精品度假民宿(张家界国家森林公园店)",
+   "湖南张家界武陵源区军地坪街道吴家峪居委会三组044号"
+  ],
+  "Conrad Guangzhou": [
+   "广州康莱德酒店",
+   "广东广州天河区珠江新城兴民路222号"
+  ],
+  "Niccolo Chongqing": [
+   "重庆尼依格罗酒店",
+   "重庆两江新区庆云路1号国金中心1号楼"
+  ],
+  "The Yitel Premium (People's Square Nanjing Road)": [
+   "和颐至尊酒店(上海人民广场南京路步行街店)",
+   "上海黄浦区浙江中路379号4楼"
+  ],
+  "Yishu Yihua Inn (Forest Park Landmark)": [
+   "一树一花客栈(张家界国家森林公园标志门店)",
+   "湖南张家界武陵源区军邸路吴家峪社区"
+  ],
+  "Beian Qingshe Holiday Inn (Wulingyuan)": [
+   "北岸轻奢度假客栈(张家界武陵源森林公园店)",
+   "湖南张家界武陵源区军地坪街道办事处吴家峪居委会三组梓园路149-15号"
+  ],
+  "Four Seasons Yunqi Resort (Yulong River)": [
+   "四季云栖度假酒店(阳朔遇龙河千古情店)",
+   "广西阳朔遇龙河景区骥马村33号"
+  ],
+  "Holiday Inn Express Guilin City Center": [
+   "桂林智选假日酒店(象鼻山两江四湖店)",
+   "广西桂林秀峰区依仁路30号"
+  ],
+  "Holiday Riverside View Hotel Chongqing": [
+   "重庆 Holiday River View 假日江景酒店(解放碑洪崖洞店)",
+   "重庆渝中区沧白路73号永众国际大厦15层"
+  ],
+  "The Lixury Hotel Chongqing (Unbound Collection by Hyatt)": [
+   "重庆丽思瑞凯悦臻选酒店",
+   "重庆渝中区民族路188号WFC环球金融中心69层"
+  ],
+  "Manyuan Resort Hotel": [
+   "曼缘度假酒店(张家界国家森林公园标志门店)",
+   "湖南张家界武陵源区吴家峪居委会陆家坡国家森林公园武陵源标志门入口处"
+  ],
+  "Rosewood Guangzhou": [
+   "广州瑰丽酒店",
+   "广东广州天河区珠江东路6号广州周大福金融中心95层"
+  ],
+  "CityNote Hotel (Beijing Road)": [
+   "CityNote希诺酒店(广州北京路大佛寺公园前地铁站店)",
+   "广东广州越秀区西湖路81号"
+  ],
+  "Blossom House on the Bund": [
+   "上海外滩豫园花间堂",
+   "上海黄浦区人民路386号"
+  ],
+  "Li River CIAO Hotel (Elephant Trunk Hill)": [
+   "桂林漓江俏CIAO酒店(两江四湖象鼻山店)",
+   "广西桂林象山区安心南路安新路11号-610栋"
+  ],
+  "Shanghai Elong Hotel": [
+   "上海艺龙酒店",
+   "上海黄浦区九江路595号"
+  ],
+  "ASPERA High Garden Panoramic Hotel": [
+   "Aspera星萃高空花园全景酒店(解放碑洪崖洞店)",
+   "重庆渝中区解放碑街道民族路99号财汇广场A塔24楼"
+  ],
+  "BO Hotel Yangshuo West Street": [
+   "BO·泊酒店(阳朔西街景区漓江店)",
+   "广西阳朔阳朔西街C栋201-214号301-320号401-408号"
+  ],
+  "Shixi Landscape Hotel": [
+   "世熙天悦江景酒店(阳朔西街漓江店)",
+   "广西阳朔阳朔镇观莲路30号B栋"
+  ],
+  "Atour Hotel (Two Rivers & Four Lakes)": [
+   "桂林两江四湖象鼻山亚朵酒店",
+   "广西桂林秀峰区正阳路10号"
+  ],
+  "Mercure Chongqing Jiefangbei Hongya Cave": [
+   "重庆解放碑洪崖洞美居酒店",
+   "重庆渝中区民族路128-132号"
+  ],
+  "Qianhe Zhixuan High-View Hotel (Jiefangbei Hongyadong)": [
+   "千合智选高空酒店(洪崖洞店)",
+   "重庆渝中区筷子街2号21楼"
+  ],
+  "Mercure Guangzhou Beijing Road Pedestrian Street": [
+   "广州北京路步行街美居酒店",
+   "广东广州越秀区北京路182号"
+  ],
+  "JI Hotel (Beijing Road Dade Road)": [
+   "全季酒店(广州北京路步行街圣心大教堂店)",
+   "广东广州越秀区大德路318号5楼"
+  ],
+  "Yimi Hotel (Big Buddha Temple)": [
+   "逸米公寓(广州北京路步行街大佛寺店)",
+   "广东广州越秀区府学西街81号"
+  ],
+  "Lijing Resort Hotel (West Street)": [
+   "漓境度假酒店(阳朔漓江景区西街店)",
+   "广西阳朔叠翠路19号A幢"
+  ],
+  "Country Inn & Suites by Radisson (Jiefangbei)": [
+   "丽怡酒店(重庆解放碑步行街洪崖洞店)",
+   "重庆渝中区青年路77号7楼"
+  ],
+  "Orange Hotel (Yangshuo West Street)": [
+   "桔子酒店(桂林阳朔西街店)",
+   "广西阳朔碧莲巷2号"
+  ],
+  "Zhangjiajie Celestial Valley": [
+   "张家界空界民宿(森林公园景区店)",
+   "湖南张家界武陵源区板栗山东北侧"
+  ],
+  "Orange Hotel (Beijing Road)": [
+   "桔子酒店(广州北京路步行街海珠广场地铁站店)",
+   "广东广州越秀区起义路139号侨力大厦4楼"
+  ],
+  "Treasure Hotel": [
+   "上海人民广场南京东路步行街珍宝酒店",
+   "上海黄浦区汉口路678号"
+  ],
+  "Happy Dragon Garden Courtyard (Lama Temple)": [
+   "北京雍和宫孔庙和国子监博物馆映向雍合院子",
+   "北京东城区北新桥街道北新胡同31号"
+  ],
+  "Gionee Light Guangzhou Beijing Road": [
+   "广州北京路步行街金立轻居",
+   "广东广州越秀区北京路182号10F"
+  ],
+  "voco Guilin Yangshuo by IHG": [
+   "桂林阳朔voco酒店(十里画廊遇龙河店)",
+   "广西阳朔阳朔镇鸡窝渡村72号"
+  ],
+  "Hilton Garden Inn Zhangjiajie Wulingyuan": [
+   "张家界武陵源希尔顿花园酒店(森林公园店)",
+   "湖南张家界武陵源区宝峰路108号"
+  ],
+  "JI Hotel Tianmen Mountain Cableway": [
+   "全季酒店(张家界天门山索道天门路店)",
+   "湖南张家界永定区官黎坪街道天门路锦绣公馆商业楼1栋"
+  ]
+ },
+ "alias": {
+  "Beian Qingshe Holiday Inn (Wulingyuan)": "Riverside Peak Lodge",
+  "Zhangjiajie Celestial Valley": "Kongjie Valley",
+  "JI Hotel (Beijing Road Dade Road)": "JI Hotel (Sacred Heart Cathedral)"
+ },
+ "locationNote": {
+  "Yuanjiajie & Bailong Elevator": [
+   "袁家界景区-观景台",
+   "迷魂台",
+   "乾坤柱(阿凡达悬浮山)",
+   "天下第一桥"
+  ],
+  "Yuanjiajie 袁家界 (אווטאר)": [
+   "袁家界景区-观景台",
+   "迷魂台",
+   "乾坤柱(阿凡达悬浮山)",
+   "天下第一桥"
+  ],
+  "Muzitang Travel Photography Resort Hotel": [
+   "木子堂精品度假民宿(张家界国家森林公园店)"
+  ]
+ }
+}

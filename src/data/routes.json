@@ -1,0 +1,476 @@
+[
+ {
+  "id": "A",
+  "name": "South → North",
+  "tag": {
+   "he": "★ מומלץ",
+   "en": null
+  },
+  "col": "#C77B61",
+  "intl": 1680,
+  "ideal": 14,
+  "why": {
+   "he": "6 ערים. ב־12 לילות Chongqing מקבלת רק 2 לילות, וב־14 יש 3 לילות ב־Chongqing ו־4 ב־Yangshuo.",
+   "en": null
+  },
+  "s12": [
+   [
+    "gz",
+    1
+   ],
+   [
+    "gl",
+    1
+   ],
+   [
+    "ys",
+    3
+   ],
+   [
+    "ckg",
+    2
+   ],
+   [
+    "zjj",
+    3
+   ],
+   [
+    "sh",
+    2
+   ]
+  ],
+  "s14": [
+   [
+    "gz",
+    1
+   ],
+   [
+    "gl",
+    1
+   ],
+   [
+    "ys",
+    4
+   ],
+   [
+    "ckg",
+    3
+   ],
+   [
+    "zjj",
+    3
+   ],
+   [
+    "sh",
+    2
+   ]
+  ],
+  "legs": [
+   "tlv_gz",
+   "gz_gl",
+   "gl_ys",
+   "ys_ckg",
+   "ckg_zjj",
+   "zjj_sh",
+   "sh_tlv"
+  ],
+  "pros": [
+   {
+    "he": "לילה של מנוחה ב־Guangzhou אחרי הטיסה, ורק אז רכבת",
+    "en": null
+   },
+   {
+    "he": "רוב המעברים ברכבת, וטיסת פנים אחת בלבד",
+    "en": null
+   },
+   {
+    "he": "השיט בנהר Li River הוא גם המעבר",
+    "en": null
+   }
+  ],
+  "cons": [
+   {
+    "he": "6 ערים ו־5 מעברים",
+    "en": null
+   },
+   {
+    "he": "Yangshuo→Chongqing גבולי (שעה לתחנה + כ־4 שעות רכבת)",
+    "en": null
+   }
+  ],
+  "best": {
+   "he": "מי שרוצה טבע, עיר וכפר בלי טיסות רבות",
+   "en": null
+  }
+ },
+ {
+  "id": "B",
+  "name": "City + Mountains",
+  "tag": {
+   "he": "הכי פשוט",
+   "en": null
+  },
+  "col": "#34483E",
+  "intl": 2000,
+  "ideal": 12,
+  "why": {
+   "he": "רק 4 ערים, ו־12 לילות מספיקים. ב־14 נשאר זמן ליום טיול לפנדות ב־Chengdu או ל־Wulong.",
+   "en": null
+  },
+  "s12": [
+   [
+    "bj",
+    3
+   ],
+   [
+    "ckg",
+    3
+   ],
+   [
+    "zjj",
+    4
+   ],
+   [
+    "sh",
+    2
+   ]
+  ],
+  "s14": [
+   [
+    "bj",
+    4
+   ],
+   [
+    "ckg",
+    4
+   ],
+   [
+    "zjj",
+    4
+   ],
+   [
+    "sh",
+    2
+   ]
+  ],
+  "legs": [
+   "tlv_bj",
+   "bj_ckg",
+   "ckg_zjj",
+   "zjj_sh",
+   "sh_tlv"
+  ],
+  "pros": [
+   {
+    "he": "רק 3 מעברים",
+    "en": null
+   },
+   {
+    "he": "כולל Beijing (החומה והעיר האסורה)",
+    "en": null
+   },
+   {
+    "he": "הכי פחות אריזות",
+    "en": null
+   }
+  ],
+  "cons": [
+   {
+    "he": "אין Guilin ו־Yangshuo",
+    "en": null
+   }
+  ],
+  "best": {
+   "he": "קצב רגוע, ערים גדולות והרי אווטאר",
+   "en": null
+  }
+ },
+ {
+  "id": "C",
+  "name": "Rivers & Countryside",
+  "tag": {
+   "he": "רגוע",
+   "en": null
+  },
+  "col": "#4F7FA0",
+  "intl": 2000,
+  "ideal": 12,
+  "why": {
+   "he": "5 ערים בקצב נוח. 12 לילות עובדים טוב, ו־14 מוסיפים לילה ב־Beijing ולילה ב־Yangshuo.",
+   "en": null
+  },
+  "s12": [
+   [
+    "bj",
+    3
+   ],
+   [
+    "ckg",
+    3
+   ],
+   [
+    "gl",
+    1
+   ],
+   [
+    "ys",
+    3
+   ],
+   [
+    "sh",
+    2
+   ]
+  ],
+  "s14": [
+   [
+    "bj",
+    4
+   ],
+   [
+    "ckg",
+    3
+   ],
+   [
+    "gl",
+    1
+   ],
+   [
+    "ys",
+    4
+   ],
+   [
+    "sh",
+    2
+   ]
+  ],
+  "legs": [
+   "tlv_bj",
+   "bj_ckg",
+   "ckg_gl",
+   "gl_ys",
+   "ys_sh",
+   "sh_tlv"
+  ],
+  "pros": [
+   "Beijing + Yangshuo + Li River",
+   {
+    "he": "מעט מדרגות והליכה בהרים",
+    "en": null
+   }
+  ],
+  "cons": [
+   {
+    "he": "אין Zhangjiajie (הרי אווטאר)",
+    "en": null
+   }
+  ],
+  "best": {
+   "he": "מים, אופניים ונופי כפר",
+   "en": null
+  }
+ },
+ {
+  "id": "E",
+  "name": {
+   "he": "Experts' Classic · מסלול חברות הטיולים",
+   "en": null
+  },
+  "tag": {
+   "he": "מדריכים · מעבר גדול",
+   "en": null
+  },
+  "col": "#B08A4A",
+  "intl": 2000,
+  "ideal": 14,
+  "why": {
+   "he": "יום הרכבת של 7 שעות ״אוכל״ יום שלם. 6 מתוך 6 המסלולים של המומחים שנבדקו הם באורך 13–14 לילות. ב־14 נשאר יום ל־Longji Rice Terraces.",
+   "en": null
+  },
+  "s12": [
+   [
+    "bj",
+    3
+   ],
+   [
+    "zjj",
+    3
+   ],
+   [
+    "gl",
+    1
+   ],
+   [
+    "ys",
+    3
+   ],
+   [
+    "sh",
+    2
+   ]
+  ],
+  "s14": [
+   [
+    "bj",
+    4
+   ],
+   [
+    "zjj",
+    3
+   ],
+   [
+    "gl",
+    2
+   ],
+   [
+    "ys",
+    3
+   ],
+   [
+    "sh",
+    2
+   ]
+  ],
+  "legs": [
+   "tlv_bj",
+   "bj_zjj",
+   "zjj_gl",
+   "gl_ys",
+   "ys_sh",
+   "sh_tlv"
+  ],
+  "plan": {
+   "gl": [
+    "Elephant Trunk Hill",
+    "Zhengyang St",
+    {
+     "he": "יום שלם: Longji Rice Terraces 龙脊梯田",
+     "en": null
+    }
+   ]
+  },
+  "pros": [
+   {
+    "he": "המסלול שמופיע אצל China Highlights ו־kimkim (בלי Xi'an)",
+    "en": null
+   },
+   {
+    "he": "רק 2 טיסות פנים",
+    "en": null
+   },
+   {
+    "he": "ב־14 לילות: יום ל־Longji Rice Terraces",
+    "en": null
+   }
+  ],
+  "cons": [
+   {
+    "he": "יום שלם ברכבת: Zhangjiajie → Guilin, 7 שעות",
+    "en": null
+   },
+   {
+    "he": "אין Chongqing",
+    "en": null
+   }
+  ],
+  "best": {
+   "he": "מי שמוכן ליום רכבת אחד ארוך תמורת פחות טיסות",
+   "en": null
+  }
+ },
+ {
+  "id": "D",
+  "name": "The Grand Tour",
+  "tag": {
+   "he": "הכול",
+   "en": null
+  },
+  "col": "#8E6C8A",
+  "intl": 2000,
+  "ideal": 14,
+  "why": {
+   "he": "6 ערים ו־5 מעברים. ב־12 לילות יש רק 2 לילות ב־Zhangjiajie, וזה צפוף מדי. מתאים רק ל־14.",
+   "en": null
+  },
+  "s12": [
+   [
+    "bj",
+    3
+   ],
+   [
+    "zjj",
+    2
+   ],
+   [
+    "ckg",
+    2
+   ],
+   [
+    "gl",
+    1
+   ],
+   [
+    "ys",
+    2
+   ],
+   [
+    "sh",
+    2
+   ]
+  ],
+  "s14": [
+   [
+    "bj",
+    3
+   ],
+   [
+    "zjj",
+    3
+   ],
+   [
+    "ckg",
+    3
+   ],
+   [
+    "gl",
+    1
+   ],
+   [
+    "ys",
+    2
+   ],
+   [
+    "sh",
+    2
+   ]
+  ],
+  "legs": [
+   "tlv_bj",
+   "bj_zjj",
+   "zjj_ckg",
+   "ckg_gl",
+   "gl_ys",
+   "ys_sh",
+   "sh_tlv"
+  ],
+  "pros": [
+   {
+    "he": "כל 6 הערים",
+    "en": null
+   }
+  ],
+  "cons": [
+   {
+    "he": "5 מעברים פנימיים, הכי עמוס",
+    "en": null
+   },
+   {
+    "he": "ב־12 לילות: רק 2 לילות ב־Zhangjiajie, צפוף",
+    "en": null
+   }
+  ],
+  "best": {
+   "he": "מי שרוצה הכול ומוכן לקצב מהיר",
+   "en": null
+  }
+ }
+]

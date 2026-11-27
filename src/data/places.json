@@ -1,0 +1,990 @@
+{
+ "bj": [
+  {
+   "name": "Great Wall · Mutianyu",
+   "zh": "慕田峪长城",
+   "cat": "sight",
+   "desc": {
+    "he": "קטע החומה עם המגלשה. עולים ברכבל כיסאות (Chairlift) ליד מגדל 6, הולכים על החומה, ויורדים במגלשה (Toboggan 滑道) עד למטה. ליד מגדל 14 יש גם רכבל סגור (Cable Car).",
+    "en": null
+   },
+   "time": {
+    "he": "יום שלם · כ־1.5 ש׳ נסיעה לכל כיוון",
+    "en": null
+   },
+   "tips": {
+    "he": "כניסה ¥45 + שאטל ¥15 (נבדק אוקטובר 2026). הרכבל והמגלשה בכרטיסים נפרדים, ואת מחיר המגלשה לא אימתתי. בגשם או ברוח המגלשה עלולה להיסגר, ולכן כדאי לשאול לפני העלייה. מומלץ להגיע מוקדם.",
+    "en": null
+   },
+   "img": "bj2"
+  },
+  {
+   "name": "Forbidden City",
+   "zh": "故宫",
+   "cat": "sight",
+   "desc": {
+    "he": "ארמון הקיסרים, האתר החשוב בעיר. נכנסים מהדרום (Meridian Gate) ויוצאים בצפון.",
+    "en": null
+   },
+   "time": {
+    "he": "3–4 שעות",
+    "en": null
+   },
+   "tips": {
+    "he": "הכרטיסים נפתחים 7 ימים מראש ב־20:00 שעון בייג׳ינג, באתר הרשמי, עם הדרכון. ¥60 באפריל–אוקטובר. סגור בימי שני. אין מכירה באותו יום.",
+    "en": null
+   },
+   "img": "bj1"
+  },
+  {
+   "name": "Jingshan Park",
+   "zh": "景山公园",
+   "cat": "sight",
+   "desc": {
+    "he": "גבעה מול היציאה הצפונית של העיר האסורה, עם התצפית הכי יפה על גגות הארמון.",
+    "en": null
+   },
+   "time": {
+    "he": "שעה",
+    "en": null
+   },
+   "tips": {
+    "he": "ממשיכים אליו ישר מהעיר האסורה.",
+    "en": null
+   },
+   "img": "bj_js"
+  },
+  {
+   "name": "Tiananmen Square",
+   "zh": "天安门广场",
+   "cat": "sight",
+   "desc": {
+    "he": "הכיכר הגדולה מול שער הכניסה לעיר האסורה.",
+    "en": null
+   },
+   "time": {
+    "he": "שעה",
+    "en": null
+   },
+   "tips": {
+    "he": "יש בדיקת דרכון בכניסה. לבוא עם הדרכון.",
+    "en": null
+   },
+   "img": "bj_tam"
+  },
+  {
+   "name": "Temple of Heaven",
+   "zh": "天坛",
+   "cat": "sight",
+   "desc": {
+    "he": "פארק ענק ומקדש עגול. בבוקר המקומיים עושים טאי צ׳י, רוקדים ומשחקים.",
+    "en": null
+   },
+   "time": {
+    "he": "2–3 ש׳",
+    "en": null
+   },
+   "tips": {
+    "he": "הכי נעים להגיע עד 9:00.",
+    "en": null
+   },
+   "img": "bj_toh"
+  },
+  {
+   "name": "Summer Palace",
+   "zh": "颐和园",
+   "cat": "nature",
+   "desc": {
+    "he": "ארמון הקיץ של הקיסרים על אגם Kunming, עם שיט בסירה.",
+    "en": null
+   },
+   "time": {
+    "he": "חצי יום",
+    "en": null
+   },
+   "tips": {
+    "he": "מתאים ליום הרביעי, אם נשארים 4 לילות.",
+    "en": null
+   },
+   "img": "bj_sp"
+  },
+  {
+   "name": "Hutongs · Shichahai & Nanluoguxiang",
+   "zh": "什刹海 · 南锣鼓巷",
+   "cat": "food",
+   "desc": {
+    "he": "הסמטאות העתיקות. סיור בריקשה סביב האגמים, ובערב ברים ומסעדות על Houhai.",
+    "en": null
+   },
+   "time": {
+    "he": "חצי יום / ערב",
+    "en": null
+   },
+   "tips": "",
+   "img": "bj_sch"
+  },
+  {
+   "name": "Wangfujing Street",
+   "zh": "王府井大街",
+   "cat": "food",
+   "desc": {
+    "he": "רחוב הקניות המרכזי של בייג׳ינג: מדרחוב עם קניונים גדולים וחנויות, ממש ליד המלונות המומלצים.",
+    "en": null
+   },
+   "time": {
+    "he": "ערב",
+    "en": null
+   },
+   "tips": {
+    "he": "מרחק הליכה מהעיר האסורה.",
+    "en": null
+   },
+   "img": "bj_wfj"
+  },
+  {
+   "name": "Qianmen & Dashilar",
+   "zh": "前门大街 · 大栅栏",
+   "cat": "food",
+   "desc": {
+    "he": "רחוב הליכה היסטורי וסמטאות של חנויות ותיקות, דרומית לכיכר.",
+    "en": null
+   },
+   "time": {
+    "he": "ערב",
+    "en": null
+   },
+   "tips": "",
+   "img": "bj_qm"
+  },
+  {
+   "name": "Sanlitun",
+   "zh": "三里屯",
+   "cat": "food",
+   "desc": {
+    "he": "אזור מודרני של מותגים, מסעדות ובתי קפה. יתאים לבני הנוער.",
+    "en": null
+   },
+   "time": {
+    "he": "ערב",
+    "en": null
+   },
+   "tips": "",
+   "img": "bj_slt"
+  },
+  {
+   "name": "Universal Studios Beijing",
+   "zh": "北京环球影城",
+   "cat": "fun",
+   "desc": {
+    "he": "יוניברסל בייג׳ינג: Harry Potter, Transformers, Jurassic World ו־Kung Fu Panda. יום שלם.",
+    "en": null
+   },
+   "time": {
+    "he": "יום שלם",
+    "en": null
+   },
+   "tips": {
+    "he": "להגיע לפתיחה ב־9:00 ולהתחיל ב־Transformers וב־Harry Potter.",
+    "en": null
+   },
+   "img": "park_universal",
+   "mapQuery": "Universal Studios Beijing"
+  }
+ ],
+ "gz": [
+  {
+   "name": "Canton Tower",
+   "zh": "广州塔",
+   "cat": "fun",
+   "desc": {
+    "he": "המגדל המואר של העיר, עם תצפית בערב.",
+    "en": null
+   },
+   "time": {
+    "he": "1–2 שעות",
+    "en": null
+   },
+   "tips": "",
+   "img": "gz_canton",
+   "mapQuery": "Canton Tower"
+  },
+  {
+   "name": "Pearl River Night Cruise",
+   "zh": "珠江夜游",
+   "cat": "fun",
+   "desc": {
+    "he": "שיט ערב של כשעה. מתאים לערב הראשון אחרי הטיסה.",
+    "en": null
+   },
+   "time": {
+    "he": "כשעה",
+    "en": null
+   },
+   "tips": {
+    "he": "יוצא מ־Tianzi Wharf, ליד המלונות.",
+    "en": null
+   },
+   "img": "gz_pearl",
+   "mapQuery": "Tianzi Wharf, Guangzhou"
+  },
+  {
+   "name": "Beijing Road",
+   "zh": "北京路步行街",
+   "cat": "food",
+   "desc": {
+    "he": "המדרחוב המרכזי. מתחת לרגליים רואים שרידים של הדרך העתיקה, דרך רצפת זכוכית.",
+    "en": null
+   },
+   "time": {
+    "he": "ערב",
+    "en": null
+   },
+   "tips": {
+    "he": "המלונות המומלצים בהליכה.",
+    "en": null
+   },
+   "img": "gz_bjr",
+   "mapQuery": "北京路步行街 广州"
+  },
+  {
+   "name": "Shamian Island",
+   "zh": "沙面",
+   "cat": "sight",
+   "desc": {
+    "he": "אי קטן עם בניינים קולוניאליים ועצים.",
+    "en": null
+   },
+   "time": {
+    "he": "1–2 שעות",
+    "en": null
+   },
+   "tips": "",
+   "img": "gz_shamian",
+   "mapQuery": "Shamian Island, Guangzhou"
+  },
+  {
+   "name": "Chen Clan Ancestral Hall",
+   "zh": "陈家祠",
+   "cat": "sight",
+   "desc": {
+    "he": "מקדש משפחתי מפואר עם גילופים קנטונזיים.",
+    "en": null
+   },
+   "time": {
+    "he": "שעה",
+    "en": null
+   },
+   "tips": "",
+   "img": "gz_chen",
+   "mapQuery": "Chen Clan Ancestral Hall, Guangzhou"
+  }
+ ],
+ "gl": [
+  {
+   "name": "Elephant Trunk Hill",
+   "zh": "象鼻山",
+   "cat": "sight",
+   "desc": {
+    "he": "הסלע בצורת חדק פיל. סמל העיר.",
+    "en": null
+   },
+   "time": {
+    "he": "כשעה",
+    "en": null
+   },
+   "tips": {
+    "he": "הכי יפה מהגדה ממול.",
+    "en": null
+   },
+   "img": "gl1",
+   "mapQuery": "Elephant Trunk Hill, Guilin"
+  },
+  {
+   "name": "Two Rivers & Four Lakes",
+   "zh": "两江四湖",
+   "cat": "fun",
+   "desc": {
+    "he": "שיט ערב בין אגמים מוארים ופגודות השמש והירח.",
+    "en": null
+   },
+   "time": {
+    "he": "1.5 שעות",
+    "en": null
+   },
+   "tips": {
+    "he": "להזמין שיט לילה.",
+    "en": null
+   },
+   "img": "gl_pagoda",
+   "mapQuery": "Riyue Shuangta Guilin"
+  },
+  {
+   "name": "Zhengyang St & Dongxi Xiang",
+   "zh": "正阳步行街 · 东西巷",
+   "cat": "food",
+   "desc": {
+    "he": "המדרחוב והסמטאות המשוחזרות, עם אוכל ומסעדות.",
+    "en": null
+   },
+   "time": {
+    "he": "ערב",
+    "en": null
+   },
+   "tips": {
+    "he": "יוצאים מהמלון ישר לרחוב.",
+    "en": null
+   },
+   "img": "gl_alley",
+   "mapQuery": "东西巷 桂林"
+  },
+  {
+   "name": "Reed Flute Cave",
+   "zh": "芦笛岩",
+   "cat": "nature",
+   "desc": {
+    "he": "מערת נטיפים מוארת בצבעים.",
+    "en": null
+   },
+   "time": {
+    "he": "כשעה",
+    "en": null
+   },
+   "tips": {
+    "he": "חלופה טובה ליום גשום.",
+    "en": null
+   },
+   "img": "gl_cave",
+   "mapQuery": "Reed Flute Cave, Guilin"
+  },
+  {
+   "name": "Longji Rice Terraces",
+   "zh": "龙脊梯田",
+   "cat": "nature",
+   "desc": {
+    "he": "טרסות אורז וכפרי Zhuang על ההרים.",
+    "en": null
+   },
+   "time": {
+    "he": "יום שלם · כשעתיים לכל כיוון",
+    "en": null
+   },
+   "tips": {
+    "he": "מתאים כשיש 2 לילות ב־Guilin.",
+    "en": null
+   },
+   "img": "gl_longji",
+   "mapQuery": "Longji Rice Terraces"
+  }
+ ],
+ "ys": [
+  {
+   "name": "Li River Cruise",
+   "zh": "漓江",
+   "cat": "nature",
+   "desc": {
+    "he": "הנוף המפורסם של הרי הקארסט, זה שמופיע על השטר של 20 יואן.",
+    "en": null
+   },
+   "time": {
+    "he": "4–4.5 שעות",
+    "en": null
+   },
+   "tips": {
+    "he": "זה המעבר מ־Guilin.",
+    "en": null
+   },
+   "img": "ys2",
+   "mapQuery": "Mopanshan Pier Li River Cruise"
+  },
+  {
+   "name": "Yulong River Rafting",
+   "zh": "遇龙河竹筏",
+   "cat": "fun",
+   "desc": {
+    "he": "רפסודת במבוק שקטה בין שדות אורז והרים.",
+    "en": null
+   },
+   "time": {
+    "he": "1.5–2 שעות",
+    "en": null
+   },
+   "tips": {
+    "he": "להזמין יום מראש. בבוקר עמוס פחות.",
+    "en": null
+   },
+   "img": "ys_yulong",
+   "mapQuery": "Yulong River, Yangshuo"
+  },
+  {
+   "name": "Xingping",
+   "zh": "兴坪",
+   "cat": "sight",
+   "desc": {
+    "he": "עיירה עתיקה, ובקטע הזה של הנהר נמצא הנוף של שטר 20 היואן.",
+    "en": null
+   },
+   "time": {
+    "he": "חצי יום",
+    "en": null
+   },
+   "tips": {
+    "he": "רפסודה של כ־90 דק׳ (¥180–240) היא חלופה לשיט המלא.",
+    "en": null
+   },
+   "img": "ys_raftli",
+   "mapQuery": "Xingping, Yangshuo"
+  },
+  {
+   "name": "West Street",
+   "zh": "西街",
+   "cat": "food",
+   "desc": {
+    "he": "הרחוב השוקק של העיירה: מסעדות, מוזיקה וקניות.",
+    "en": null
+   },
+   "time": {
+    "he": "ערב",
+    "en": null
+   },
+   "tips": {
+    "he": "המלונות המומלצים 5–10 דק׳ הליכה ממנו.",
+    "en": null
+   },
+   "img": "ys_west",
+   "mapQuery": "West Street, Yangshuo"
+  },
+  {
+   "name": "Cycling the Countryside",
+   "zh": "骑行",
+   "cat": "fun",
+   "desc": {
+    "he": "רכיבה באופניים חשמליים בין הכפרים ולאורך הנהר.",
+    "en": null
+   },
+   "time": {
+    "he": "חצי יום",
+    "en": null
+   },
+   "tips": {
+    "he": "השכרה ליד West Street.",
+    "en": null
+   },
+   "img": "ys_bike",
+   "mapQuery": "Yulong River, Yangshuo"
+  },
+  {
+   "name": "Moon Hill",
+   "zh": "月亮山",
+   "cat": "nature",
+   "desc": {
+    "he": "גבעה עם קשת סלע ענקית ותצפית.",
+    "en": null
+   },
+   "time": {
+    "he": "1–2 שעות",
+    "en": null
+   },
+   "tips": {
+    "he": "כ־30 דק׳ טיפוס במדרגות.",
+    "en": null
+   },
+   "img": "ys_moon",
+   "mapQuery": "Moon Hill, Yangshuo"
+  },
+  {
+   "name": "Impression Liu Sanjie",
+   "zh": "印象刘三姐",
+   "cat": "fun",
+   "desc": {
+    "he": "מופע לילה על הנהר, עם ההרים כתפאורה.",
+    "en": null
+   },
+   "time": {
+    "he": "כ־70 דק׳",
+    "en": null
+   },
+   "tips": {
+    "he": "להזמין מקומות טובים מראש.",
+    "en": null
+   },
+   "img": "ys_impr",
+   "mapQuery": "印象刘三姐剧场"
+  }
+ ],
+ "ckg": [
+  {
+   "name": "Hongyadong",
+   "zh": "洪崖洞",
+   "cat": "sight",
+   "desc": {
+    "he": "מבנה מואר ב־11 קומות על צלע ההר. הסמל של העיר בלילה.",
+    "en": null
+   },
+   "time": {
+    "he": "ערב",
+    "en": null
+   },
+   "tips": {
+    "he": "הכי יפה מגשר Qiansimen. הכי צפוף ב־20:00–21:00.",
+    "en": null
+   },
+   "img": "ckg1",
+   "mapQuery": "Hongyadong, Chongqing"
+  },
+  {
+   "name": "Yangtze River Cableway",
+   "zh": "长江索道",
+   "cat": "fun",
+   "desc": {
+    "he": "רכבל ותיק שחוצה את היאנגצה מעל העיר.",
+    "en": null
+   },
+   "time": {
+    "he": "כשעה כולל תור",
+    "en": null
+   },
+   "tips": {
+    "he": "התור יכול להגיע לשעתיים. להגיע מוקדם.",
+    "en": null
+   },
+   "img": "ckg_cable",
+   "mapQuery": "Yangtze River Cableway, Chongqing"
+  },
+  {
+   "name": "Liziba Station",
+   "zh": "李子坝",
+   "cat": "fun",
+   "desc": {
+    "he": "המונורייל שעובר דרך בניין מגורים. רואים אותו מרציף תצפית.",
+    "en": null
+   },
+   "time": {
+    "he": "כשעה",
+    "en": null
+   },
+   "tips": {
+    "he": "לרכוב על קו 2 ואז לצפות מהרציף.",
+    "en": null
+   },
+   "img": "ckg_liziba",
+   "mapQuery": "Liziba Station, Chongqing"
+  },
+  {
+   "name": "Ciqikou Old Town",
+   "zh": "磁器口",
+   "cat": "sight",
+   "desc": {
+    "he": "עיירה עתיקה על הנהר, עם סמטאות ודוכנים.",
+    "en": null
+   },
+   "time": {
+    "he": "חצי יום",
+    "en": null
+   },
+   "tips": {
+    "he": "בבוקר שקט יותר.",
+    "en": null
+   },
+   "img": "ckg_ciqi",
+   "mapQuery": "Ciqikou Ancient Town, Chongqing"
+  },
+  {
+   "name": "Two Rivers Night Cruise",
+   "zh": "两江夜游",
+   "cat": "fun",
+   "desc": {
+    "he": "שיט לילה במפגש היאנגצה והג׳יאלינג, מול קו רקיע מואר.",
+    "en": null
+   },
+   "time": {
+    "he": "כשעה",
+    "en": null
+   },
+   "tips": {
+    "he": "יוצא מ־Chaotianmen.",
+    "en": null
+   },
+   "img": "ckg2",
+   "mapQuery": "Chaotianmen, Chongqing"
+  },
+  {
+   "name": "Wulong Karst",
+   "zh": "武隆天生三桥",
+   "cat": "nature",
+   "desc": {
+    "he": "גשרי סלע טבעיים ענקיים וקניון. טיול יום.",
+    "en": null
+   },
+   "time": {
+    "he": "יום שלם · כ־3 שעות לכל כיוון",
+    "en": null
+   },
+   "tips": {
+    "he": "להזמין סיור מאורגן או רכב עם נהג.",
+    "en": null
+   },
+   "img": "ckg_wulong",
+   "mapQuery": "Three Natural Bridges, Wulong"
+  }
+ ],
+ "zjj": [
+  {
+   "name": "Zhangjiajie Forest Park",
+   "zh": "张家界国家森林公园",
+   "cat": "nature",
+   "desc": {
+    "he": "הרי ה״אווטאר״: עמודי אבן מעל עננים. הכרטיס תקף לכמה ימים.",
+    "en": null
+   },
+   "time": {
+    "he": "2 ימים",
+    "en": null
+   },
+   "tips": {
+    "he": "להיכנס מהשער המזרחי עם הפתיחה.",
+    "en": null
+   },
+   "img": "zjj1",
+   "mapQuery": "Zhangjiajie National Forest Park"
+  },
+  {
+   "name": "Yuanjiajie & Bailong Elevator",
+   "zh": "袁家界 · 百龙天梯",
+   "cat": "nature",
+   "desc": {
+    "he": "מעלית זכוכית של 326 מ׳ אל נקודות התצפית המפורסמות.",
+    "en": null
+   },
+   "time": {
+    "he": "חצי יום",
+    "en": null
+   },
+   "tips": {
+    "he": "המעלית בתשלום נפרד, ויש תורים בבוקר.",
+    "en": null
+   },
+   "img": "zjj_bailong",
+   "mapQuery": "Bailong Elevator, Zhangjiajie"
+  },
+  {
+   "name": "Tianmen Mountain",
+   "zh": "天门山",
+   "cat": "fun",
+   "desc": {
+    "he": "רכבל ארוך מהעיר, 99 פיתולים, שביל זכוכית ו״שער השמיים״.",
+    "en": null
+   },
+   "time": {
+    "he": "יום שלם",
+    "en": null
+   },
+   "tips": {
+    "he": "הרכבל יוצא ממרכז העיר.",
+    "en": null
+   },
+   "img": "zjj2",
+   "mapQuery": "Tianmen Mountain Cableway, Zhangjiajie"
+  },
+  {
+   "name": "Tianzi Mountain",
+   "zh": "天子山",
+   "cat": "nature",
+   "desc": {
+    "he": "תצפיות על ״יער״ של עמודי סלע, עם רכבל.",
+    "en": null
+   },
+   "time": {
+    "he": "חצי יום",
+    "en": null
+   },
+   "tips": "",
+   "img": "zjj_tianzi",
+   "mapQuery": "天子山 张家界"
+  },
+  {
+   "name": "Golden Whip Stream",
+   "zh": "金鞭溪",
+   "cat": "nature",
+   "desc": {
+    "he": "מסלול הליכה מישורי לאורך נחל, בין הצוקים. יחסית קריר.",
+    "en": null
+   },
+   "time": {
+    "he": "2–3 שעות",
+    "en": null
+   },
+   "tips": {
+    "he": "מתאים ליום חם.",
+    "en": null
+   },
+   "img": "zjj_whip",
+   "mapQuery": "金鞭溪 张家界"
+  },
+  {
+   "name": "Grand Canyon Glass Bridge",
+   "zh": "大峡谷玻璃桥",
+   "cat": "fun",
+   "desc": {
+    "he": "גשר זכוכית מעל קניון.",
+    "en": null
+   },
+   "time": {
+    "he": "חצי יום",
+    "en": null
+   },
+   "tips": {
+    "he": "אופציונלי. לבדוק אם פתוח ומה המחיר.",
+    "en": null
+   },
+   "img": "zjj_glass",
+   "mapQuery": "Zhangjiajie Glass Bridge"
+  }
+ ],
+ "sh": [
+  {
+   "name": "The Bund",
+   "zh": "外滩",
+   "cat": "sight",
+   "desc": {
+    "he": "הטיילת ההיסטורית מול קו הרקיע של Pudong. הכי יפה בשקיעה ובערב.",
+    "en": null
+   },
+   "time": {
+    "he": "1–2 שעות",
+    "en": null
+   },
+   "tips": {
+    "he": "להגיע בסביבות 19:00, כשהאורות נדלקים.",
+    "en": null
+   },
+   "img": "sh1",
+   "mapQuery": "The Bund, Shanghai"
+  },
+  {
+   "name": "Shanghai Tower",
+   "zh": "上海中心大厦",
+   "cat": "fun",
+   "desc": {
+    "he": "תצפית מקומה 118 של אחד הבניינים הגבוהים בעולם.",
+    "en": null
+   },
+   "time": {
+    "he": "1.5 שעות",
+    "en": null
+   },
+   "tips": {
+    "he": "לבדוק מחיר והזמנה ב־Trip.com.",
+    "en": null
+   },
+   "img": "sh_tower",
+   "mapQuery": "Shanghai Tower"
+  },
+  {
+   "name": "Yu Garden",
+   "zh": "豫园",
+   "cat": "sight",
+   "desc": {
+    "he": "גן מסורתי מהמאה ה־16 וסמטאות העיר העתיקה.",
+    "en": null
+   },
+   "time": {
+    "he": "2 שעות",
+    "en": null
+   },
+   "tips": {
+    "he": "בבוקר עמוס פחות.",
+    "en": null
+   },
+   "img": "sh_yu",
+   "mapQuery": "Yu Garden, Shanghai"
+  },
+  {
+   "name": "Nanjing Road",
+   "zh": "南京路",
+   "cat": "food",
+   "desc": {
+    "he": "רחוב הקניות הראשי של שנגחאי, מואר ושוקק עד מאוחר.",
+    "en": null
+   },
+   "time": {
+    "he": "ערב",
+    "en": null
+   },
+   "tips": {
+    "he": "המלונות המומלצים בהליכה.",
+    "en": null
+   },
+   "img": "sh_njr",
+   "mapQuery": "Nanjing Road Pedestrian Street, Shanghai"
+  },
+  {
+   "name": "West Nanjing Road",
+   "zh": "南京西路",
+   "cat": "food",
+   "desc": {
+    "he": "החלק היוקרתי של Nanjing Road: קניונים גדולים כמו Plaza 66 ו־Jing'an Kerry Centre, מותגים ובתי קפה. נגמר ליד Jing'an Temple.",
+    "en": null
+   },
+   "time": {
+    "he": "חצי יום",
+    "en": null
+   },
+   "tips": {
+    "he": "תחנות מטרו West Nanjing Rd ו־Jing'an Temple (קו 2).",
+    "en": null
+   },
+   "img": "sh_wnj",
+   "mapQuery": "West Nanjing Road, Shanghai"
+  },
+  {
+   "name": "North Bund",
+   "zh": "北外滩",
+   "cat": "sight",
+   "desc": {
+    "he": "טיילת שקטה יותר מצפון ל־The Bund, עם נוף פתוח לנהר ול־Pudong.",
+    "en": null
+   },
+   "time": {
+    "he": "שעה",
+    "en": null
+   },
+   "tips": {
+    "he": "טוב לשקיעה.",
+    "en": null
+   },
+   "img": "sh_nbund",
+   "mapQuery": "North Bund, Shanghai"
+  },
+  {
+   "name": "Oriental Pearl Tower",
+   "zh": "东方明珠",
+   "cat": "fun",
+   "desc": {
+    "he": "מגדל הטלוויזיה הוורוד, הסמל של Pudong, עם רצפת זכוכית ותצפית.",
+    "en": null
+   },
+   "time": {
+    "he": "1.5 שעות",
+    "en": null
+   },
+   "tips": "",
+   "img": "sh_pearl",
+   "mapQuery": "Oriental Pearl Tower"
+  },
+  {
+   "name": "Xintiandi",
+   "zh": "新天地",
+   "cat": "food",
+   "desc": {
+    "he": "סמטאות Shikumen משוחזרות, מלאות בתי קפה, מסעדות וברים. מתאים להליכת ערב.",
+    "en": null
+   },
+   "time": {
+    "he": "ערב",
+    "en": null
+   },
+   "tips": "",
+   "img": "sh_xtd",
+   "mapQuery": "Xintiandi, Shanghai"
+  },
+  {
+   "name": "Huaihai Road",
+   "zh": "淮海路",
+   "cat": "food",
+   "desc": {
+    "he": "שדרת הקניות הגדולה, שממשיכה מ־Xintiandi מערבה אל ה־French Concession.",
+    "en": null
+   },
+   "time": {
+    "he": "חצי יום",
+    "en": null
+   },
+   "tips": "",
+   "img": "sh_huaihai",
+   "mapQuery": "淮海中路 陕西南路 上海"
+  },
+  {
+   "name": "Tianzifang",
+   "zh": "田子坊",
+   "cat": "food",
+   "desc": {
+    "he": "מבוך של סמטאות Shikumen צרות עם חנויות קטנות, סטודיואים ודוכני אוכל.",
+    "en": null
+   },
+   "time": {
+    "he": "1–2 שעות",
+    "en": null
+   },
+   "tips": "",
+   "img": "sh_tzf",
+   "mapQuery": "Tianzifang, Shanghai"
+  },
+  {
+   "name": "Wukang Road",
+   "zh": "武康路",
+   "cat": "food",
+   "desc": {
+    "he": "רחוב עם עצים ב־French Concession: Wukang Mansion, וילות ובתי קפה. הכי טוב ברגל.",
+    "en": null
+   },
+   "time": {
+    "he": "1–2 שעות",
+    "en": null
+   },
+   "tips": "",
+   "img": "sh_wukang",
+   "mapQuery": "Wukang Mansion, Shanghai"
+  },
+  {
+   "name": "Jing'an Temple",
+   "zh": "静安寺",
+   "cat": "sight",
+   "desc": {
+    "he": "מקדש בודהיסטי מוזהב בין גורדי השחקים של West Nanjing Rd.",
+    "en": null
+   },
+   "time": {
+    "he": "שעה",
+    "en": null
+   },
+   "tips": "",
+   "img": "sh_jingan",
+   "mapQuery": "Jing'an Temple, Shanghai"
+  },
+  {
+   "name": "Lujiazui",
+   "zh": "陆家嘴",
+   "cat": "sight",
+   "desc": {
+    "he": "רובע גורדי השחקים סביב Pearl Tower: גשר ההולכי רגל המעגלי, הטיילת על הנהר והנוף אל The Bund.",
+    "en": null
+   },
+   "time": {
+    "he": "1–2 שעות",
+    "en": null
+   },
+   "tips": "",
+   "img": "sh_ljz",
+   "mapQuery": "Lujiazui, Shanghai"
+  },
+  {
+   "name": "Shanghai Disneyland",
+   "zh": "上海迪士尼乐园",
+   "cat": "fun",
+   "desc": {
+    "he": "פארק דיסני של שנגחאי: Zootopia, TRON ורכבות הרים. יום שלם.",
+    "en": null
+   },
+   "time": {
+    "he": "יום שלם",
+    "en": null
+   },
+   "tips": {
+    "he": "קיץ הוא העונה העמוסה ביותר. ביום חול אחרי 1.9 העומס בדרך כלל יורד.",
+    "en": null
+   },
+   "img": "rnp_disney",
+   "mapQuery": "Shanghai Disneyland"
+  }
+ ]
+}

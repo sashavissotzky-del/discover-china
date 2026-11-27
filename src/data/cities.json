@@ -1,0 +1,992 @@
+{
+ "bj": {
+  "name": "Beijing",
+  "zh": "北京",
+  "ll": [
+   39.9042,
+   116.4074
+  ],
+  "images": [
+   "bj1",
+   "bj2"
+  ],
+  "map": {
+   "x": 471.2,
+   "y": 86,
+   "dx": -14,
+   "dy": -10,
+   "anchor": "end"
+  },
+  "color": "#9E5238",
+  "gradient": "#B07A5E,#D8B98E",
+  "weather": {
+   "temp": "21–30°",
+   "desc": {
+    "he": "חם ויבש יחסית",
+    "en": null
+   }
+  },
+  "hotelArea": {
+   "he": "Wangfujing 王府井 (Dongcheng 东城): הליכה לעיר האסורה ולרחוב הקניות, ותחנת מטרו (קווים 1 ו־8). זה האזור המומלץ ביותר ללינה.",
+   "en": null
+  },
+  "hotelBaseCNY": 1840,
+  "mainStreet": "Wangfujing Street, Beijing",
+  "mustSee": [
+   "Great Wall · Mutianyu",
+   "Forbidden City",
+   "Tiananmen Square",
+   "Temple of Heaven",
+   "Summer Palace",
+   "Hutongs · Shichahai & Nanluoguxiang"
+  ],
+  "highlights": [
+   "Great Wall",
+   "Forbidden City",
+   "Temple of Heaven",
+   "Hutongs"
+  ],
+  "distances": {
+   "from": "Wangfujing 王府井",
+   "fromNote": {
+    "he": "רחוב הקניות המרכזי של בייג׳ינג, והאזור שבו נמצאים המלונות המומלצים",
+    "en": null
+   },
+   "mapQuery": "Wangfujing Street, Beijing",
+   "rows": [
+    {
+     "name": "Tiananmen Square 天安门",
+     "km": "1.4",
+     "time": {
+      "he": "15–20 דק׳ הליכה",
+      "en": null
+     },
+     "mapQuery": "Tiananmen Square, Beijing",
+     "zh": "天安门广场"
+    },
+    {
+     "name": "Forbidden City 故宫 (כניסה דרומית)",
+     "km": "1.6",
+     "time": {
+      "he": "20 דק׳ הליכה / תחנה במטרו",
+      "en": null
+     },
+     "mapQuery": "The Palace Museum, Beijing",
+     "zh": "故宫午门"
+    },
+    {
+     "name": "Qianmen 前门",
+     "km": "2.3",
+     "time": {
+      "he": "10 דק׳ במונית",
+      "en": null
+     },
+     "mapQuery": "Qianmen Street, Beijing",
+     "zh": "前门大街"
+    },
+    {
+     "name": "Jingshan Park 景山",
+     "km": "2.1",
+     "time": {
+      "he": "10 דק׳ במונית",
+      "en": null
+     },
+     "mapQuery": "Jingshan Park, Beijing",
+     "zh": "景山公园"
+    },
+    {
+     "name": "Nanluoguxiang 南锣鼓巷",
+     "km": "2.6",
+     "time": {
+      "he": "10 דק׳ במונית",
+      "en": null
+     },
+     "mapQuery": "Nanluoguxiang, Beijing",
+     "zh": "南锣鼓巷"
+    },
+    {
+     "name": "Temple of Heaven 天坛",
+     "km": "3.5",
+     "time": {
+      "he": "15–20 דק׳ במונית",
+      "en": null
+     },
+     "mapQuery": "Temple of Heaven, Beijing",
+     "zh": "天坛公园"
+    },
+    {
+     "name": "Shichahai 什刹海",
+     "km": "3.7",
+     "time": {
+      "he": "15 דק׳ במונית",
+      "en": null
+     },
+     "mapQuery": "Shichahai Houhai Beijing",
+     "zh": "什刹海"
+    },
+    {
+     "name": "Sanlitun 三里屯",
+     "km": "4.4",
+     "time": {
+      "he": "15–20 דק׳ במונית",
+      "en": null
+     },
+     "mapQuery": "Sanlitun, Beijing",
+     "zh": "三里屯太古里"
+    },
+    {
+     "name": "Bird's Nest 鸟巢",
+     "km": "8.9",
+     "time": {
+      "he": "25 דק׳ במונית",
+      "en": null
+     },
+     "mapQuery": "Bird's Nest National Stadium Beijing",
+     "zh": "国家体育场鸟巢"
+    },
+    {
+     "name": "Summer Palace 颐和园",
+     "km": "15",
+     "time": {
+      "he": "40–60 דק׳ במונית",
+      "en": null
+     },
+     "mapQuery": "Summer Palace, Beijing",
+     "zh": "颐和园"
+    },
+    {
+     "name": "Mutianyu Great Wall 慕田峪",
+     "km": "59 (כ־75 בכביש)",
+     "time": {
+      "he": "כשעה וחצי ברכב",
+      "en": null
+     },
+     "mapQuery": "Mutianyu Great Wall",
+     "zh": "慕田峪长城"
+    },
+    {
+     "name": "Airport PEK 首都机场",
+     "km": "25",
+     "time": {
+      "he": "40–50 דק׳",
+      "en": null
+     },
+     "mapQuery": "Beijing Capital International Airport",
+     "zh": "北京首都国际机场"
+    },
+    {
+     "name": "Airport PKX 大兴机场",
+     "km": "45",
+     "time": {
+      "he": "שעה",
+      "en": null
+     },
+     "mapQuery": "Beijing Daxing International Airport",
+     "zh": "北京大兴国际机场"
+    }
+   ]
+  }
+ },
+ "gz": {
+  "name": "Guangzhou",
+  "zh": "广州",
+  "ll": [
+   23.13,
+   113.26
+  ],
+  "images": [
+   "gz1"
+  ],
+  "map": {
+   "x": 375.8,
+   "y": 686.8,
+   "dx": 14,
+   "dy": 6,
+   "anchor": "start"
+  },
+  "color": "#C2577A",
+  "gradient": "#6F8FA3,#C9B79C",
+  "weather": {
+   "temp": "28–34°",
+   "desc": {
+    "he": "חם ולח מאוד",
+    "en": null
+   }
+  },
+  "hotelArea": {
+   "he": "Beijing Road 北京路 / Tianzi Wharf 天字码头, ליד נהר Pearl",
+   "en": null
+  },
+  "hotelBaseCNY": 610,
+  "mainStreet": "北京路步行街 广州",
+  "mustSee": [
+   "Canton Tower",
+   "Pearl River Night Cruise"
+  ],
+  "highlights": [
+   "מנוחה אחרי הטיסה",
+   "Beijing Rd",
+   "Pearl River cruise",
+   "Canton Tower"
+  ],
+  "distances": {
+   "from": "Beijing Road 北京路",
+   "fromNote": {
+    "he": "מדרחוב הקניות המרכזי של גואנגג׳ואו, ליד נהר Pearl. כאן נמצאים המלונות המומלצים",
+    "en": null
+   },
+   "rows": [
+    {
+     "name": "Tianzi Wharf 天字码头 (שיט Pearl River)",
+     "km": "0.7",
+     "time": {
+      "he": "10 דק׳ הליכה",
+      "en": null
+     },
+     "mapQuery": "Tianzi Wharf, Guangzhou",
+     "zh": "天字码头"
+    },
+    {
+     "name": "Chen Clan Ancestral Hall 陈家祠",
+     "km": "2.5",
+     "time": {
+      "he": "15 דק׳ במונית / מטרו",
+      "en": null
+     },
+     "mapQuery": "Chen Clan Ancestral Hall, Guangzhou",
+     "zh": "陈家祠"
+    },
+    {
+     "name": "Shamian Island 沙面",
+     "km": "3.3",
+     "time": {
+      "he": "15 דק׳ במונית",
+      "en": null
+     },
+     "mapQuery": "Shamian Island, Guangzhou",
+     "zh": "沙面"
+    },
+    {
+     "name": "Canton Tower 广州塔",
+     "km": "6.0",
+     "time": {
+      "he": "20 דק׳ במונית",
+      "en": null
+     },
+     "mapQuery": "Canton Tower",
+     "zh": "广州塔"
+    },
+    {
+     "name": "Guangzhou South Station 广州南站",
+     "km": "15",
+     "time": {
+      "he": "40 דק׳",
+      "en": null
+     },
+     "mapQuery": "Guangzhou South Railway Station",
+     "zh": "广州南站"
+    },
+    {
+     "name": "Airport CAN 白云机场",
+     "km": "30",
+     "time": {
+      "he": "45–60 דק׳",
+      "en": null
+     },
+     "mapQuery": "Guangzhou Baiyun International Airport",
+     "zh": "广州白云国际机场"
+    }
+   ]
+  }
+ },
+ "gl": {
+  "name": "Guilin",
+  "zh": "桂林",
+  "ll": [
+   25.2736,
+   110.29
+  ],
+  "images": [
+   "gl1",
+   "gl2"
+  ],
+  "map": {
+   "x": 285.7,
+   "y": 615.5,
+   "dx": -14,
+   "dy": -4,
+   "anchor": "end"
+  },
+  "color": "#8A6A9E",
+  "gradient": "#5E8B85,#B8CFC4",
+  "weather": {
+   "temp": "25–33°",
+   "desc": {
+    "he": "חם ולח",
+    "en": null
+   }
+  },
+  "hotelArea": "Zhengyang Pedestrian St 正阳步行街 / Two Rivers & Four Lakes",
+  "hotelBaseCNY": 290,
+  "mainStreet": "Zhengyang Pedestrian Street, Guilin",
+  "mustSee": [
+   "Elephant Trunk Hill",
+   "Two Rivers & Four Lakes"
+  ],
+  "highlights": [
+   "Zhengyang St",
+   "Two Rivers & Four Lakes"
+  ],
+  "distances": {
+   "from": "Zhengyang Pedestrian St 正阳步行街",
+   "fromNote": {
+    "he": "המדרחוב המרכזי של גווילין, ליד האגמים והנהר. כאן נמצאים המלונות המומלצים",
+    "en": null
+   },
+   "rows": [
+    {
+     "name": "Sun & Moon Pagodas 日月双塔",
+     "km": "0.1",
+     "time": {
+      "he": "5 דק׳ הליכה",
+      "en": null
+     },
+     "mapQuery": "Riyue Shuangta Guilin",
+     "zh": "日月双塔"
+    },
+    {
+     "name": "Dongxi Xiang 东西巷",
+     "km": "0.6",
+     "time": {
+      "he": "10 דק׳ הליכה",
+      "en": null
+     },
+     "mapQuery": "东西巷 桂林",
+     "zh": "东西巷"
+    },
+    {
+     "name": "Elephant Trunk Hill 象鼻山",
+     "km": "1.2",
+     "time": {
+      "he": "15 דק׳ הליכה",
+      "en": null
+     },
+     "mapQuery": "Elephant Trunk Hill, Guilin",
+     "zh": "象鼻山"
+    },
+    {
+     "name": "Reed Flute Cave 芦笛岩",
+     "km": "4.5",
+     "time": {
+      "he": "20 דק׳ במונית",
+      "en": null
+     },
+     "mapQuery": "Reed Flute Cave, Guilin",
+     "zh": "芦笛岩"
+    },
+    {
+     "name": "Mopanshan Pier 磨盘山码头 (שיט Li River)",
+     "km": "17",
+     "time": {
+      "he": "40 דק׳ ברכב",
+      "en": null
+     },
+     "mapQuery": "Mopanshan Pier Li River Cruise",
+     "zh": "磨盘山码头"
+    },
+    {
+     "name": "Longji Rice Terraces 龙脊梯田",
+     "km": "55",
+     "time": {
+      "he": "כשעתיים ברכב",
+      "en": null
+     },
+     "mapQuery": "Longji Rice Terraces",
+     "zh": "龙脊梯田"
+    },
+    {
+     "name": "Airport KWL 两江机场",
+     "km": "26",
+     "time": {
+      "he": "40 דק׳",
+      "en": null
+     },
+     "mapQuery": "Guilin Liangjiang International Airport",
+     "zh": "桂林两江国际机场"
+    }
+   ]
+  }
+ },
+ "ys": {
+  "name": "Yangshuo",
+  "zh": "阳朔",
+  "ll": [
+   24.7781,
+   110.4966
+  ],
+  "images": [
+   "ys1",
+   "ys2",
+   "ys3"
+  ],
+  "map": {
+   "x": 291.9,
+   "y": 632.1,
+   "dx": 14,
+   "dy": 18,
+   "anchor": "start"
+  },
+  "color": "#3E9A9A",
+  "gradient": "#6E8F6A,#C9D6B0",
+  "weather": {
+   "temp": "25–33°",
+   "desc": {
+    "he": "חם ולח, מושלם למים",
+    "en": null
+   }
+  },
+  "hotelArea": {
+   "he": "5–10 דק׳ הליכה מ־West Street 西街",
+   "en": null
+  },
+  "hotelBaseCNY": 750,
+  "mainStreet": "West Street, Yangshuo",
+  "mustSee": [
+   "Li River Cruise",
+   "Yulong River Rafting",
+   "Xingping",
+   "West Street"
+  ],
+  "highlights": [
+   "Yulong River raft",
+   "אופניים",
+   "Xingping",
+   "Impression show"
+  ],
+  "distances": {
+   "from": "West Street 西街",
+   "fromNote": {
+    "he": "הרחוב השוקק של העיירה, עם מסעדות וחנויות. המלונות המומלצים 5–10 דק׳ הליכה ממנו",
+    "en": null
+   },
+   "rows": [
+    {
+     "name": "Impression Liu Sanjie 印象刘三姐",
+     "km": "0.8",
+     "time": {
+      "he": "10 דק׳ הליכה",
+      "en": null
+     },
+     "mapQuery": "印象刘三姐剧场",
+     "zh": "印象刘三姐"
+    },
+    {
+     "name": "Moon Hill 月亮山",
+     "km": "6.0",
+     "time": {
+      "he": "15 דק׳ ברכב / אופניים",
+      "en": null
+     },
+     "mapQuery": "Moon Hill, Yangshuo",
+     "zh": "月亮山"
+    },
+    {
+     "name": "Yulong River 遇龙河 (רפסודות)",
+     "km": "8.6",
+     "time": {
+      "he": "20 דק׳ ברכב",
+      "en": null
+     },
+     "mapQuery": "Yulong River, Yangshuo",
+     "zh": "遇龙河"
+    },
+    {
+     "name": "Xingping 兴坪 (שטר 20 יואן)",
+     "km": "16",
+     "time": {
+      "he": "40 דק׳ ברכב",
+      "en": null
+     },
+     "mapQuery": "Xingping, Yangshuo",
+     "zh": "兴坪古镇"
+    },
+    {
+     "name": "Xianggong Hill 相公山",
+     "km": "20",
+     "time": {
+      "he": "45 דק׳ ברכב",
+      "en": null
+     },
+     "mapQuery": "Xianggong Mountain Yangshuo",
+     "zh": "相公山"
+    },
+    {
+     "name": "Airport KWL 两江机场",
+     "km": "67",
+     "time": {
+      "he": "1:15–1:30 ברכב",
+      "en": null
+     },
+     "mapQuery": "Guilin Liangjiang International Airport",
+     "zh": "桂林两江国际机场"
+    }
+   ]
+  }
+ },
+ "ckg": {
+  "name": "Chongqing",
+  "zh": "重庆",
+  "ll": [
+   29.563,
+   106.5516
+  ],
+  "images": [
+   "ckg1",
+   "ckg2"
+  ],
+  "map": {
+   "x": 172.2,
+   "y": 468.8,
+   "dx": 0,
+   "dy": 30,
+   "anchor": "middle"
+  },
+  "color": "#B0874A",
+  "gradient": "#6F6A86,#C77B61",
+  "weather": {
+   "temp": "27–35°",
+   "desc": {
+    "he": "הכי חם במסלול",
+    "en": null
+   }
+  },
+  "hotelArea": "Jiefangbei 解放碑 / Hongyadong 洪崖洞",
+  "hotelBaseCNY": 500,
+  "mainStreet": "Jiefangbei, Chongqing",
+  "mustSee": [
+   "Hongyadong",
+   "Yangtze River Cableway",
+   "Liziba Station",
+   "Ciqikou Old Town"
+  ],
+  "highlights": [
+   "Hongyadong",
+   "Yangtze Cableway",
+   "Liziba",
+   "הוטפוט"
+  ],
+  "distances": {
+   "from": "Jiefangbei 解放碑",
+   "fromNote": {
+    "he": "מדרחוב הקניות המרכזי של צ׳ונגצ׳ינג, בהליכה ל־Hongyadong. כאן נמצאים המלונות המומלצים",
+    "en": null
+   },
+   "rows": [
+    {
+     "name": "Hongyadong 洪崖洞",
+     "km": "0.6",
+     "time": {
+      "he": "10 דק׳ הליכה",
+      "en": null
+     },
+     "mapQuery": "Hongyadong, Chongqing",
+     "zh": "洪崖洞"
+    },
+    {
+     "name": "Yangtze Cableway 长江索道",
+     "km": "0.7",
+     "time": {
+      "he": "10 דק׳ הליכה",
+      "en": null
+     },
+     "mapQuery": "Yangtze River Cableway, Chongqing",
+     "zh": "长江索道"
+    },
+    {
+     "name": "Chaotianmen 朝天门 (שיט לילה)",
+     "km": "1.4",
+     "time": {
+      "he": "10 דק׳ במונית",
+      "en": null
+     },
+     "mapQuery": "Chaotianmen, Chongqing",
+     "zh": "朝天门"
+    },
+    {
+     "name": "Liziba 李子坝",
+     "km": "4.5",
+     "time": {
+      "he": "15 דק׳ במונית / מטרו קו 2",
+      "en": null
+     },
+     "mapQuery": "Liziba Station, Chongqing",
+     "zh": "李子坝站"
+    },
+    {
+     "name": "Eling Park 鹅岭公园",
+     "km": "3.7",
+     "time": {
+      "he": "15 דק׳ במונית",
+      "en": null
+     },
+     "mapQuery": "Eling Park, Chongqing",
+     "zh": "鹅岭公园"
+    },
+    {
+     "name": "Ciqikou 磁器口",
+     "km": "13",
+     "time": {
+      "he": "30 דק׳ במונית",
+      "en": null
+     },
+     "mapQuery": "Ciqikou Ancient Town, Chongqing",
+     "zh": "磁器口古镇"
+    },
+    {
+     "name": "Wulong Karst 武隆天生三桥",
+     "km": "119",
+     "time": {
+      "he": "כ־3 שעות ברכב",
+      "en": null
+     },
+     "mapQuery": "Three Natural Bridges, Wulong",
+     "zh": "武隆天生三桥"
+    },
+    {
+     "name": "Airport CKG 江北机场",
+     "km": "19",
+     "time": {
+      "he": "40 דק׳",
+      "en": null
+     },
+     "mapQuery": "Chongqing Jiangbei International Airport",
+     "zh": "重庆江北国际机场"
+    }
+   ]
+  }
+ },
+ "zjj": {
+  "name": "Zhangjiajie",
+  "zh": "张家界",
+  "ll": [
+   29.117,
+   110.479
+  ],
+  "images": [
+   "zjj1",
+   "zjj2",
+   "zjj3"
+  ],
+  "map": {
+   "x": 291.4,
+   "y": 484.3,
+   "dx": 14,
+   "dy": -14,
+   "anchor": "start"
+  },
+  "color": "#5E8A63",
+  "gradient": "#5F7D67,#A9BFA4",
+  "weather": {
+   "temp": "23–31°",
+   "desc": {
+    "he": "ממטרים וערפל בהרים",
+    "en": null
+   }
+  },
+  "hotelArea": {
+   "he": "Wulingyuan 武陵源 (ליד Xibu Street) + לילה בעיר ליד Tianmen",
+   "en": null
+  },
+  "hotelBaseCNY": 480,
+  "mainStreet": "Wulingyuan, Zhangjiajie",
+  "mustSee": [
+   "Zhangjiajie Forest Park",
+   "Yuanjiajie & Bailong Elevator",
+   "Tianmen Mountain"
+  ],
+  "highlights": [
+   "Forest Park (אווטאר)",
+   "Tianmen Mountain"
+  ],
+  "distances": {
+   "from": "Wulingyuan 武陵源 (השער המזרחי)",
+   "fromNote": {
+    "he": "העיירה שליד השער המזרחי של הפארק, עם Xibu Street השוקק בערב. כאן נמצאים המלונות המומלצים",
+    "en": null
+   },
+   "rows": [
+    {
+     "name": "Xibu Street 溪布街",
+     "km": "0.3",
+     "time": {
+      "he": "5 דק׳ הליכה",
+      "en": null
+     },
+     "mapQuery": "Xibu Street, Zhangjiajie",
+     "zh": "溪布街"
+    },
+    {
+     "name": "Bailong Elevator 百龙天梯",
+     "km": "7.6",
+     "time": {
+      "he": "30 דק׳ באוטובוס הפארק",
+      "en": null
+     },
+     "mapQuery": "Bailong Elevator, Zhangjiajie",
+     "zh": "百龙天梯"
+    },
+    {
+     "name": "Yuanjiajie 袁家界 (אווטאר)",
+     "km": "9.7",
+     "time": {
+      "he": "40 דק׳ באוטובוס + מעלית",
+      "en": null
+     },
+     "mapQuery": "Bailong Elevator, Zhangjiajie",
+     "zh": "袁家界景区-观景台"
+    },
+    {
+     "name": "Golden Whip Stream 金鞭溪",
+     "km": "10",
+     "time": {
+      "he": "40 דק׳ באוטובוס הפארק",
+      "en": null
+     },
+     "mapQuery": "金鞭溪 张家界",
+     "zh": "金鞭溪"
+    },
+    {
+     "name": "Tianzi Mountain 天子山",
+     "km": "10",
+     "time": {
+      "he": "45 דק׳",
+      "en": null
+     },
+     "mapQuery": "天子山 张家界",
+     "zh": "天子山"
+    },
+    {
+     "name": "Grand Canyon Glass Bridge 大峡谷玻璃桥",
+     "km": "15",
+     "time": {
+      "he": "45 דק׳ ברכב",
+      "en": null
+     },
+     "mapQuery": "Zhangjiajie Glass Bridge",
+     "zh": "张家界大峡谷玻璃桥"
+    },
+    {
+     "name": "Tianmen Mountain 天门山 (רכבל בעיר)",
+     "km": "26",
+     "time": {
+      "he": "50 דק׳ ברכב",
+      "en": null
+     },
+     "mapQuery": "Tianmen Mountain Cableway, Zhangjiajie",
+     "zh": "天门山索道"
+    },
+    {
+     "name": "Airport DYG 荷花机场",
+     "km": "29",
+     "time": {
+      "he": "50 דק׳",
+      "en": null
+     },
+     "mapQuery": "Zhangjiajie Hehua International Airport",
+     "zh": "张家界荷花国际机场"
+    }
+   ]
+  }
+ },
+ "sh": {
+  "name": "Shanghai",
+  "zh": "上海",
+  "ll": [
+   31.2304,
+   121.4737
+  ],
+  "images": [
+   "sh1",
+   "sh2"
+  ],
+  "map": {
+   "x": 624.9,
+   "y": 410.2,
+   "dx": -14,
+   "dy": -14,
+   "anchor": "end"
+  },
+  "color": "#4F7FA0",
+  "gradient": "#7E8FA3,#C9B79C",
+  "weather": {
+   "temp": "26–32°",
+   "desc": {
+    "he": "לח מאוד, ייתכנו סופות טרופיות",
+    "en": null
+   }
+  },
+  "hotelArea": "The Bund 外滩 / Nanjing Rd East 南京东路",
+  "hotelBaseCNY": 910,
+  "mainStreet": "Nanjing Road Pedestrian Street, Shanghai",
+  "mustSee": [
+   "The Bund",
+   "Shanghai Tower",
+   "Yu Garden",
+   "Nanjing Road"
+  ],
+  "highlights": [
+   "The Bund",
+   "Nanjing Rd",
+   "French Concession"
+  ],
+  "distances": {
+   "from": "Nanjing Road East 南京东路 · The Bund",
+   "fromNote": {
+    "he": "רחוב הקניות המרכזי של שנגחאי, שמתחבר לטיילת The Bund. כאן נמצאים המלונות המומלצים",
+    "en": null
+   },
+   "rows": [
+    {
+     "name": "The Bund 外滩",
+     "km": "0.6",
+     "time": {
+      "he": "10 דק׳ הליכה",
+      "en": null
+     },
+     "mapQuery": "The Bund, Shanghai",
+     "zh": "外滩"
+    },
+    {
+     "name": "North Bund 北外滩",
+     "km": "1.4",
+     "time": {
+      "he": "15 דק׳ הליכה",
+      "en": null
+     },
+     "mapQuery": "North Bund, Shanghai",
+     "zh": "北外滩"
+    },
+    {
+     "name": "Yu Garden 豫园",
+     "km": "1.6",
+     "time": {
+      "he": "10 דק׳ במונית",
+      "en": null
+     },
+     "mapQuery": "Yu Garden, Shanghai",
+     "zh": "豫园"
+    },
+    {
+     "name": "Oriental Pearl Tower 东方明珠",
+     "km": "1.5",
+     "time": {
+      "he": "10 דק׳ במטרו (קו 2)",
+      "en": null
+     },
+     "mapQuery": "Oriental Pearl Tower",
+     "zh": "东方明珠"
+    },
+    {
+     "name": "Lujiazui 陆家嘴",
+     "km": "1.6",
+     "time": {
+      "he": "10 דק׳ במטרו (קו 2)",
+      "en": null
+     },
+     "mapQuery": "Lujiazui, Shanghai",
+     "zh": "陆家嘴"
+    },
+    {
+     "name": "Shanghai Tower 上海中心",
+     "km": "2.2",
+     "time": {
+      "he": "15 דק׳ במטרו (קו 2)",
+      "en": null
+     },
+     "mapQuery": "Shanghai Tower",
+     "zh": "上海中心大厦"
+    },
+    {
+     "name": "Xintiandi 新天地",
+     "km": "2.4",
+     "time": {
+      "he": "15 דק׳ במונית",
+      "en": null
+     },
+     "mapQuery": "Xintiandi, Shanghai",
+     "zh": "新天地"
+    },
+    {
+     "name": "Tianzifang 田子坊",
+     "km": "3.6",
+     "time": {
+      "he": "20 דק׳ במונית",
+      "en": null
+     },
+     "mapQuery": "Tianzifang, Shanghai",
+     "zh": "田子坊"
+    },
+    {
+     "name": "Huaihai Road 淮海路",
+     "km": "3.1",
+     "time": {
+      "he": "20 דק׳ במונית",
+      "en": null
+     },
+     "mapQuery": "淮海中路 陕西南路 上海",
+     "zh": "淮海中路"
+    },
+    {
+     "name": "West Nanjing Road 南京西路",
+     "km": "2.9",
+     "time": {
+      "he": "15 דק׳ במטרו (קו 2)",
+      "en": null
+     },
+     "mapQuery": "West Nanjing Road, Shanghai",
+     "zh": "南京西路"
+    },
+    {
+     "name": "Jing'an Temple 静安寺",
+     "km": "4.1",
+     "time": {
+      "he": "20 דק׳ במטרו (קו 2)",
+      "en": null
+     },
+     "mapQuery": "Jing'an Temple, Shanghai",
+     "zh": "静安寺"
+    },
+    {
+     "name": "Wukang Road 武康路",
+     "km": "5.9",
+     "time": {
+      "he": "25 דק׳ במונית",
+      "en": null
+     },
+     "mapQuery": "Wukang Mansion, Shanghai",
+     "zh": "武康大楼"
+    },
+    {
+     "name": "Airport SHA 虹桥机场",
+     "km": "15",
+     "time": {
+      "he": "35–45 דק׳",
+      "en": null
+     },
+     "mapQuery": "Shanghai Hongqiao International Airport",
+     "zh": "上海虹桥国际机场"
+    },
+    {
+     "name": "Airport PVG 浦东机场",
+     "km": "33",
+     "time": {
+      "he": "כשעה",
+      "en": null
+     },
+     "mapQuery": "Shanghai Pudong International Airport",
+     "zh": "上海浦东国际机场"
+    }
+   ]
+  }
+ }
+}

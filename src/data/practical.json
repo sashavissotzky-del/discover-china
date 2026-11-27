@@ -1,0 +1,391 @@
+{
+ "Jingshan Park": {
+  "hours": {
+   "he": "6:00–21:00 (אפריל–אוקטובר), כניסה אחרונה 20:30",
+   "en": null
+  },
+  "booking": {
+   "he": "¥2 למבוגר, ¥1 בהנחה. בתקופת תערוכה (בקיץ) המחיר עולה ל־¥10. אפשר לקנות בקופה או מראש ב־WeChat «畅游公园»; צריך דרכון",
+   "en": null
+  },
+  "advice": null,
+  "source": "https://english.beijing.gov.cn/specials/ticketing/parks/202407/t20240719_3753324.html",
+  "checked": "20.11.2026"
+ },
+ "Forbidden City": {
+  "hours": {
+   "he": "8:30–17:00 (אפריל–אוקטובר), כניסה אחרונה 16:00 · סגור בימי שני (חוץ מחגים)",
+   "en": null
+  },
+  "booking": {
+   "he": "חובה להזמין מראש עם מספר דרכון. המכירה נפתחת 7 ימים לפני הביקור ב־20:00 שעון בייג׳ינג, באתר הרשמי intl.dpm.org.cn. אין כרטיסים ביום עצמו. מבוגר ¥60. נכנסים עם הדרכון המקורי",
+   "en": null
+  },
+  "advice": {
+   "he": "סופי שבוע וחופשת הקיץ נגמרים מהר. עדיף שלישי–חמישי, ולהגיע בבוקר",
+   "en": null
+  },
+  "source": "https://chinasurvivalkit.com/blog/forbidden-city-tickets",
+  "checked": "7.11.2026",
+  "closedMonday": 1
+ },
+ "Great Wall · Mutianyu": {
+  "hours": {
+   "he": "כניסה 7:30–18:00 · רכבל כיסאות ומגלשה 8:00–17:00 (16.3–15.11)",
+   "en": null
+  },
+  "booking": {
+   "he": "מומלץ להזמין אונליין מראש ולהיכנס עם QR. מתחת לגיל 6 חינם. ילדים מתחת לגיל 10 גולשים במגלשה רק עם מבוגר. מגיל 60 אסור במגלשה",
+   "en": null
+  },
+  "advice": {
+   "he": "להגיע מוקדם בבוקר",
+   "en": null
+  },
+  "source": "https://www.travelchinaguide.com/mutianyu-great-wall-tickets-booking.htm",
+  "checked": "נבדק 16.11.2026"
+ },
+ "Temple of Heaven": {
+  "hours": {
+   "he": "הפארק 6:00–22:00 · המבנים בתשלום 8:00–18:00, סגורים בימי שני",
+   "en": null
+  },
+  "booking": {
+   "he": "הכניסה למבנים המרכזיים בהזמנה מראש, 1–7 ימים לפני, בחשבון WeChat ״Visiting Beijing Parks״. עם דרכון: ¥20, כרטיס משולב ¥34",
+   "en": null
+  },
+  "advice": {
+   "he": "הכי נעים עד 9:00",
+   "en": null
+  },
+  "source": "https://english.beijing.gov.cn/specials/ticketing/parks/202407/t20240719_3753312.html",
+  "checked": "אתר ממשלתי",
+  "closedMonday": 1
+ },
+ "Summer Palace": {
+  "hours": {
+   "he": "אפריל–אוקטובר: כניסה 6:00–19:00, הפארק נסגר ב־20:00 · אתרים בתשלום 8:00–17:30",
+   "en": null
+  },
+  "booking": {
+   "he": "¥30 (אפריל–אוקטובר). הזמנה 1–7 ימים מראש בחשבון ה־WeChat הרשמי של הפארק, או בקופה. להביא דרכון ולהגיע בשעה שנבחרה",
+   "en": null
+  },
+  "advice": null,
+  "source": "https://english.beijing.gov.cn/specials/ticketing/parks/202407/t20240719_3753037.html",
+  "checked": "אתר ממשלתי (פורסם 7.2024)"
+ },
+ "Shanghai Tower": {
+  "hours": {
+   "he": "8:30–22:00, כניסה אחרונה 21:30 (Amap, 23.11.2026)",
+   "en": null
+  },
+  "booking": {
+   "he": "קומה 118: ¥180. מתחת ל־1.2 מ׳ חינם, 1.2–1.4 מ׳ ¥90. אין החזר כספי, אז להזמין רק יום־יומיים לפני, לפי מזג האוויר. נכנסים עם דרכון",
+   "en": null
+  },
+  "advice": {
+   "he": "בסופי שבוע ובחגים תור של עד שעתיים. הכי יפה סביב 17:00 (אור יום, שקיעה ואורות)",
+   "en": null
+  },
+  "source": "https://www.wanderinchina.com/destinations/shanghai/shanghai-tower/",
+  "checked": "נבדק 16.11.2026"
+ },
+ "Oriental Pearl Tower": {
+  "hours": {
+   "he": "9:00–21:00, כניסה אחרונה 20:30",
+   "en": null
+  },
+  "booking": {
+   "he": "חבילה בסיסית ¥199. מתחת למטר חינם, 1–1.4 מ׳ חצי מחיר",
+   "en": null
+  },
+  "advice": null,
+  "source": "https://www.travelchinaguide.com/attraction/shanghai/oriental_pearl.htm",
+  "checked": "אתר צד שלישי"
+ },
+ "Yu Garden": {
+  "hours": {
+   "he": "9:00–16:30, כניסה אחרונה 16:00 · סגור בימי שני",
+   "en": null
+  },
+  "booking": {
+   "he": "¥30 ביולי–אוגוסט (¥40 באביב ובסתיו). עדיף לקנות אונליין",
+   "en": null
+  },
+  "advice": {
+   "he": "צפוף מאוד. להגיע עד 15:30. הגשר וסמטאות הבזאר שבחוץ פתוחים גם בערב",
+   "en": null
+  },
+  "source": "https://www.trvlogue.com/en/yu-garden-shanghai-tickets",
+  "checked": "נבדק 16.11.2026",
+  "closedMonday": 1
+ },
+ "North Bund": {
+  "hours": {
+   "he": "6:00–22:00, כל יום",
+   "en": null
+  },
+  "booking": {
+   "he": "כניסה חופשית (טיילת 北外滩滨江绿地)",
+   "en": null
+  },
+  "advice": null,
+  "source": "https://uri.amap.com/search?keyword=%E5%8C%97%E5%A4%96%E6%BB%A9%E6%BB%A8%E6%B1%9F%E7%BB%BF%E5%9C%B0&city=%E4%B8%8A%E6%B5%B7",
+  "checked": "23.11.2026"
+ },
+ "Yangtze River Cableway": {
+  "hours": {
+   "he": "8:00–22:00 (מרץ–נובמבר), כניסה אחרונה כ־21:30 · יום תחזוקה אחד בחודש",
+   "en": null
+  },
+  "booking": {
+   "he": "¥30 לכיוון, ¥50 הלוך־חזור. מתחת ל־1.2 מ׳ חינם. נמכר ב־WeChat מ־7:45, עד יומיים מראש, או ב־Trip.com. ביום עצמו לוקחים מספר תור",
+   "en": null
+  },
+  "advice": {
+   "he": "בערבי סוף שבוע תור של שעה ויותר. ביום חול, או אחרי 20:30 מהתחנה הדרומית, כמעט בלי תור. לקנות לכיוון אחד",
+   "en": null
+  },
+  "source": "https://chinafortravelers.com/guides/yangtze-cable-car-chongqing/",
+  "checked": "עודכן 16.8.2026 · שעות הקיץ אומתו ב־Amap (重庆长江索道北站) 23.11.2026"
+ },
+ "Wulong Karst": {
+  "hours": {
+   "he": "8:30–16:30, כניסות 9:00–16:00",
+   "en": null
+  },
+  "booking": {
+   "he": "מבוגר כ־$25 (כולל אוטובוס ומעלית). גיל 6–18 או 1.2–1.5 מ׳: כ־$21. להזמין לפחות שעתיים מראש",
+   "en": null
+  },
+  "advice": null,
+  "source": "https://etripchina.com/ticket/wulong-three-natural-bridge-ticket-booking.htm",
+  "checked": "אתר צד שלישי"
+ },
+ "Zhangjiajie Forest Park": {
+  "hours": {
+   "he": "התור בשער המזרחי מתחיל בסביבות 6:30",
+   "en": null
+  },
+  "booking": {
+   "he": "כרטיס ל־4 ימים: כניסה + שאטל ¥240 (מפעיל אחר: ¥236). כל כניסה, גם חוזרת, דורשת הזמנה לשער ולשעה. בנפרד: מעלית Bailong ¥65 לכיוון, רכבל Tianzi ¥72 לכיוון. הזמנה ב־WeChat 「张家界旅游小助手」 או ב־Trip.com. מתי נפתחת ההזמנה: אין מקור רשמי. מקור אחד כותב כחודש מראש, ופוסט מ־9.2026 כ־10 ימים. לבדוק כחודש לפני",
+   "en": null
+  },
+  "advice": {
+   "he": "יולי–אוגוסט חם, גשום ועם ערפל. להגיע מוקדם",
+   "en": null
+  },
+  "source": "https://chinasurvivalkit.com/blog/zhangjiajie-national-forest-park-tickets",
+  "checked": "עודכן 7.11.2026 (מחירים נבדקו 5.11.2026)"
+ },
+ "Yuanjiajie & Bailong Elevator": {
+  "hours": null,
+  "booking": {
+   "he": "מעלית Bailong: ¥65 לכיוון, כלולה בכרטיס המשולב של הפארק",
+   "en": null
+  },
+  "advice": {
+   "he": "להגיע מוקדם, לפני הקבוצות",
+   "en": null
+  },
+  "source": "https://passportnomads.com/?p=19473",
+  "checked": "עודכן 8.11.2026"
+ },
+ "Tianmen Mountain": {
+  "hours": {
+   "he": "לתכנן 4–6 שעות",
+   "en": null
+  },
+  "booking": {
+   "he": "¥288 למבוגר, כרטיס שמי ומתוזמן עם דרכון. נמכר רק מסלול C: הרכבל הארוך מהעיר לא פועל (בשיפוץ, בלי תאריך חזרה). עולים בשאטל, ברכבל Tianmen Cave ובמדרגות נעות. בעונה להזמין שבוע ומעלה מראש",
+   "en": null
+  },
+  "advice": {
+   "he": "לקחת את השעה המוקדמת ביותר",
+   "en": null
+  },
+  "source": "https://www.babagoeschina.com/tianmen-mountain-zhangjiajie/",
+  "checked": "3.11.2026"
+ },
+ "Grand Canyon Glass Bridge": {
+  "hours": null,
+  "booking": {
+   "he": "כניסה בחלון של שעתיים, עד 8,000 איש ביום. גשר + קניון: כ־¥178. מתחת ל־1.2 מ׳ חינם. המכירה הרשמית נפתחת 30 יום מראש. דרכון. אין תיקים על הגשר (יש לוקרים)",
+   "en": null
+  },
+  "advice": {
+   "he": "החלון של 8:00 הכי פנוי. הגשר נסגר ברוח חזקה ובסופות",
+   "en": null
+  },
+  "source": "https://www.babagoeschina.com/zhangjiajie-glass-bridge/",
+  "checked": "נבדק 16.11.2026"
+ },
+ "Reed Flute Cave": {
+  "hours": {
+   "he": "כ־8:00–17:30 (יולי–דצמבר)",
+   "en": null
+  },
+  "booking": {
+   "he": "¥90. מתחת ל־1.2 מ׳ או מתחת לגיל 6 חינם. כרטיס אונליין מופעל רק אחרי כשעה",
+   "en": null
+  },
+  "advice": {
+   "he": "הקבוצות מגיעות בין 10:00 ל־14:00. בקיץ לבוא לפני 10:00",
+   "en": null
+  },
+  "source": "https://chinafortravelers.com/guides/reed-flute-cave-guilin/",
+  "checked": "עודכן 6.7.2026"
+ },
+ "Elephant Trunk Hill": {
+  "hours": {
+   "he": "נפתח ב־6:30 · שעת סגירה בקיץ לא אומתה",
+   "en": null
+  },
+  "booking": {
+   "he": "כניסה חינם, מאז 31.1.2022. נכנסים בסריקת QR",
+   "en": null
+  },
+  "advice": {
+   "he": "שער 3 = נקודת הצילום של ״הפיל שותה״",
+   "en": null
+  },
+  "source": "https://m.gmw.cn/2026-11/16/content_1304586552.htm",
+  "checked": "Guangming Daily, 16.11.2026"
+ },
+ "Li River Cruise": {
+  "hours": {
+   "he": "יוצאים בסביבות 9:00–9:30, השיט 4–5 שעות. סירות 3 כוכבים מ־Mopanshan, 4 כוכבים מ־Zhujiang. לצאת מהמלון לפני 8:00, במונית",
+   "en": null
+  },
+  "booking": {
+   "he": "להזמין מראש (למשל ב־Trip.com). לבדוק תחזית 3 ימים לפני",
+   "en": null
+  },
+  "advice": {
+   "he": "מאי–ספטמבר זו עונת הגשמים, והשיט עלול להתבטל בהצפה",
+   "en": null
+  },
+  "source": "https://chinatravel.com/guilin/li-river-cruise-ticket",
+  "checked": "עודכן 28.4.2026"
+ },
+ "Pearl River Night Cruise": {
+  "hours": {
+   "he": "יציאות ערב מ־Tianzi: 18:40, 19:10, 20:10, 21:00 (¥98, 70–90 דק׳)",
+   "en": null
+  },
+  "booking": {
+   "he": "ב־WeChat ״珠江夜游״ או בקופה (תור בסופ״ש). דרכון מקורי",
+   "en": null
+  },
+  "advice": {
+   "he": "הכי יפה ב־19:10 או 20:10. בקיץ סופות וטייפונים עלולים לבטל",
+   "en": null
+  },
+  "source": "https://www.chinatravel.com/guangzhou/attraction/pearl-river-night-cruise",
+  "checked": "נבדק 16.11.2026"
+ },
+ "Chen Clan Ancestral Hall": {
+  "hours": {
+   "he": "9:00–17:30 כל יום, מכירה עד 17:00",
+   "en": null
+  },
+  "booking": "¥10",
+  "advice": null,
+  "source": "https://intotravelchina.com/en/articles/1776910297125519049.html",
+  "checked": "נבדק 16.11.2026"
+ },
+ "Canton Tower": {
+  "hours": {
+   "he": "9:30–22:30, כניסה אחרונה 22:00 · תאורת המגדל 19:00–23:00",
+   "en": null
+  },
+  "booking": {
+   "he": "תצפית 433 מ׳ ¥150 · מרפסת פתוחה 488 מ׳ ¥328 · Sky Drop ¥268. באתר הרשמי של Canton Tower. בסוף שבוע להזמין מראש",
+   "en": null
+  },
+  "advice": {
+   "he": "הכי יפה 17:00–18:30. ביום מעונן הפסגה בעננים",
+   "en": null
+  },
+  "source": "https://www.chinatravel.com/guangzhou/attraction/canton-tower",
+  "checked": "עודכן 17.4.2026 (אתר צד שלישי)"
+ },
+ "Impression Liu Sanjie": {
+  "hours": {
+   "he": "בערב, כמה הצגות. ב־23.11.2026 (חורף): 19:30 · 20:00 · 21:05 · 22:35. בקיץ השעות עשויות להיות אחרות",
+   "en": null
+  },
+  "booking": {
+   "he": "להזמין ב־Amap 高德 או ב־Dianping 大众点评: בוחרים תאריך, אזור ישיבה והצגה. מבוגר (מ־140 ס״מ) מ־¥218 (מחירון ¥328); יש כרטיסים מוזלים מ־¥118. המחיר משתנה לפי תאריך ואזור",
+   "en": null
+  },
+  "advice": {
+   "he": "מומלץ מרכז האולם, שורות 20–30 — משם רואים את הנהר מלמעלה. בשורות האמצעיות־קדמיות יש מי שלא ראה ולא שמע טוב",
+   "en": null
+  },
+  "source": "https://uri.amap.com/search?keyword=%E5%8D%B0%E8%B1%A1%C2%B7%E5%88%98%E4%B8%89%E5%A7%90&city=%E6%A1%82%E6%9E%97",
+  "checked": "23.11.2026 (Amap, צילום של אלכס)"
+ },
+ "Eling Park": {
+  "hours": {
+   "he": "6:00–22:00, כל יום",
+   "en": null
+  },
+  "booking": {
+   "he": "כניסה חופשית לפארק. האם מגדל התצפית 瞰胜楼 בתשלום — לא צוין ב־Amap",
+   "en": null
+  },
+  "advice": {
+   "he": "מטרו: תחנת Eling 鹅岭, יציאה 2A, כ־360 מ׳ הליכה. כתובת: 渝中区鹅岭正街176号",
+   "en": null
+  },
+  "source": "https://uri.amap.com/search?keyword=%E9%B9%85%E5%B2%AD%E5%85%AC%E5%9B%AD&city=%E9%87%8D%E5%BA%86",
+  "checked": "23.11.2026 (Amap)"
+ },
+ "Yulong River Rafting": {
+  "hours": {
+   "he": "אזור הנהר 遇龙河景区: 8:00–17:00 כל יום (Amap, 23.11.2026)",
+   "en": null
+  },
+  "booking": {
+   "he": "ב־Amap יש גם שיט לילה 夜游漂流 מ־¥115. מחיר רפסודת יום לא מופיע שם",
+   "en": null
+  },
+  "advice": null,
+  "source": "https://uri.amap.com/search?keyword=%E9%81%87%E9%BE%99%E6%B2%B3%E6%99%AF%E5%8C%BA&city=%E6%A1%82%E6%9E%97",
+  "checked": "23.11.2026"
+ },
+ "Shanghai Disneyland": {
+  "hours": {
+   "he": "השעות משתנות לפי היום, לבדוק באפליקציה הרשמית · להגיע לפני הפתיחה",
+   "en": null
+  },
+  "booking": {
+   "he": "6 מדרגות מחיר לפי תאריך: ¥475–799 למבוגר. ילד 3–11 או 1–1.4 מ׳: ¥356–599. מתחת לגיל 3 או מטר: חינם. באתר או באפליקציה הרשמיים (באנגלית), Trip.com או Klook, עם דרכון",
+   "en": null
+  },
+  "advice": {
+   "he": "הקיץ הוא העונה העמוסה בשנה, עם תורים של שעתיים ויותר ברכיבות המרכזיות. Premier Access לרכיבה אחת כ־¥120–200 באפליקציה ביום עצמו",
+   "en": null
+  },
+  "source": "https://chinafortravelers.com/guides/shanghai-disneyland/",
+  "checked": "עודכן 2.9.2026"
+ },
+ "Universal Studios Beijing": {
+  "hours": {
+   "he": "נפתח ב־9:00, בדרך כלל עד 20:00. לבדוק באפליקציה ערב לפני",
+   "en": null
+  },
+  "booking": {
+   "he": "כרטיס יומי מתוארך מ־¥350, המחיר לפי התאריך (סוף שבוע ב־2026 כ־¥523). Universal Express מ־¥190. באפליקציה הרשמית, ב־WeChat או ב־Alipay",
+   "en": null
+  },
+  "advice": {
+   "he": "יולי–אוגוסט עמוסים בגלל החופש. עם כרטיס רגיל מספיקים לפעמים רק 2–3 רכיבות גדולות ביום עמוס",
+   "en": null
+  },
+  "source": "https://www.universalbeijingresort.com/en/tickets-offers",
+  "checked": "אתר רשמי · נבדק 19.11.2026"
+ }
+}

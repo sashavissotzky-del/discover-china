@@ -1,0 +1,1186 @@
+{
+ "bj": {
+  "recommended": [
+   {
+    "label": {
+     "he": "תמורה טובה (רשת בינלאומית)",
+     "en": null
+    },
+    "name": "Renaissance Beijing Wangfujing Hotel",
+    "rating": {
+     "he": "9.5/10 · 8,755 ביקורות · 720 מ׳ מ־Wangfujing",
+     "en": null
+    },
+    "price": {
+     "he": "¥2,056 ב־26.8 · ¥1,945 ב־2.9.2027 (ללילה, חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/beijing-hotel-detail-1171705/renaissance-beijing-wangfujing-hotel/",
+    "mapQuery": "Renaissance Beijing Wangfujing Hotel",
+    "ll": "39.921223,116.41007"
+   },
+   {
+    "label": {
+     "he": "נוח למשפחה",
+     "en": null
+    },
+    "name": "Park Plaza Beijing Wangfujing",
+    "rating": {
+     "he": "9.4/10 · 3,215 ביקורות · חדרי משפחה, כביסה במלון",
+     "en": null
+    },
+    "price": {
+     "he": "מינימום 3 לילות בתאריכים האלה · מ־¥1,397 ללילה (Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://ph.trip.com/hotels/beijing-hotel-detail-425031/park-plaza-beijing-wangfujing/review.html",
+    "mapQuery": "Park Plaza Beijing Wangfujing",
+    "ll": "39.9167113,116.4197461"
+   },
+   {
+    "label": {
+     "he": "רשת בינלאומית",
+     "en": null
+    },
+    "name": "Hilton Beijing Wangfujing",
+    "rating": {
+     "he": "9.2/10 · 4,843 ביקורות · על Wangfujing · Family Room",
+     "en": null
+    },
+    "price": {
+     "he": "¥1,755 ב־26.8 · ¥1,732 ב־2.9.2027 (ללילה, חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://ph.trip.com/hotels/beijing-hotel-detail-347308/hilton-beijing-wangfujing/review.html",
+    "mapQuery": "Hilton Beijing Wangfujing",
+    "ll": "39.9151125,116.4135558"
+   }
+  ],
+  "budget": [
+   {
+    "label": {
+     "he": "חסכוני",
+     "en": null
+    },
+    "name": "Youfang Hotel",
+    "rating": {
+     "he": "9.4/10 · 734 ביקורות · 400 מ׳ מ־Wangfujing",
+     "en": null
+    },
+    "price": {
+     "he": "עדיין לא פתוח להזמנה לסוף אוגוסט–ספטמבר 2027 ב־Trip.com (נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/beijing-wangfujing/hotels-c1m4189410/",
+    "mapQuery": "Youfang Hotel Beijing",
+    "ll": "39.914293,116.406503"
+   },
+   {
+    "label": {
+     "he": "חסכוני",
+     "en": null
+    },
+    "name": "Happy Dragon Garden Courtyard (Lama Temple)",
+    "rating": {
+     "he": "9.9/10 · 758 ביקורות ב־Trip.com · בית חצר בהוטונג ליד מקדש הלאמה, כ־3.4 ק״מ מ־Wangfujing",
+     "en": null
+    },
+    "price": {
+     "he": "¥674 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/beijing-wangfujing/hotels-c1m4189410/",
+    "mapQuery": "Happy Dragon Garden Courtyard",
+    "ll": "39.944751,116.418217"
+   },
+   {
+    "label": {
+     "he": "חסכוני · ממש על הרחוב",
+     "en": null
+    },
+    "name": "Sunworld Hotel Beijing",
+    "rating": {
+     "he": "9.2/10 · 3,395 ביקורות · 410 מ׳",
+     "en": null
+    },
+    "price": {
+     "he": "¥664 ב־26.8 · ¥616 ב־2.9.2027 (ללילה, חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/beijing-wangfujing/hotels-c1m4189410/",
+    "mapQuery": "Sunworld Hotel Beijing Wangfujing",
+    "ll": "39.9181454,116.4132595"
+   }
+  ],
+  "luxury": [
+   {
+    "label": {
+     "he": "פינוק · על Wangfujing",
+     "en": null
+    },
+    "name": "Grand Hyatt Beijing at Oriental Plaza",
+    "rating": {
+     "he": "9.5/10 · 8,598 ביקורות · 650 מ׳",
+     "en": null
+    },
+    "price": {
+     "he": "¥1,866 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/beijing-wangfujing/hotels-c1m4189410/",
+    "mapQuery": "Grand Hyatt Beijing Oriental Plaza",
+    "ll": "39.909802,116.414521"
+   },
+   {
+    "label": {
+     "he": "פינוק · בסגנון Friendship",
+     "en": null
+    },
+    "name": "Grand Hotel Beijing",
+    "rating": {
+     "he": "9.6/10 · 4,970 ביקורות · מלון היסטורי ליד Tiananmen",
+     "en": null
+    },
+    "price": {
+     "he": "עדיין לא פתוח להזמנה לסוף אוגוסט–ספטמבר 2027 ב־Trip.com (נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/beijing-wangfujing/hotels-c1m4189410/",
+    "mapQuery": "Grand Hotel Beijing",
+    "ll": "39.9085059,116.4076379"
+   },
+   {
+    "label": {
+     "he": "פינוק",
+     "en": null
+    },
+    "name": "Regent Beijing",
+    "rating": {
+     "he": "9.4/10 · 6,664 ביקורות · Wangfujing",
+     "en": null
+    },
+    "price": {
+     "he": "¥1,433 ב־26.8 · ¥1,406 ב־2.9.2027 (ללילה, חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/beijing-wangfujing/hotels-c1m4189410/",
+    "mapQuery": "Regent Beijing",
+    "ll": "39.916229,116.418934"
+   }
+  ]
+ },
+ "gz": {
+  "recommended": [
+   {
+    "label": {
+     "he": "רשת בינלאומית",
+     "en": null
+    },
+    "name": "Mercure Guangzhou Beijing Road Pedestrian Street",
+    "rating": {
+     "he": "9.5/10 · 7,828 ביקורות · 300 מ׳ מ־Beijing Road",
+     "en": null
+    },
+    "price": {
+     "he": "¥714 ב־26.8 · ¥766 ב־2.9.2027 (ללילה, חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://au.trip.com/hotels/guangzhou-beijing-road/hotels-c32m4196541/",
+    "mapQuery": "Mercure Guangzhou Beijing Road Pedestrian Street",
+    "ll": "23.120691,113.26933"
+   },
+   {
+    "label": {
+     "he": "נוח",
+     "en": null
+    },
+    "name": "Gionee Light Guangzhou Beijing Road",
+    "rating": {
+     "he": "9.6/10 · 2,358 ביקורות · 290 מ׳",
+     "en": null
+    },
+    "price": {
+     "he": "עדיין לא פתוח להזמנה לסוף אוגוסט–ספטמבר 2027 ב־Trip.com (נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://au.trip.com/hotels/guangzhou-beijing-road/hotels-c32m4196541/",
+    "mapQuery": "广州市越秀区北京路182号",
+    "ll": "23.12079,113.26928"
+   },
+   {
+    "label": {
+     "he": "ממש על הרחוב",
+     "en": null
+    },
+    "name": "CityNote Hotel (Beijing Road)",
+    "rating": {
+     "he": "9.1/10 · 3,699 ביקורות · 80 מ׳",
+     "en": null
+    },
+    "price": {
+     "he": "¥459 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://au.trip.com/hotels/guangzhou-beijing-road/hotels-c32m4196541/",
+    "mapQuery": "CityNote Hotel Beijing Road Pedestrian Guangzhou",
+    "ll": "23.122529,113.266779"
+   }
+  ],
+  "budget": [
+   {
+    "label": {
+     "he": "חסכוני",
+     "en": null
+    },
+    "name": "Yimi Hotel (Big Buddha Temple)",
+    "rating": {
+     "he": "9.3/10 · 1,572 ביקורות · 310 מ׳ מ־Beijing Road",
+     "en": null
+    },
+    "price": {
+     "he": "¥699 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://au.trip.com/hotels/guangzhou-beijing-road/hotels-c32m4196541/",
+    "mapQuery": "广东广州越秀区府学西街81号",
+    "ll": "23.12428,113.27019"
+   },
+   {
+    "label": {
+     "he": "חסכוני",
+     "en": null
+    },
+    "name": "Orange Hotel (Beijing Road)",
+    "rating": {
+     "he": "9.4/10 · 933 ביקורות · 490 מ׳",
+     "en": null
+    },
+    "price": {
+     "he": "עדיין לא פתוח להזמנה לסוף אוגוסט–ספטמבר 2027 ב־Trip.com (נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://au.trip.com/hotels/guangzhou-beijing-road/hotels-c32m4196541/",
+    "mapQuery": "广东广州越秀区起义路139号侨力大厦4楼",
+    "ll": "23.11987,113.26403"
+   },
+   {
+    "label": {
+     "he": "חסכוני · רשת",
+     "en": null
+    },
+    "name": "JI Hotel (Beijing Road Dade Road)",
+    "rating": {
+     "he": "9.5/10 · 2,434 ביקורות · 810 מ׳",
+     "en": null
+    },
+    "price": {
+     "he": "עדיין לא פתוח להזמנה לסוף אוגוסט–ספטמבר 2027 ב־Trip.com (נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://au.trip.com/hotels/guangzhou-beijing-road/hotels-c32m4196541/",
+    "mapQuery": "广东广州越秀区大德路318号5楼",
+    "ll": "23.11790,113.26171"
+   }
+  ],
+  "luxury": [
+   {
+    "label": {
+     "he": "פינוק · בסגנון Friendship",
+     "en": null
+    },
+    "name": "White Swan Hotel",
+    "rating": {
+     "he": "9.6/10 · 8,725 ביקורות · המלון ההיסטורי באי Shamian",
+     "en": null
+    },
+    "price": {
+     "he": "עדיין לא פתוח להזמנה לסוף אוגוסט–ספטמבר 2027 ב־Trip.com (נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://au.trip.com/hotels/guangzhou-beijing-road/hotels-c32m4196541/",
+    "mapQuery": "White Swan Hotel Guangzhou",
+    "ll": "23.105743,113.242973"
+   },
+   {
+    "label": {
+     "he": "פינוק · ליד Canton Tower",
+     "en": null
+    },
+    "name": "Conrad Guangzhou",
+    "rating": {
+     "he": "9.6/10 · 7,674 ביקורות · Zhujiang New Town",
+     "en": null
+    },
+    "price": {
+     "he": "¥1,741 ב־26.8 · ¥1,750 ב־2.9.2027 (ללילה, חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://au.trip.com/hotels/guangzhou-beijing-road/hotels-c32m4196541/",
+    "mapQuery": "Conrad Guangzhou",
+    "ll": "23.115843,113.3326563"
+   },
+   {
+    "label": {
+     "he": "פינוק · ליד Canton Tower",
+     "en": null
+    },
+    "name": "Rosewood Guangzhou",
+    "rating": "9.4/10 · Zhujiang New Town",
+    "price": {
+     "he": "¥3,358 ב־26.8 · ¥3,125 ב־2.9.2027 (ללילה, חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/toplist/tripbest/guangzhou-best-luxury-hotels-100200079622/",
+    "mapQuery": "Rosewood Guangzhou",
+    "ll": "23.1173761,113.3260492"
+   }
+  ]
+ },
+ "gl": {
+  "recommended": [
+   {
+    "label": {
+     "he": "מיקום מושלם",
+     "en": null
+    },
+    "name": "Atour Hotel (Two Rivers & Four Lakes)",
+    "rating": {
+     "he": "9.5/10 · 2,318 ביקורות · 100 מ׳ מהמדרחוב",
+     "en": null
+    },
+    "price": {
+     "he": "עדיין לא פתוח להזמנה לסוף אוגוסט–ספטמבר 2027 ב־Trip.com (נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/guilin-guilin-zhengyang-buxingjie/hotels-c33m4193239/",
+    "mapQuery": "Guilin Central Plaza of Two Rivers and Four Lakes, Atour Hotel",
+    "ll": "25.280312,110.304184"
+   },
+   {
+    "label": {
+     "he": "רשת בינלאומית",
+     "en": null
+    },
+    "name": "Holiday Inn Express Guilin City Center",
+    "rating": {
+     "he": "9.3/10 · 2,627 ביקורות · 180 מ׳",
+     "en": null
+    },
+    "price": {
+     "he": "¥367 ב־26.8 · ¥335 ב־2.9.2027 (ללילה, חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/guilin-guilin-zhengyang-buxingjie/hotels-c33m4193239/",
+    "mapQuery": "Holiday Inn Express Guilin City Center",
+    "ll": "25.275808,110.296646"
+   },
+   {
+    "label": {
+     "he": "מיוחד: גג עם נוף",
+     "en": null
+    },
+    "name": "GangShe Rooftop View Hotel",
+    "rating": {
+     "he": "9.7/10 · 12,399 ביקורות · 340 מ׳",
+     "en": null
+    },
+    "price": {
+     "he": "¥248 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/guilin-guilin-zhengyang-buxingjie/hotels-c33m4193239/",
+    "mapQuery": "Gangshe Hotel Guilin",
+    "ll": "25.278051,110.298166"
+   }
+  ],
+  "budget": [
+   {
+    "label": {
+     "he": "חסכוני",
+     "en": null
+    },
+    "name": "Xiangbishan Port House",
+    "rating": {
+     "he": "9.7/10 · 10,142 ביקורות · 290 מ׳ מ־Zhengyang St",
+     "en": null
+    },
+    "price": {
+     "he": "¥279 ב־26.8 · ¥259 ב־2.9.2027 (ללילה, חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/guilin-guilin-zhengyang-buxingjie/hotels-c33m4193239/",
+    "mapQuery": "Xiangbishan Port House Guilin",
+    "ll": "25.276772,110.29569"
+   },
+   {
+    "label": {
+     "he": "חסכוני · על הרחוב",
+     "en": null
+    },
+    "name": "The Wing Hotel",
+    "rating": {
+     "he": "9.4/10 · 3,769 ביקורות · 90 מ׳",
+     "en": null
+    },
+    "price": {
+     "he": "עדיין לא פתוח להזמנה לסוף אוגוסט–ספטמבר 2027 ב־Trip.com (נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/guilin-guilin-zhengyang-buxingjie/hotels-c33m4193239/",
+    "mapQuery": "Wing Hotel Guilin Pedestrian Street",
+    "ll": "25.275238,110.299286"
+   },
+   {
+    "label": {
+     "he": "חסכוני",
+     "en": null
+    },
+    "name": "Lijiang Letu Boutique Hotel (Dongxi Xiang)",
+    "rating": {
+     "he": "9.5/10 · 2,821 ביקורות · 490 מ׳",
+     "en": null
+    },
+    "price": {
+     "he": "עדיין לא פתוח להזמנה לסוף אוגוסט–ספטמבר 2027 ב־Trip.com (נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/guilin-guilin-zhengyang-buxingjie/hotels-c33m4193239/",
+    "mapQuery": "Letu Boutique Hotel Guilin",
+    "ll": "25.277242,110.293851"
+   }
+  ],
+  "luxury": [
+   {
+    "label": {
+     "he": "פינוק · רשת",
+     "en": null
+    },
+    "name": "Sheraton Guilin Hotel",
+    "rating": {
+     "he": "9.1/10 · 5,365 ביקורות · על Binjiang Rd ליד Zhengyang St",
+     "en": null
+    },
+    "price": {
+     "he": "¥789 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/guilin-guilin-zhengyang-buxingjie/hotels-c33m4193239/",
+    "mapQuery": "Sheraton Guilin Hotel",
+    "ll": "25.27399,110.29964"
+   },
+   {
+    "label": {
+     "he": "פינוק · נוף לנהר",
+     "en": null
+    },
+    "name": "Li River CIAO Hotel (Elephant Trunk Hill)",
+    "rating": {
+     "he": "9.7/10 · 6,632 ביקורות",
+     "en": null
+    },
+    "price": {
+     "he": "עדיין לא פתוח להזמנה לסוף אוגוסט–ספטמבר 2027 ב־Trip.com (נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/guilin-guilin-zhengyang-buxingjie/hotels-c33m4193239/",
+    "mapQuery": "GUILIN CIAO HOTEL",
+    "ll": "25.265392,110.30391"
+   },
+   {
+    "label": {
+     "he": "פינוק · רשת",
+     "en": null
+    },
+    "name": "Shangri-La Guilin",
+    "rating": {
+     "he": "9.2/10 · 3,962 ביקורות · על הנהר",
+     "en": null
+    },
+    "price": {
+     "he": "¥653 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/guilin-guilin-zhengyang-buxingjie/hotels-c33m4193239/",
+    "mapQuery": "Shangri-La Guilin",
+    "ll": "25.295517,110.307672"
+   }
+  ]
+ },
+ "ys": {
+  "recommended": [
+   {
+    "label": {
+     "he": "המומלץ",
+     "en": null
+    },
+    "name": "Yangshuo Percent Hotel",
+    "rating": {
+     "he": "9.7/10 · 6,259 ביקורות · 5 דק׳ מ־West St · 2 מיטות זוגיות",
+     "en": null
+    },
+    "price": {
+     "he": "¥373 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://ca.trip.com/hotels/yangshuo-hotel-detail-437412/yangshuo-percent-hotel/",
+    "mapQuery": "Percent Hotel Yangshuo",
+    "ll": "24.780641,110.49837"
+   },
+   {
+    "label": {
+     "he": "תמורה טובה",
+     "en": null
+    },
+    "name": "Lijing Resort Hotel (West Street)",
+    "rating": {
+     "he": "9.5/10 · 4,798 ביקורות",
+     "en": null
+    },
+    "price": {
+     "he": "¥1,123 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://www.trip.com/t/sJwMLPQTpT2",
+    "mapQuery": "Lijing Resort Yangshuo",
+    "ll": "24.77595,110.492836"
+   },
+   {
+    "label": {
+     "he": "מיוחד: כפרי",
+     "en": null
+    },
+    "name": "Yangshuo Yuyuan Resort (Yulong River)",
+    "rating": {
+     "he": "9.7/10 · 6,138 ביקורות · כ־20 דק׳ מהעיירה",
+     "en": null
+    },
+    "price": {
+     "he": "עדיין לא פתוח להזמנה לסוף אוגוסט–ספטמבר 2027 ב־Trip.com (נבדק 17.11.26)",
+     "en": null
+    },
+    "url": null,
+    "mapQuery": "阳朔遇源景舍",
+    "ll": "24.7351147,110.4990608"
+   }
+  ],
+  "budget": [
+   {
+    "label": {
+     "he": "חסכוני · על הרחוב",
+     "en": null
+    },
+    "name": "BO Hotel Yangshuo West Street",
+    "rating": {
+     "he": "9.6/10 · 3,778 ביקורות · 160 מ׳ מ־West Street",
+     "en": null
+    },
+    "price": {
+     "he": "¥328 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://ca.trip.com/hotels/yangshuo-west-street/hotels-c871m4193218/",
+    "mapQuery": "BO Hotel Yangshuo West Street",
+    "ll": "24.779804,110.50011"
+   },
+   {
+    "label": {
+     "he": "חסכוני",
+     "en": null
+    },
+    "name": "Xitang River View Holiday Hotel",
+    "rating": {
+     "he": "9.5/10 · 1,997 ביקורות · 500 מ׳",
+     "en": null
+    },
+    "price": {
+     "he": "¥168 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://ca.trip.com/hotels/yangshuo-west-street/hotels-c871m4193218/",
+    "mapQuery": "广西阳朔抗战路3号",
+    "ll": "24.76812,110.49507"
+   },
+   {
+    "label": {
+     "he": "חסכוני",
+     "en": null
+    },
+    "name": "Orange Hotel (Yangshuo West Street)",
+    "rating": {
+     "he": "9.6/10 · 3,815 ביקורות · 610 מ׳",
+     "en": null
+    },
+    "price": {
+     "he": "עדיין לא פתוח להזמנה לסוף אוגוסט–ספטמבר 2027 ב־Trip.com (נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://ca.trip.com/hotels/yangshuo-west-street/hotels-c871m4193218/",
+    "mapQuery": "Orange Hotel Guilin Yangshuo West Street",
+    "ll": "24.77484,110.4886"
+   }
+  ],
+  "luxury": [
+   {
+    "label": {
+     "he": "פינוק · רשת",
+     "en": null
+    },
+    "name": "voco Guilin Yangshuo by IHG",
+    "rating": {
+     "he": "9.4/10 · 549 ביקורות",
+     "en": null
+    },
+    "price": {
+     "he": "¥2,259 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://ca.trip.com/hotels/yangshuo-west-street/hotels-c871m4193218/",
+    "mapQuery": "voco Guilin Yangshuo",
+    "ll": "24.724858,110.495925"
+   },
+   {
+    "label": {
+     "he": "פינוק · ליד הרחוב",
+     "en": null
+    },
+    "name": "Shixi Landscape Hotel",
+    "rating": {
+     "he": "9.5/10 · 4,326 ביקורות · ליד West Street",
+     "en": null
+    },
+    "price": {
+     "he": "עדיין לא פתוח להזמנה לסוף אוגוסט–ספטמבר 2027 ב־Trip.com (נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://ca.trip.com/hotels/yangshuo-west-street/hotels-c871m4193218/",
+    "mapQuery": "Shixi Landscape Hotel Yangshuo",
+    "ll": "24.774141,110.50552"
+   },
+   {
+    "label": {
+     "he": "פינוק · כפרי",
+     "en": null
+    },
+    "name": "Four Seasons Yunqi Resort (Yulong River)",
+    "rating": {
+     "he": "9.6/10 · 4,100 ביקורות · 3.4 ק״מ מהעיירה",
+     "en": null
+    },
+    "price": {
+     "he": "עדיין לא פתוח להזמנה לסוף אוגוסט–ספטמבר 2027 ב־Trip.com (נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://ca.trip.com/hotels/yangshuo-west-street/hotels-c871m4193218/",
+    "mapQuery": "广西阳朔遇龙河景区骥马村33号",
+    "ll": "24.76913,110.46146"
+   }
+  ]
+ },
+ "ckg": {
+  "recommended": [
+   {
+    "label": {
+     "he": "תמורה טובה + נוף",
+     "en": null
+    },
+    "name": "ASPERA High Garden Panoramic Hotel",
+    "rating": {
+     "he": "9.7/10 · 11,476 ביקורות · 280 מ׳ מ־Hongyadong",
+     "en": null
+    },
+    "price": {
+     "he": "עדיין לא פתוח להזמנה לסוף אוגוסט–ספטמבר 2027 ב־Trip.com (נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://ca.trip.com/hotels/chongqing-hongyadong-business-street/hotels-c4m4197121/",
+    "mapQuery": "ASPERA HIGH-ALTITUDE GARDEN PANORAMIC HOTEL Chongqing",
+    "ll": "29.565958,106.58699"
+   },
+   {
+    "label": {
+     "he": "נוח למשפחה",
+     "en": null
+    },
+    "name": "Mercure Chongqing Jiefangbei Hongya Cave",
+    "rating": {
+     "he": "רשת בינלאומית, ליד Hongyadong",
+     "en": null
+    },
+    "price": {
+     "he": "¥504 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://my.trip.com/hotels/chongqing-hotel-detail-101052804/mercure-chongqing-jiefangbei-hongya-cave/review.html",
+    "mapQuery": "Mercure ChongQing Jiefangbei",
+    "ll": "29.555773,106.577705"
+   },
+   {
+    "label": {
+     "he": "מיוחד",
+     "en": null
+    },
+    "name": "Niccolo Chongqing",
+    "rating": {
+     "he": "IFS, Jiangbei 江北: מעבר לנהר, כ־1.5 ק״מ מ־Jiefangbei. הדירוג לא נבדק",
+     "en": null
+    },
+    "price": {
+     "he": "עדיין לא פתוח להזמנה לסוף אוגוסט–ספטמבר 2027 ב־Trip.com (נבדק 17.11.26)",
+     "en": null
+    },
+    "url": null,
+    "mapQuery": "Niccolo Chongqing",
+    "ll": "29.5741849,106.5724146"
+   }
+  ],
+  "budget": [
+   {
+    "label": {
+     "he": "חסכוני + נוף",
+     "en": null
+    },
+    "name": "Qianhe Zhixuan High-View Hotel (Jiefangbei Hongyadong)",
+    "rating": {
+     "he": "9.6/10 · 16,273 ביקורות · 420 מ׳ מ־Hongyadong",
+     "en": null
+    },
+    "price": {
+     "he": "¥162 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://ca.trip.com/hotels/chongqing-hongyadong-business-street/hotels-c4m4197121/",
+    "mapQuery": "Qianhe Zhixuan Gaokong Hotel Chongqing",
+    "ll": "29.56594,106.58889"
+   },
+   {
+    "label": {
+     "he": "חסכוני · על הנהר",
+     "en": null
+    },
+    "name": "Holiday Riverside View Hotel Chongqing",
+    "rating": {
+     "he": "9.5/10 · 7,707 ביקורות · 90 מ׳",
+     "en": null
+    },
+    "price": {
+     "he": "¥407 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://ca.trip.com/hotels/chongqing-hongyadong-business-street/hotels-c4m4197121/",
+    "mapQuery": "CHONGQING HOLIDAY RIVERVIEW HOTEL",
+    "ll": "29.567583,106.5851"
+   },
+   {
+    "label": {
+     "he": "חסכוני · רשת",
+     "en": null
+    },
+    "name": "Country Inn & Suites by Radisson (Jiefangbei)",
+    "rating": {
+     "he": "9.4/10 · 3,247 ביקורות · 840 מ׳",
+     "en": null
+    },
+    "price": {
+     "he": "עדיין לא פתוח להזמנה לסוף אוגוסט–ספטמבר 2027 ב־Trip.com (נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://ca.trip.com/hotels/chongqing-hongyadong-business-street/hotels-c4m4197121/",
+    "mapQuery": "Country Inn & Suites by Radisson Chongqing Jiefangbei",
+    "ll": "29.555925,106.574135"
+   }
+  ],
+  "luxury": [
+   {
+    "label": {
+     "he": "פינוק",
+     "en": null
+    },
+    "name": "The Lixury Hotel Chongqing (Unbound Collection by Hyatt)",
+    "rating": {
+     "he": "9.6/10 · 8,426 ביקורות · Jiefangbei",
+     "en": null
+    },
+    "price": {
+     "he": "¥1,485 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://ca.trip.com/hotels/chongqing-hongyadong-business-street/hotels-c4m4197121/",
+    "mapQuery": "The Lixury Hotel Chongqing",
+    "ll": "29.558968,106.57789"
+   },
+   {
+    "label": {
+     "he": "פינוק · רשת",
+     "en": null
+    },
+    "name": "The Westin Chongqing Liberation Square",
+    "rating": {
+     "he": "9.3/10 · 4,153 ביקורות · Jiefangbei",
+     "en": null
+    },
+    "price": {
+     "he": "¥1,224 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://ca.trip.com/hotels/chongqing-hongyadong-business-street/hotels-c4m4197121/",
+    "mapQuery": "The Westin Chongqing Liberation Square",
+    "ll": "29.5566,106.579919"
+   },
+   {
+    "label": {
+     "he": "פינוק · רשת",
+     "en": null
+    },
+    "name": "JW Marriott Hotel Chongqing",
+    "rating": {
+     "he": "9.2/10 · 5,081 ביקורות · 970 מ׳",
+     "en": null
+    },
+    "price": {
+     "he": "¥900 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://ca.trip.com/hotels/chongqing-hongyadong-business-street/hotels-c4m4197121/",
+    "mapQuery": "JW Marriott Hotel Chongqing",
+    "ll": "29.556886,106.571024"
+   }
+  ]
+ },
+ "zjj": {
+  "recommended": [
+   {
+    "label": {
+     "he": "מיקום וערך",
+     "en": null
+    },
+    "name": "Wulingyuan Hotel",
+    "rating": {
+     "he": "9.5/10 · 1,636 ביקורות · ליד השער המזרחי",
+     "en": null
+    },
+    "price": {
+     "he": "עדיין לא פתוח להזמנה לסוף אוגוסט–ספטמבר 2027 ב־Trip.com (נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://www.wanderinchina.com/destinations/zhangjiajie/accommodation/",
+    "mapQuery": "Wulingyuan Hotel Zhangjiajie",
+    "ll": "29.350403,110.540199"
+   },
+   {
+    "label": {
+     "he": "נוח למשפחה",
+     "en": null
+    },
+    "name": "Pullman Zhangjiajie Wulingyuan",
+    "rating": {
+     "he": "9.1/10 · 1,428 ביקורות · חדרי משפחה",
+     "en": null
+    },
+    "price": {
+     "he": "¥550 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://www.wanderinchina.com/destinations/zhangjiajie/accommodation/",
+    "mapQuery": "Pullman Zhangjiajie",
+    "ll": "29.3440252,110.5413063"
+   },
+   {
+    "label": {
+     "he": "לילה בעיר",
+     "en": null
+    },
+    "name": "JI Hotel Tianmen Mountain Cableway",
+    "rating": {
+     "he": "ציון מיקום 9.6 · 4,535 ביקורות",
+     "en": null
+    },
+    "price": {
+     "he": "¥414 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://www.wanderinchina.com/destinations/zhangjiajie/accommodation/",
+    "mapQuery": "JI Hotel - Zhangjiajie Tianmen Mountain",
+    "ll": "29.104067,110.47348"
+   }
+  ],
+  "budget": [
+   {
+    "label": {
+     "he": "חסכוני",
+     "en": null
+    },
+    "name": "Yishu Yihua Inn (Forest Park Landmark)",
+    "rating": {
+     "he": "9.5/10 · 1,507 ביקורות · 810 מ׳ מ־Xibu Street",
+     "en": null
+    },
+    "price": {
+     "he": "¥214 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://uk.trip.com/hotels/zhangjiajie-xibu-street/hotels-c27m4192868",
+    "mapQuery": "Yishu Yihua Inn Zhangjiajie",
+    "ll": "29.349895,110.55105"
+   },
+   {
+    "label": {
+     "he": "חסכוני",
+     "en": null
+    },
+    "name": "Beian Qingshe Holiday Inn (Wulingyuan)",
+    "rating": {
+     "he": "9.6/10 · 926 ביקורות · 510 מ׳",
+     "en": null
+    },
+    "price": {
+     "he": "¥168 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://uk.trip.com/hotels/zhangjiajie-xibu-street/hotels-c27m4192868",
+    "mapQuery": "Beian Qingshe Holiday Inn Zhangjiajie",
+    "ll": "29.343754,110.55099"
+   },
+   {
+    "label": {
+     "he": "חסכוני · גדול",
+     "en": null
+    },
+    "name": "Manyuan Resort Hotel",
+    "rating": {
+     "he": "9.5/10 · 4,712 ביקורות · 1.6 ק״מ",
+     "en": null
+    },
+    "price": {
+     "he": "¥343 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://uk.trip.com/hotels/zhangjiajie-xibu-street/hotels-c27m4192868",
+    "mapQuery": "Manyuan Resort Hotel Zhangjiajie",
+    "ll": "29.34798,110.54061"
+   }
+  ],
+  "luxury": [
+   {
+    "label": {
+     "he": "פינוק · רשת",
+     "en": null
+    },
+    "name": "Hilton Garden Inn Zhangjiajie Wulingyuan",
+    "rating": {
+     "he": "9.2–9.5/10 · 1 ק״מ מ־Xibu Street",
+     "en": null
+    },
+    "price": {
+     "he": "¥836 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://uk.trip.com/hotels/zhangjiajie-xibu-street/hotels-c27m4192868",
+    "mapQuery": "Hilton Garden Inn Zhangjiajie Wulingyuan",
+    "ll": "29.342128,110.557407"
+   },
+   {
+    "label": {
+     "he": "פינוק · ליד הרחוב",
+     "en": null
+    },
+    "name": "Muzitang Travel Photography Resort Hotel",
+    "rating": {
+     "he": "9.8/10 · 310 ביקורות · 460 מ׳ מ־Xibu Street",
+     "en": null
+    },
+    "price": {
+     "he": "¥704 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://uk.trip.com/hotels/zhangjiajie-xibu-street/hotels-c27m4192868",
+    "mapQuery": null,
+    "ll": null
+   },
+   {
+    "label": {
+     "he": "פינוק · נוף",
+     "en": null
+    },
+    "name": "Zhangjiajie Celestial Valley",
+    "rating": "9.6/10 · Wulingyuan",
+    "price": {
+     "he": "עדיין לא פתוח להזמנה לסוף אוגוסט–ספטמבר 2027 ב־Trip.com (נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://uk.trip.com/hotels/zhangjiajie-xibu-street/hotels-c27m4192868",
+    "mapQuery": "Zhangjiajie Celestial Valley hotel",
+    "ll": "29.309591,110.51728"
+   }
+  ]
+ },
+ "sh": {
+  "recommended": [
+   {
+    "label": {
+     "he": "תמורה טובה",
+     "en": null
+    },
+    "name": "Shanghai Elong Hotel",
+    "rating": {
+     "he": "9.6/10 · 10,977 ביקורות · 190 מ׳ מ־Nanjing Rd",
+     "en": null
+    },
+    "price": {
+     "he": "¥860 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/shanghai-nanjing-road/hotels-c2m4190189/",
+    "mapQuery": "Elong Hotel Shanghai Nanjing Road",
+    "ll": "31.2345419,121.4794793"
+   },
+   {
+    "label": {
+     "he": "רשת בינלאומית",
+     "en": null
+    },
+    "name": "Crowne Plaza Shanghai Nanjing Road",
+    "rating": {
+     "he": "9.4/10 · 11,899 ביקורות · 310 מ׳",
+     "en": null
+    },
+    "price": {
+     "he": "¥968 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/shanghai-nanjing-road/hotels-c2m4190189/",
+    "mapQuery": "Crowne Plaza Shanghai Nanjing Road",
+    "ll": "31.2346466,121.4769781"
+   },
+   {
+    "label": {
+     "he": "נוח למשפחה",
+     "en": null
+    },
+    "name": "Atour Hotel Nanjing East Road, on the Bund",
+    "rating": {
+     "he": "הדירוג לא נבדק",
+     "en": null
+    },
+    "price": {
+     "he": "¥890 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://www.trip.com/w/JtgQt9dcWV2",
+    "mapQuery": "上海市黄浦区福州路105号",
+    "ll": "31.23513,121.48827"
+   }
+  ],
+  "budget": [
+   {
+    "label": {
+     "he": "חסכוני",
+     "en": null
+    },
+    "name": "The Yitel Premium (People's Square Nanjing Road)",
+    "rating": {
+     "he": "9.4/10 · 10,832 ביקורות · 150 מ׳ מ־Nanjing Rd",
+     "en": null
+    },
+    "price": {
+     "he": "עדיין לא פתוח להזמנה לסוף אוגוסט–ספטמבר 2027 ב־Trip.com (נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/shanghai-nanjing-road/hotels-c2m4190189/",
+    "mapQuery": "Yitel Premium Shanghai Zhejiang Middle Road",
+    "ll": "31.235718,121.478035"
+   },
+   {
+    "label": {
+     "he": "חסכוני",
+     "en": null
+    },
+    "name": "Blossom House on the Bund",
+    "rating": {
+     "he": "9.6/10 · 9,577 ביקורות ב־Trip.com · 386 Renmin Rd, ליד הבאנד הדרומי ו־Yuyuan, כ־1.2 ק״מ מ־Nanjing Rd",
+     "en": null
+    },
+    "price": {
+     "he": "¥1,013 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/shanghai-nanjing-road/hotels-c2m4190189/",
+    "mapQuery": "Blossom House Shanghai on the Bund",
+    "ll": "31.229814,121.491921"
+   },
+   {
+    "label": {
+     "he": "חסכוני",
+     "en": null
+    },
+    "name": "Treasure Hotel",
+    "rating": {
+     "he": "9.5/10 · 5,818 ביקורות · 300 מ׳",
+     "en": null
+    },
+    "price": {
+     "he": "¥968 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/shanghai-nanjing-road/hotels-c2m4190189/",
+    "mapQuery": "上海黄浦区汉口路678号",
+    "ll": "31.23375,121.47776"
+   }
+  ],
+  "luxury": [
+   {
+    "label": {
+     "he": "פינוק · על The Bund",
+     "en": null
+    },
+    "name": "Waldorf Astoria Shanghai on the Bund",
+    "rating": {
+     "he": "9.3/10 · על הטיילת",
+     "en": null
+    },
+    "price": {
+     "he": "¥2,961 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/shanghai-hotel-detail-346395/waldorf-astoria-shanghai-on-the-bund/review.html",
+    "mapQuery": "Waldorf Astoria Shanghai on the Bund",
+    "ll": "31.233438,121.489849"
+   },
+   {
+    "label": {
+     "he": "פינוק · בסגנון Friendship",
+     "en": null
+    },
+    "name": "Fairmont Peace Hotel",
+    "rating": {
+     "he": "המלון ההיסטורי בפינת The Bund ו־Nanjing Rd. הדירוג לא נבדק",
+     "en": null
+    },
+    "price": {
+     "he": "עדיין לא פתוח להזמנה לסוף אוגוסט–ספטמבר 2027 ב־Trip.com (נבדק 17.11.26)",
+     "en": null
+    },
+    "url": null,
+    "mapQuery": "Fairmont Peace Hotel Shanghai",
+    "ll": "31.2390388,121.4895427"
+   },
+   {
+    "label": {
+     "he": "פינוק",
+     "en": null
+    },
+    "name": "Shanghai Marriott Marquis City Centre",
+    "rating": {
+     "he": "9.6/10 · 7,833 ביקורות · People's Square, בקצה Nanjing Rd",
+     "en": null
+    },
+    "price": {
+     "he": "¥1,503 ללילה ב־2.9.2027 (חדר ל־2, כולל מסים · Trip.com, נבדק 17.11.26)",
+     "en": null
+    },
+    "url": "https://us.trip.com/hotels/shanghai-nanjing-road/hotels-c2m4190189/",
+    "mapQuery": "Shanghai Marriott Marquis City Centre",
+    "ll": "31.236536,121.473374"
+   }
+  ]
+ }
+}
