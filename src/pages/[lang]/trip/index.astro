@@ -126,7 +126,7 @@ const weekdays = lang === 'he' ? ['א׳', 'ב׳', 'ג׳', 'ד׳', 'ה׳', 'ו׳'
     $('rName').textContent = r.name;
     $('rSub').textContent = `${total} ${D.txt.nights} · ${stops.length} ${D.txt.cities}${r.tag ? ' · ' + r.tag : ''}`;
     $('cityRow').innerHTML = stops.map(([c, n], i) =>
-      `<li><a href="/${D.lang}/destinations/${c}/"><span class="cn" style="--cc:${D.cities[c].color}">${i + 1}</span><bdi lang="en">${esc(D.cities[c].name)}</bdi><span class="nn">${n}</span></a>${i < stops.length - 1 ? `<span class="arr">${D.txt.fwd}</span>` : ''}</li>`).join('');
+      `<li><a href="/${D.lang}/trip/${c}/"><span class="cn" style="--cc:${D.cities[c].color}">${i + 1}</span><bdi lang="en">${esc(D.cities[c].name)}</bdi><span class="nn">${n}</span></a>${i < stops.length - 1 ? `<span class="arr">${D.txt.fwd}</span>` : ''}</li>`).join('');
 
     // Settings
     document.querySelectorAll<HTMLButtonElement>('.settings .seg button').forEach((b) => {
@@ -141,13 +141,13 @@ const weekdays = lang === 'he' ? ['א׳', 'ב׳', 'ג׳', 'ד׳', 'ה׳', 'ו׳'
     let off = 0;
     const spans = stops.map(([c, n]) => { const a = start != null ? addDays(start, off) : null; off += n; return { c, n, a, b: a != null ? addDays(a, n) : null }; });
     $('timeline').innerHTML = spans.map((s, i) => `
-      <li class="card tc">
+      <li><a class="card tc" href="/${D.lang}/trip/${s.c}/">
         <img src="${s.c && D.cities[s.c].img}" alt="" loading="lazy" width="320" height="213">
         <div>
           <h3><span class="cn" style="--cc:${D.cities[s.c].color}">${i + 1}</span> <bdi lang="en">${esc(D.cities[s.c].name)}</bdi> <span class="zh" lang="zh">${esc(D.cities[s.c].zh)}</span></h3>
           <p class="small muted">${s.a != null ? `<bdi dir="ltr">${short(s.a)}–${short(s.b!)}</bdi> · ` : ''}${s.n} ${nightsWord(s.n)}${i === 0 ? ` · <b class="land">${D.txt.landDay}</b>` : ''}</p>
         </div>
-      </li>`).join('');
+      </a></li>`).join('');
 
     // Calendar
     $('calCard').hidden = start == null;
@@ -238,7 +238,7 @@ const weekdays = lang === 'he' ? ['א׳', 'ב׳', 'ג׳', 'ד׳', 'ה׳', 'ו׳'
   .nodate b { color: var(--terra-ink); }
 
   .tl { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 8px; }
-  .tl :global(.tc) { display: flex; gap: 12px; align-items: center; overflow: hidden; }
+  .tl :global(.tc) { display: flex; gap: 12px; align-items: center; overflow: hidden; text-decoration: none; color: var(--ink); }
   .tl :global(.tc img) { width: 88px; height: 64px; object-fit: cover; flex: none; }
   .tl :global(.tc h3) { font-size: 17px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
   .tl :global(.tc h3 .zh) { color: var(--muted); font-size: 14px; }

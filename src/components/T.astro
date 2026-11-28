@@ -1,10 +1,10 @@
 ---
 // Shows a content text in the page language. While the English translation is missing,
 // the Hebrew text is shown, marked lang="he" dir="rtl" so it still reads correctly.
-import { type Text } from '../lib/content';
+import { noEmoji, type Text } from '../lib/content';
 import type { Lang } from '../i18n/ui';
-interface Props { v: Text; lang: Lang; as?: string; class?: string }
-const { v, lang, as: Tag = 'span', class: cls } = Astro.props;
+interface Props { v: Text; lang: Lang; as?: string; class?: string; strip?: boolean }
+const { v, lang, as: Tag = 'span', class: cls, strip } = Astro.props;
 let text = '';
 let fallback = false;
 if (v != null) {
@@ -12,5 +12,6 @@ if (v != null) {
   else if (lang === 'en' && v.en == null) { text = v.he; fallback = true; }
   else text = (lang === 'en' ? v.en : v.he) ?? v.he;
 }
+if (strip) text = noEmoji(text);
 ---
 {text && <Tag class={cls} lang={fallback ? 'he' : undefined} dir={fallback ? 'rtl' : undefined}>{text}</Tag>}

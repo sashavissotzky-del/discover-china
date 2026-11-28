@@ -58,3 +58,8 @@ export function credit(id: string): { text: string; href?: string } | null {
   if (file === '@') return who.trim() ? { text: who } : null; // source not recorded yet
   return { text: who.trim() || 'Wikimedia Commons', href: `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file)}` };
 }
+
+/** Remove a leading emoji (the dashboard data starts some texts with one; the site uses line icons). */
+export function noEmoji(s: string): string {
+  return s.replace(/^(?:\p{Extended_Pictographic}|\uFE0F|\u200D|\s)+/u, '');
+}
