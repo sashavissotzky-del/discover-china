@@ -7,6 +7,8 @@ import { img, tx, type Text } from '../../../lib/content';
 import routes from '../../../data/routes.json';
 import cities from '../../../data/cities.json';
 import holidays from '../../../data/calendar-holidays.json';
+import dayplans from '../../../data/dayplans.json';
+import { cityDays, cnHolidayDates } from '../../../lib/closures';
 
 export function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({ params: { lang } }));
@@ -20,9 +22,12 @@ const data = {
   holidays: Object.fromEntries(Object.entries(holidays as Record<string, any>).filter(([d]) => !d.startsWith('_'))
     .map(([d, list]) => [d, (list as { c: string; w?: number; he: string; en: string }[]).map((h) => ({ t: lang === 'en' ? h.en : h.he, c: h.c, w: h.w || 0 }))])),
   cnYears: (holidays as any)._about.cnYears as number[],
+  days: cityDays(), cnHol: cnHolidayDates(),
+  dayTabs: Object.fromEntries(Object.entries(dayplans as Record<string, { days: { id: string; tab: Text }[] }>).map(([c, v]) => [c, Object.fromEntries(v.days.map((d) => [d.id, tx(d.tab, lang).replace(/^(?:\p{Extended_Pictographic}|\uFE0F|\s)+/u, '')]))])),
   txt: {
     nights: t(lang, 'routes.nights'), night: t(lang, 'routes.night'), cities: t(lang, 'routes.cities'),
     landDay: t(lang, 'trip.landDay'), fwd: t(lang, 'arrow.fwd'), noHol: t(lang, 'trip.noHol'), cnMissing: t(lang, 'trip.cnMissing'),
+    wTitle: t(lang, 'warn.title'), wClosed: t(lang, 'warn.closed'), wDay: t(lang, 'warn.day'), wHint: t(lang, 'warn.hint'),
   },
 };
 const weekdays = lang === 'he' ? ['א׳', 'ב׳', 'ג׳', 'ד׳', 'ה׳', 'ו׳', 'ש׳'] : ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -66,6 +71,8 @@ const weekdays = lang === 'he' ? ['א׳', 'ב׳', 'ג׳', 'ד׳', 'ה׳', 'ו׳'
       <p class="nodate" id="noDate" hidden><b>{t(lang, 'trip.noDate')}</b> · {t(lang, 'trip.noDateHint')}</p>
     </div>
 
+    <section class="card warnbox" id="warnBox" hidden></section>
+
     <div class="twocol">
     <ol class="tl" id="timeline"></ol>
 
@@ -101,6 +108,7 @@ const weekdays = lang === 'he' ? ['א׳', 'ב׳', 'ג׳', 'ד׳', 'ה׳', 'ו׳'
   const D = JSON.parse(document.getElementById('tripData')!.textContent!) as {
     lang: string; routes: Route[]; cities: Record<string, City>;
     holidays: Record<string, { t: string; c: string; w: number }[]>; cnYears: number[]; txt: Record<string, string>;
+    days: Record<string, { id: string; closedMon: string[] }[]>; cnHol: string[]; dayTabs: Record<string, Record<string, string>>;
   };
   const WD: string[] = JSON.parse(document.getElementById('wd')!.dataset.days!);
   const $ = (id: string) => document.getElementById(id)!;
@@ -150,6 +158,20 @@ const weekdays = lang === 'he' ? ['א׳', 'ב׳', 'ג׳', 'ד׳', 'ה׳', 'ו׳'
           <p class="small muted">${s.a != null ? `<bdi dir="ltr">${short(s.a)}–${short(s.b!)}</bdi> · ` : ''}${s.n} ${nightsWord(s.n)}${i === 0 ? ` · <b class="land">${D.txt.landDay}</b>` : ''}</p>
         </div>
       </a></li>`).join('');
+
+    // Closing-day warnings for the whole trip
+    const warns: string[] = [];
+    if (start != null) spans.forEach((sp) => {
+      D.days[sp.c].slice(0, sp.n).forEach((d, k) => {
+        const dt = addDays(sp.a!, k), key = iso(dt);
+        if (new Date(dt).getUTCDay() === 1 && d.closedMon.length && !D.cnHol.includes(key)) {
+          const head = D.txt.wDay.replace('{city}', D.cities[sp.c].name).replace('{day}', D.dayTabs[sp.c][d.id] || d.id).replace('{date}', short(dt));
+          warns.push(`<li><a href="/${D.lang}/trip/${sp.c}/"><b>${esc(head)}</b><span>${d.closedMon.map((n) => esc(D.txt.wClosed.replace('{p}', n))).join(' · ')}</span></a></li>`);
+        }
+      });
+    });
+    $('warnBox').hidden = !warns.length;
+    $('warnBox').innerHTML = warns.length ? `<h2>⚠ ${D.txt.wTitle}</h2><ul>${warns.join('')}</ul><p class="small">${D.txt.wHint}</p>` : '';
 
     // Calendar
     $('calCard').hidden = start == null;
@@ -248,6 +270,12 @@ const weekdays = lang === 'he' ? ['א׳', 'ב׳', 'ג׳', 'ד׳', 'ה׳', 'ו׳'
   .tl :global(.tc p) { margin: 2px 0 0; }
   .tl :global(.land) { color: var(--terra-ink); }
 
+  .warnbox { margin-top: 16px; padding: 14px 16px; background: var(--terra-l); box-shadow: none; }
+  .warnbox :global(h2) { font-size: 18px; color: var(--terra-ink); }
+  .warnbox :global(ul) { list-style: none; padding: 0; margin: 8px 0; display: grid; gap: 6px; }
+  .warnbox :global(a) { display: grid; gap: 2px; text-decoration: none; color: var(--ink); background: var(--card); padding: 8px 10px; border-radius: 10px; }
+  .warnbox :global(a span) { color: var(--terra-ink); font-size: 14px; font-weight: 700; }
+  .warnbox :global(p) { margin: 0; color: var(--ink); }
   .twocol { display: grid; gap: 16px; margin-top: 16px; }
   @media (min-width: 900px) { .twocol { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; } .calcard { position: sticky; top: 16px; } }
   .calcard { padding: 16px; }

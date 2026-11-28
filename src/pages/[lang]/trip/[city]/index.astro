@@ -14,6 +14,7 @@ import hotels from '../../../../data/hotels.json';
 import practical from '../../../../data/practical.json';
 import settings from '../../../../data/settings.json';
 import routes from '../../../../data/routes.json';
+import { cnHolidayDates } from '../../../../lib/closures';
 
 export function getStaticPaths() {
   return Object.keys(languages).flatMap((lang) => Object.keys(cities).map((city) => ({ params: { lang, city } })));
@@ -31,7 +32,7 @@ const droutes = (dayroutes as Record<string, { label: Text; stops: string[]; mod
 const P = (places as Record<string, { name: string; img: string }[]>)[id];
 const stopImg: Record<string, string> = settings.stopImages;
 const imgFor = (s: Stop) => stopImg[s.n] || P.find((p) => p.name === s.n)?.img || '';
-type PR = { hours: Text; booking: Text; advice: Text; source: string | null; checked: string | null };
+type PR = { hours: Text; booking: Text; advice: Text; source: string | null; checked: string | null; closedMonday?: number };
 const PRm = practical as Record<string, PR>;
 const H = (hotels as Record<string, Record<string, { label: Text; name: string; rating: Text; price: Text; url: string; mapQuery: string }[]>>)[id];
 const tiers = ['budget', 'recommended', 'luxury'].filter((k) => H[k]?.length);
@@ -82,6 +83,9 @@ const cityData = Object.fromEntries(Object.entries(C).map(([k, v]) => [k, { name
   {days.map((d, i) => (
     <section class="dpanel card" data-day={d.id} hidden={i !== 0}>
       <p class="notin small" hidden>{t(lang, 'tc.notInRoute')}</p>
+      <div class="dwarn" hidden data-closed={JSON.stringify([...new Set(d.stops.filter((x) => PRm[x.n]?.closedMonday).map((x) => x.n))])}>
+        <b></b><span class="small">{t(lang, 'warn.hint')}</span>
+      </div>
       <T v={d.title} lang={lang} as="h3" class="dtitle" strip />
       {d.extra && <T v={d.extra} lang={lang} as="p" class="dextra small" strip />}
       {(d.anchors.length > 0 || d.book.length > 0) && (
@@ -109,6 +113,7 @@ const cityData = Object.fromEntries(Object.entries(C).map(([k, v]) => [k, { name
                     <b>{s.hotel ? t(lang, 'tc.hotel') : <bdi lang="en">{s.n}</bdi>}</b>{s.z && <span class="zh" lang="zh"> {s.z}</span>}
                     <span class="sm small muted"><T v={s.cat} lang={lang} strip />{s.dur && <> · <T v={s.dur} lang={lang} strip /></>}</span>
                     <T v={s.slot} lang={lang} class="sslot small" strip />
+                    {pr?.closedMonday && <span class="ctag">{t(lang, 'warn.tag')}</span>}
                   </span>
                   <i class="chev" aria-hidden="true"></i>
                 </summary>
@@ -176,7 +181,8 @@ const cityData = Object.fromEntries(Object.entries(C).map(([k, v]) => [k, { name
 
   <script type="application/json" id="tcData" set:html={JSON.stringify({ id, lang, routes: routeData, cities: cityData,
     txt: { cityOf: t(lang, 'tc.cityOf'), more: t(lang, 'tc.more'), nights: t(lang, 'routes.nights'), night: t(lang, 'routes.night'),
-      next: t(lang, 'tc.next'), prev: t(lang, 'tc.prev'), fwd: t(lang, 'arrow.fwd'), back: t(lang, 'arrow.back') } })} />
+      next: t(lang, 'tc.next'), prev: t(lang, 'tc.prev'), fwd: t(lang, 'arrow.fwd'), back: t(lang, 'arrow.back'),
+      closed: t(lang, 'warn.closed'), monday: lang === 'he' ? 'יום שני' : 'Monday' }, cnHol: cnHolidayDates() })} />
 </Base>
 
 <script>
@@ -223,7 +229,20 @@ const cityData = Object.fromEntries(Object.entries(C).map(([k, v]) => [k, { name
     let off = 0; for (let k = 0; k < idx; k++) off += stops[k][1];
     const start = trip.start ? add(parse(trip.start), off) : null;
     $('#cbsub').innerHTML = (start != null ? `<bdi dir="ltr">${short(start)}–${short(add(start, nights))}</bdi> · ` : '') + `${nights} ${nights === 1 ? D.txt.night : D.txt.nights}`;
-    if (start != null) inRoute.forEach((b, k) => (b.querySelector('.ddate')!.textContent = ' · ' + short(add(start, k))));
+    if (start != null) inRoute.forEach((b, k) => {
+      const dt = add(start, k);
+      b.querySelector('.ddate')!.textContent = ' · ' + short(dt);
+      // Closing-day warning: a place in this day is closed on Mondays (unless it is a holiday in China)
+      const panel = panels.find((p) => p.dataset.day === b.dataset.day)!;
+      const w = panel.querySelector<HTMLElement>('.dwarn')!;
+      const closed: string[] = JSON.parse(w.dataset.closed || '[]');
+      const isoDay = new Date(dt).toISOString().slice(0, 10);
+      if (new Date(dt).getUTCDay() === 1 && closed.length && !D.cnHol.includes(isoDay)) {
+        b.classList.add('warn');
+        w.querySelector('b')!.textContent = '⚠ ' + closed.map((n) => D.txt.closed.replace('{p}', n)).join(' · ') + ` · ${short(dt)}, ${D.txt.monday}`;
+        w.hidden = false;
+      }
+    });
     // previous / next
     const card = (k: number, label: string) => {
       const [c, n] = stops[k]; const ci = D.cities[c];
@@ -269,6 +288,11 @@ const cityData = Object.fromEntries(Object.entries(C).map(([k, v]) => [k, { name
   .dmore { color: var(--forest); background: var(--sage-l); box-shadow: none; }
   .ddate { opacity: .75; font-weight: 600; }
   .dpanel { padding: 16px; }
+  .dtab.warn { box-shadow: inset 0 0 0 2px var(--terra-solid); }
+  .dtab.warn::after { content: ' ⚠'; color: var(--terra-ink); }
+  .dtab.warn[aria-selected='true']::after { color: inherit; }
+  .dwarn { margin: 0 0 12px; background: var(--terra-solid); color: #fff; padding: 10px 12px; border-radius: 10px; display: grid; gap: 2px; }
+  .ctag { justify-self: start; font-size: 11px; font-weight: 700; color: var(--terra-ink); background: var(--terra-l); padding: 1px 8px; border-radius: 999px; }
   .notin { margin: 0 0 8px; background: var(--terra-l); color: var(--terra-ink); padding: 6px 10px; border-radius: 8px; font-weight: 700; }
   .dtitle { font-size: 20px; }
   .dextra { margin: 6px 0 0; color: var(--muted); }
