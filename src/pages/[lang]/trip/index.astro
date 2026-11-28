@@ -66,10 +66,11 @@ const weekdays = lang === 'he' ? ['א׳', 'ב׳', 'ג׳', 'ד׳', 'ה׳', 'ו׳'
       <p class="nodate" id="noDate" hidden><b>{t(lang, 'trip.noDate')}</b> · {t(lang, 'trip.noDateHint')}</p>
     </div>
 
+    <div class="twocol">
     <ol class="tl" id="timeline"></ol>
 
     <section class="card calcard" id="calCard" hidden>
-      <h2>{t(lang, 'trip.cal')}</h2>
+      <h2>{t(lang, 'trip.cal')} <span class="calrange small muted" id="calRange"></span></h2>
       <div class="cals" id="cals"></div>
       <ul class="legend small" id="legend"></ul>
       <ul class="legend small">
@@ -84,6 +85,7 @@ const weekdays = lang === 'he' ? ['א׳', 'ב׳', 'ג׳', 'ד׳', 'ה׳', 'ו׳'
         <p class="small muted">{t(lang, 'trip.holNote')}</p>
       </details>
     </section>
+    </div>
 
     <p class="small muted local">{t(lang, 'trip.local')}</p>
   </section>
@@ -155,29 +157,30 @@ const weekdays = lang === 'he' ? ['א׳', 'ב׳', 'ג׳', 'ד׳', 'ה׳', 'ו׳'
     const end = addDays(start, total);
     const dayCity = new Map<string, { c: string; i: number }>();
     spans.forEach((s, i) => { for (let t = s.a!; t < s.b!; t = addDays(t, 1)) dayCity.set(iso(t), { c: s.c, i }); });
+    // One continuous grid: only the weeks of the trip (Sunday before landing → Saturday after the flight home)
     const months: [number, number][] = [];
     for (let t = Date.UTC(new Date(start).getUTCFullYear(), new Date(start).getUTCMonth(), 1); t <= end; ) {
       const d = new Date(t); months.push([d.getUTCFullYear(), d.getUTCMonth()]); t = Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 1, 1);
     }
-    $('cals').innerHTML = months.map(([y, m]) => {
-      const first = Date.UTC(y, m, 1), days = new Date(Date.UTC(y, m + 1, 0)).getUTCDate(), lead = new Date(first).getUTCDay();
-      let cells = '';
-      for (let k = 0; k < lead; k++) cells += '<i class="e"></i>';
-      for (let d = 1; d <= days; d++) {
-        const key = iso(Date.UTC(y, m, d)), dc = dayCity.get(key), hs = D.holidays[key] || [];
-        const isEnd = key === iso(end);
-        const cn = hs.find((h) => h.c === 'cn'), il = hs.some((h) => h.c === 'il');
-        const cls = [dc ? 'in' : '', cn ? (cn.w ? 'hcnw' : 'hcn') : '', il ? 'hil' : '', key === iso(start) ? 'land' : '', isEnd ? 'fly' : ''].join(' ');
-        const style = dc ? ` style="--cc:${D.cities[dc.c].color}"` : '';
-        const title = [dc ? D.cities[dc.c].name : '', ...hs.map((h) => h.t)].filter(Boolean).join(' · ');
-        cells += `<i class="${cls}"${style}${title ? ` title="${esc(title)}"` : ''}>${d}</i>`;
-      }
-      return `<div class="cal"><h3>${monthName(y, m)}</h3><div class="wd">${WD.map((w) => `<b>${w}</b>`).join('')}</div><div class="days">${cells}</div></div>`;
-    }).join('');
+    const from = addDays(start, -new Date(start).getUTCDay());
+    const to = addDays(end, 6 - new Date(end).getUTCDay());
+    const mShort = (t: number) => new Date(t).toLocaleDateString(D.lang === 'he' ? 'he-IL' : 'en-GB', { month: 'short', timeZone: 'UTC' });
+    let cells = '';
+    for (let t = from; t <= to; t = addDays(t, 1)) {
+      const key = iso(t), dd = new Date(t).getUTCDate(), dc = dayCity.get(key), hs = D.holidays[key] || [];
+      const cn = hs.find((h) => h.c === 'cn'), il = hs.some((h) => h.c === 'il');
+      const cls = [dc ? 'in' : '', cn ? (cn.w ? 'hcnw' : 'hcn') : '', il ? 'hil' : '', key === iso(start) ? 'land' : '', key === iso(end) ? 'fly' : ''].join(' ');
+      const style = dc ? ` style="--cc:${D.cities[dc.c].color}"` : '';
+      const title = [dc ? D.cities[dc.c].name : '', ...hs.map((h) => h.t)].filter(Boolean).join(' · ');
+      const showMonth = t === from || dd === 1;
+      cells += `<i class="${cls}"${style}${title ? ` title="${esc(title)}"` : ''}>${showMonth ? `<small>${mShort(t)}</small>` : ''}${dd}</i>`;
+    }
+    $('cals').innerHTML = `<div class="cal"><div class="wd">${WD.map((w) => `<b>${w}</b>`).join('')}</div><div class="days">${cells}</div></div>`;
+    $('calRange').textContent = months.length > 1 ? `· ${monthName(...months[0])} – ${monthName(...months[months.length - 1])}` : `· ${monthName(...months[0])}`;
     $('legend').innerHTML = spans.map((s, i) => `<li><i class="sw" style="--cc:${D.cities[s.c].color}"></i>${i + 1} <bdi lang="en">${esc(D.cities[s.c].name)}</bdi></li>`).join('');
-    // Holidays in the shown months; consecutive days with the same name are joined (e.g. 1.10–7.10)
+    // Holidays in the weeks shown; consecutive days with the same name are joined (e.g. 1.10–7.10)
     const rows: { a: string; b: string; c: string; w: number; t: string }[] = [];
-    Object.entries(D.holidays).filter(([d]) => months.some(([y, m]) => d.startsWith(`${y}-${String(m + 1).padStart(2, '0')}`))).sort()
+    Object.entries(D.holidays).filter(([d]) => d >= iso(from) && d <= iso(to)).sort()
       .forEach(([d, hs]) => hs.forEach((h) => {
         const prev = rows.find((r) => r.t === h.t && r.c === h.c && iso(addDays(parse(r.b), 1)) === d);
         if (prev) prev.b = d; else rows.push({ a: d, b: d, c: h.c, w: h.w, t: h.t });
@@ -237,7 +240,7 @@ const weekdays = lang === 'he' ? ['א׳', 'ב׳', 'ג׳', 'ד׳', 'ה׳', 'ו׳'
   .nodate { margin: 0; font-size: 14px; color: var(--muted); }
   .nodate b { color: var(--terra-ink); }
 
-  .tl { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 8px; }
+  .tl { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; align-content: start; }
   .tl :global(.tc) { display: flex; gap: 12px; align-items: center; overflow: hidden; text-decoration: none; color: var(--ink); }
   .tl :global(.tc img) { width: 88px; height: 64px; object-fit: cover; flex: none; }
   .tl :global(.tc h3) { font-size: 17px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
@@ -245,13 +248,17 @@ const weekdays = lang === 'he' ? ['א׳', 'ב׳', 'ג׳', 'ד׳', 'ה׳', 'ו׳'
   .tl :global(.tc p) { margin: 2px 0 0; }
   .tl :global(.land) { color: var(--terra-ink); }
 
-  .calcard { margin-top: 16px; padding: 16px; }
+  .twocol { display: grid; gap: 16px; margin-top: 16px; }
+  @media (min-width: 900px) { .twocol { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; } .calcard { position: sticky; top: 16px; } }
+  .calcard { padding: 16px; }
   .calcard h2 { font-size: 20px; margin-bottom: 10px; }
-  .cals { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 460px; }
+  .cals { display: grid; }
+  .calrange { font-weight: 600; }
   .cals :global(.cal h3) { font-size: 15px; margin-bottom: 6px; }
   .cals :global(.wd), .cals :global(.days) { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
   .cals :global(.wd b) { font-size: 12px; color: var(--muted); text-align: center; font-weight: 600; }
-  .cals :global(.days i) { font-style: normal; aspect-ratio: 1; display: grid; place-items: center; border-radius: 8px; font-size: 13px; color: var(--muted); }
+  .cals :global(.days i) { font-style: normal; aspect-ratio: 1; display: grid; place-items: center; align-content: center; border-radius: 8px; font-size: 14px; color: var(--muted); line-height: 1.1; }
+  .cals :global(.days i small) { display: block; font-size: 10px; font-weight: 700; color: var(--forest); }
   .cals :global(.days i.in) { background: color-mix(in srgb, var(--cc) 22%, transparent); color: var(--ink); font-weight: 700; }
   .cals :global(.days i.land) { background: var(--cc); color: #fff; }
   .cals :global(.days i.fly) { outline: 2px dashed var(--muted); outline-offset: -2px; }
